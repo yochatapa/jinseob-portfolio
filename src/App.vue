@@ -17,7 +17,7 @@ onMounted(() => {
     <nav>
       <RouterLink to="/">About Me</RouterLink>
       <RouterLink to="/career">Career</RouterLink>
-      <RouterLink to="/project">Projects</RouterLink>
+      <RouterLink to="/projects">Projects</RouterLink>
       <RouterLink to="/skills">Skills</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
     </nav>
@@ -32,11 +32,10 @@ onMounted(() => {
     </div> -->
   </header>
   <main>
-    main
+    <RouterView />
   </main>
   <footer>
   </footer>
-  <!-- <RouterView /> -->
 </template>
 
 <style scoped>
