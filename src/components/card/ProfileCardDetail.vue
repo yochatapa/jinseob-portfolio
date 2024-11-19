@@ -2,7 +2,9 @@
 </script>
 
 <template>
-    CardDetail
+    <div class="profile-card-detail">
+        CardDetail
+    </div>
 </template>
 
 <style scoped>
