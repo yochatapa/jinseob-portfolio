@@ -14,11 +14,11 @@ onMounted(() => {
 <template>
   <header>
     <nav>
-      <RouterLink to="/">About Me</RouterLink>
-      <RouterLink to="/career">Career</RouterLink>
-      <RouterLink to="/projects">Projects</RouterLink>
-      <RouterLink to="/skills">Skills</RouterLink>
-      <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/">About Me</RouterLink>
+        <RouterLink to="/career">Career</RouterLink>
+        <RouterLink to="/projects">Projects</RouterLink>
+        <RouterLink to="/skills">Skills</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
     </nav>
 
     <!-- <div class="wrapper">
@@ -29,15 +29,23 @@ onMounted(() => {
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div> -->
-  </header>
-  <main>
-    <RouterView />
-  </main>
-  <footer>
-  </footer>
+    </header>
+    <main>
+    <div class="main-container">
+        <RouterView/>
+    </div>
+    </main>
+    <footer>
+    </footer>
 </template>
 
 <style scoped>
+main, .main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 nav {
   width: 100%;
   font-size: 12px;

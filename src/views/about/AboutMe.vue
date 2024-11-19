@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CardContainer from '@/components/card/CardContainer.vue';
-import CardDetail from '@/components/card/CardDetail.vue';
+import ProfileCardDetail from '@/components/card/ProfileCardDetail.vue';
 import ProfileCard from '@/components/card/ProfileCard.vue';
 import NavButton from '@/components/NavButton.vue'
 </script>
@@ -8,12 +8,11 @@ import NavButton from '@/components/NavButton.vue'
 <template>
     <CardContainer>
         <ProfileCard></ProfileCard>
-        <CardDetail></CardDetail>
+        <ProfileCardDetail></ProfileCardDetail>
     </CardContainer>
-    <NavButton>
-        <div class="hihi"></div>
-    </NavButton>
+    <NavButton></NavButton>
 </template>
 
 <style scoped>
+
 </style>
