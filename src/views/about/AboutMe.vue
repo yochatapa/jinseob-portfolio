@@ -1,18 +1,54 @@
 <script setup lang="ts">
-import CardContainer from '@/components/card/CardContainer.vue';
-import ProfileCardDetail from '@/components/card/ProfileCardDetail.vue';
-import ProfileCard from '@/components/card/ProfileCard.vue';
+import CardTemplate from '@/components/card/CardTemplate.vue';
 import NavButton from '@/components/NavButton.vue'
+import GridLayout from '@/components/layout/GridLayout.vue';
+
+const CARD_INFO = [
+    {
+        colspan : 1,
+        rowspan : 2
+    },
+    {
+        colspan : 1,
+        rowspan : 1
+    },
+    {
+        colspan : 1,
+        rowspan : 1
+    },
+    {
+        colspan : 1,
+        rowspan : 1
+    },
+    {
+        colspan : 1,
+        rowspan : 1
+    }
+]
+
+const GRID_LAYOUT_INFO = {
+    gap : {
+        row : "var(--Spacer-3)",
+        column : "var(--Spacer-3)"
+    },
+    row : {
+        height : "var(--Spacer-40)"
+    },
+    cell : {
+        width : "var(--Spacer-50)"
+    },
+    maxLength : 3
+}
+
+
 </script>
 
 <template>
-    <CardContainer>
-        <ProfileCard></ProfileCard>
-        <ProfileCardDetail></ProfileCardDetail>
-    </CardContainer>
+    <GridLayout :grid-info="GRID_LAYOUT_INFO">
+        <CardTemplate v-for="(cell,index) in CARD_INFO" :card-info="cell" :card-index="index"></CardTemplate>
+    </GridLayout>
     <NavButton></NavButton>
 </template>
 
 <style scoped>
-
 </style>
