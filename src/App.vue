@@ -1,14 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
-
-function handleScroll() {
-  console.log('User is scrolling!');
-}
-  
-onMounted(() => {
-  window.addEventListener('click', handleScroll);
-});
 </script>
 
 <template>

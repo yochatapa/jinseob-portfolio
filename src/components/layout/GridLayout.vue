@@ -49,8 +49,4 @@ onUnmounted(()=>{
     display: grid;
     justify-content: center;
 }
-
-.grid-layout *{
-    border:1px solid;
-}
 </style>

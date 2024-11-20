@@ -16,6 +16,7 @@ html, body {
   overflow: auto;
   display: flex;
   flex-direction: column;
+  background-color: var(--Primary-20);
 }
 
 :root{

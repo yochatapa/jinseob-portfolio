@@ -15,10 +15,7 @@ const props = defineProps({
             gridColumn : `auto / span ${props.cardInfo.colspan}`
         }"
     >
-        CardTemplate
-        {{props.cardInfo.colspan}}
-        {{props.cardInfo.rowspan}}
-        <component :is="props.cardInfo.template" :card-info="props.cardInfo"></component>
+        <component :is="props.cardInfo.template"></component>
         <slot></slot>
     </div>
 </template>

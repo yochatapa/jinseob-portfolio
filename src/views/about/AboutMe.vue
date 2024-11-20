@@ -8,7 +8,13 @@ const CARD_INFO = [
         {
             colspan : 1,
             rowspan : 2,
-            template : NameCard
+            template : NameCard,
+            data : {
+                name : {
+                    ko : "한진섭",
+                    en : "Han Jinseob"
+                },
+            }
         },
         {
             colspan : 1,
