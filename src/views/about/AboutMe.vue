@@ -2,29 +2,34 @@
 import CardTemplate from '@/components/card/CardTemplate.vue';
 import NavButton from '@/components/NavButton.vue'
 import GridLayout from '@/components/layout/GridLayout.vue';
+import NameCard from '@/components/card/NameCard.vue';
 
 const CARD_INFO = [
-    {
-        colspan : 1,
-        rowspan : 2
-    },
-    {
-        colspan : 1,
-        rowspan : 1
-    },
-    {
-        colspan : 1,
-        rowspan : 1
-    },
-    {
-        colspan : 1,
-        rowspan : 1
-    },
-    {
-        colspan : 1,
-        rowspan : 1
-    }
-]
+        {
+            colspan : 1,
+            rowspan : 2,
+            template : NameCard
+        },
+        {
+            colspan : 1,
+            rowspan : 1,
+        },
+        {
+            colspan : 1,
+            rowspan : 1,
+            //template : ProfileCardDetail
+        },
+        {
+            colspan : 1,
+            rowspan : 1,
+            //template : ProfileCardDetail
+        },
+        {
+            colspan : 1,
+            rowspan : 1,
+            //template : CardTemplate
+        }
+    ]
 
 const GRID_LAYOUT_INFO = {
     gap : {
@@ -37,7 +42,7 @@ const GRID_LAYOUT_INFO = {
     cell : {
         width : "var(--Spacer-50)"
     },
-    maxLength : 3
+    maxColumnLength : 3,
 }
 
 

@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const props = defineProps(["cardInfo"])
+const props = defineProps({
+    "cardInfo" : {
+        type : Object,
+        required : true
+    }
+})
+
 </script>
 
 <template>
@@ -12,6 +18,7 @@ const props = defineProps(["cardInfo"])
         CardTemplate
         {{props.cardInfo.colspan}}
         {{props.cardInfo.rowspan}}
+        <component :is="props.cardInfo.template" :card-info="props.cardInfo"></component>
         <slot></slot>
     </div>
 </template>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed} from 'vue'
-const props = defineProps(["gridInfo"])
+import CardTemplate from '../card/CardTemplate.vue';
+
+const props = defineProps(["gridInfo","cardInfo"])
 
 const gridDiv = ref<HTMLDivElement | null>(null);
 const windowWidth = ref(0);
@@ -35,7 +37,7 @@ onUnmounted(()=>{
             gridRowGap: `${props.gridInfo.gap.row}`,
             gridColumnGap: `${props.gridInfo.gap.column}`, 
             gridAutoRows: props.gridInfo.row.height,
-            gridTemplateColumns: `repeat(${Math.min((cellNumberInRow===0?1:cellNumberInRow),props.gridInfo.maxLength)}, ${props.gridInfo.cell.width})`
+            gridTemplateColumns: `repeat(${Math.min((cellNumberInRow===0?1:cellNumberInRow),props.gridInfo.maxColumnLength)}, ${props.gridInfo.cell.width})`
         }"
     >
     <slot></slot>
