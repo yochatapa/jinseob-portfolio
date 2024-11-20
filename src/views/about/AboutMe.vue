@@ -5,37 +5,31 @@ import GridLayout from '@/components/layout/GridLayout.vue';
 import NameCard from '@/components/card/NameCard.vue';
 
 const CARD_INFO = [
-        {
-            colspan : 1,
-            rowspan : 2,
-            template : NameCard,
-            data : {
-                name : {
-                    ko : "한진섭",
-                    en : "Han Jinseob"
-                },
-            }
-        },
-        {
-            colspan : 1,
-            rowspan : 1,
-        },
-        {
-            colspan : 1,
-            rowspan : 1,
-            //template : ProfileCardDetail
-        },
-        {
-            colspan : 1,
-            rowspan : 1,
-            //template : ProfileCardDetail
-        },
-        {
-            colspan : 1,
-            rowspan : 1,
-            //template : CardTemplate
-        }
-    ]
+    {
+        colspan : 1,
+        rowspan : 2,
+        template : NameCard,
+    },
+    {
+        colspan : 1,
+        rowspan : 1,
+    },
+    {
+        colspan : 1,
+        rowspan : 1,
+        //template : ProfileCardDetail
+    },
+    {
+        colspan : 1,
+        rowspan : 1,
+        //template : ProfileCardDetail
+    },
+    {
+        colspan : 1,
+        rowspan : 1,
+        //template : CardTemplate
+    }
+]
 
 const GRID_LAYOUT_INFO = {
     gap : {
