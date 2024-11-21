@@ -9,6 +9,7 @@ interface State {
       koreanName : string,
       englishName : string,
       introduction : string,
+      introductionHtml?: boolean | undefined,
       imagePath : string | undefined,
     },
     experience : {
@@ -36,7 +37,8 @@ export const store = createStore<State>({
         nameCard : {
           koreanName  : "한진섭",
           englishName : "Han Jinseob",
-          introduction: "SW Developer",
+          introduction: "From <strong>front-end</strong> to <strong>back-end</strong>,<br>Developer exploring the full spectrum.",
+          introductionHtml : true,
           imagePath   :  userImage
         },
         experience : {
