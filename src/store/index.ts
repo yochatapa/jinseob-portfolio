@@ -1,4 +1,6 @@
 import { createStore } from 'vuex';
+import userImage from "@/assets/main-user-image.png"
+import schoolImage from "@/assets/dongguk-university.png"
 
 interface State {
   count: number;
@@ -35,7 +37,7 @@ export const store = createStore<State>({
           koreanName  : "한진섭",
           englishName : "Han Jinseob",
           introduction: "SW Developer",
-          imagePath   : "/src/assets/main-user-image.png" 
+          imagePath   :  userImage
         },
         experience : {
           mainText : "Experience",
@@ -48,7 +50,7 @@ export const store = createStore<State>({
           mainTextHtml : false,
           subText : "Dept. of <strong>Computer Engineering</strong>",
           subTextHtml : true,
-          imagePath : "/src/assets/dongguk-university.png"
+          imagePath : schoolImage
         }
     },
   },

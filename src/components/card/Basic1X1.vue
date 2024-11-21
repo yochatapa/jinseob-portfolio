@@ -9,7 +9,7 @@ const props = defineProps({
     }
 })
 
-const imagePath = new URL(`${props.data?.imagePath}`, import.meta.url).href
+const imagePath = new URL(`${props.data?.imagePath}`, import.meta.url).href;
 </script>
 
 <template>
