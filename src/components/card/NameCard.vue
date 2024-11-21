@@ -3,15 +3,15 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-const imagePath = new URL(`${store.state.about.imagePath}`, import.meta.url).href;
+const imagePath = new URL(`${store.state.about.nameCard.imagePath}`, import.meta.url).href;
 </script>
 
 <template>
     <div class="name-card">
         <div class="name-wrapper">
-            <h2 class="ko-name">{{ store.state.about.koreanName }}</h2>
-            <h4 class="en-name">{{ store.state.about.englishName }}</h4>
-            <span class="introduction">{{ store.state.about.introduction }}</span>
+            <h2 class="ko-name">{{ store.state.about.nameCard.koreanName }}</h2>
+            <h4 class="en-name">{{ store.state.about.nameCard.englishName }}</h4>
+            <span class="introduction">{{ store.state.about.nameCard.introduction }}</span>
         </div>
         <div class="image-wrapper">
             <img :src="imagePath" alt="main-user-image" class="main-image"/>
@@ -48,7 +48,7 @@ const imagePath = new URL(`${store.state.about.imagePath}`, import.meta.url).hre
 }
 
 h2.ko-name {
-    margin: var(--Spacer-5) 0 var(--Spacer-1) 0;
+    margin: var(--Spacer-3) 0 var(--Spacer-1) 0;
 }
 
 h4.en-name{
