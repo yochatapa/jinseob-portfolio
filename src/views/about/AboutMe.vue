@@ -3,6 +3,10 @@ import CardTemplate from '@/components/card/CardTemplate.vue';
 import NavButton from '@/components/NavButton.vue'
 import GridLayout from '@/components/layout/GridLayout.vue';
 import NameCard from '@/components/card/NameCard.vue';
+import Basic1X1 from '@/components/card/Basic1X1.vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
 
 const CARD_INFO = [
     {
@@ -13,23 +17,28 @@ const CARD_INFO = [
     {
         colspan : 1,
         rowspan : 1,
+        template : Basic1X1,
+        data : store.state.about.experience
     },
     {
         colspan : 1,
         rowspan : 1,
-        //template : ProfileCardDetail
+        template : Basic1X1,
+        data : store.state.about.school
     },
     {
         colspan : 1,
         rowspan : 1,
-        //template : ProfileCardDetail
+        template : Basic1X1
     },
     {
         colspan : 1,
         rowspan : 1,
-        //template : CardTemplate
+        template : Basic1X1
     }
 ]
+
+store.dispatch('calculateAgeFromBirthDate');
 
 const GRID_LAYOUT_INFO = {
     gap : {
