@@ -9,9 +9,10 @@ const imagePath = new URL(`${store.state.about.nameCard.imagePath}`, import.meta
 <template>
     <div class="name-card">
         <div class="name-wrapper">
-            <h2 class="ko-name">{{ store.state.about.nameCard.koreanName }}</h2>
-            <h4 class="en-name">{{ store.state.about.nameCard.englishName }}</h4>
-            <span class="introduction">{{ store.state.about.nameCard.introduction }}</span>
+            <h2 v-if="store.state.about.nameCard.koreanName" class="ko-name">{{ store.state.about.nameCard.koreanName }}</h2>
+            <h4 v-if="store.state.about.nameCard.englishName" class="en-name">{{ store.state.about.nameCard.englishName }}</h4>
+            <span v-if="store.state.about.nameCard.introduction && !store.state.about.nameCard.introductionHtml" class="introduction">{{ store.state.about.nameCard.introduction }}</span>
+            <span v-if="store.state.about.nameCard.introduction && store.state.about.nameCard.introductionHtml" class="introduction" v-html="store.state.about.nameCard.introduction"></span>
         </div>
         <div class="image-wrapper">
             <img :src="imagePath" alt="main-user-image" class="main-image"/>
@@ -45,6 +46,10 @@ const imagePath = new URL(`${store.state.about.nameCard.imagePath}`, import.meta
     flex-direction: column;
     align-items: center;
     height: 30%;
+}
+
+.name-wrapper>*{
+    text-align: center;
 }
 
 h2.ko-name {
