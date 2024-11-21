@@ -12,7 +12,7 @@ export const store = createStore<State>({
         koreanName  : "한진섭",
         englishName : "Han Jinseob",
         introduction: "SW Developer",
-        imagePath   : "@/assets/jinseob-original.png" 
+        imagePath   : "/src/assets/main-user-image.png" 
     },
   },
   mutations: {
