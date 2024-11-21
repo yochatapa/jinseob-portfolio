@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import userImage from "@/assets/main-user-image.png"
+import experienceImage from "@/assets/work-experience.png"
 import schoolImage from "@/assets/dongguk-university.png"
 
 interface State {
@@ -13,7 +14,7 @@ interface State {
       imagePath : string | undefined,
     },
     experience : {
-      mainText : string,
+      mainText : string | undefined,
       mainTextHtml?: boolean | undefined
       subText : string | undefined,
       subTextHtml?: boolean | undefined,
@@ -42,10 +43,11 @@ export const store = createStore<State>({
           imagePath   :  userImage
         },
         experience : {
-          mainText : "Experience",
-          subText : undefined,
+          mainText : undefined,
+          subText : "Since 2021.10",
           subTextHtml : true,
-          since : "2021.10"
+          since : "2021.10",
+          imagePath : experienceImage
         },
         school : {
           mainText : "Dongguk University",
@@ -57,14 +59,14 @@ export const store = createStore<State>({
     },
   },
   mutations: {
-    setAge(state, monthAge ) {
-      state.about.experience.subText = `${state.about.experience.since} ~ <label style="font-size:var(--Spa);">( ${monthAge.age} yr ${monthAge.month} mo )</label>`;
+    setExperience(state, monthAge ) {
+      state.about.experience.mainText = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
     },
   },
   actions: {
     calculateAgeFromBirthDate({ commit, state }) {
       const monthAge = calculateAge(state.about.experience.since);  // 생년월일로 나이 계산
-      commit('setAge', monthAge);  // 계산된 나이를 state에 저장
+      commit('setExperience', monthAge);  // 계산된 나이를 state에 저장
     },
   },
   getters: {
@@ -85,7 +87,7 @@ function calculateAge(birthDate:string) {
   
   // 만 나이와 개월 수 계산
   const monthAge = today.getMonth() - birth.getMonth() + 1 + (12 * (today.getFullYear() - birth.getFullYear()));
-  const month = monthAge - age * 12;
+  const month = monthAge - age * 12 - 1;
   
   return {
     age,
