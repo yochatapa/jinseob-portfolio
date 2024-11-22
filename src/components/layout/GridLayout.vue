@@ -39,7 +39,7 @@ onUnmounted(()=>{
             gridTemplateColumns: `repeat(${Math.min((cellNumberInRow===0?1:cellNumberInRow),props.gridInfo.maxColumnLength)}, ${props.gridInfo.cell.width})`
         }"
     >
-    <slot></slot>
+    <slot :cellNumberInRow="cellNumberInRow"></slot>
     </div>
 </template>
 

@@ -37,6 +37,12 @@ const CARD_INFO = [
         rowspan : 1,
         template : Basic1X1,
         data : store.state[store.state.system.lang].about.devPhilosophy
+    },
+    {
+        colspan : 3,
+        rowspan : 1,
+        template : Basic1X1,
+        data : store.state[store.state.system.lang].about.devPhilosophy
     }
 ]
 
@@ -61,7 +67,9 @@ const GRID_LAYOUT_INFO = {
 
 <template>
     <GridLayout :grid-info="GRID_LAYOUT_INFO">
-        <CardTemplate v-for="(cell,index) in CARD_INFO" :card-info="cell" :card-index="index"></CardTemplate>
+        <template v-slot:default="gridInfo">
+            <CardTemplate v-for="(cell,index) in CARD_INFO" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
+        </template>
     </GridLayout>
     <NavButton></NavButton>
 </template>
