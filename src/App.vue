@@ -71,7 +71,7 @@ nav a:first-of-type {
     width: 100vw;
     height: 100vh;
     filter: blur(70px);
-    background: var(--Grayscale-50);
+    background: #ffffff24;
 }
 
 .circle {
@@ -84,8 +84,8 @@ nav a:first-of-type {
     height: max(80vw,80vh);
     top: 0;
     left: calc(-50% - max(-80vw, -80vh));
-    animation: moveCircle 20s linear infinite, backgroundColorChange50 20s infinite alternate;
-    background-color: var(--Orange-50);
+    animation: moveCircle 20s linear infinite, backgroundColorChange40 20s infinite alternate;
+    background-color: var(--Orange-40);
 }
 
 .circle-2 {
@@ -93,7 +93,7 @@ nav a:first-of-type {
     height: max(70vw,70vh);
     bottom: calc(-50% - min(30vw,30vh));
     right: calc(-50% + min(-20vw, -20vh));
-    animation: moveCircleReverse 15s linear infinite, backgroundColorChange70 20s infinite alternate;
-    background-color: var(--Orange-50);
+    animation: moveCircleReverse 15s linear infinite, backgroundColorChange60 20s infinite alternate;
+    background-color: var(--Orange-60);
 }
 </style>

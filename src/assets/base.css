@@ -34,56 +34,56 @@
   }
 }
 
-@keyframes backgroundColorChange20 {
+@keyframes backgroundColorChange80 {
   0% {
-    background-color: var(--Orange-20);
+    background-color: var(--Brown-80);
   }
   25% {
-    background-color: var(--Green-20);
+    background-color: var(--Green-80);
   }
   50% {
-    background-color: var(--Blue-20);
+    background-color: var(--Blue-80);
   }
   75% {
-    background-color: var(--Gold-20);
+    background-color: var(--Gold-80);
   }
   100% {
-    background-color: var(--Purple-20);
+    background-color: var(--Purple-80);
   }
 }
 
-@keyframes backgroundColorChange50 {
+@keyframes backgroundColorChange40 {
   0% {
-    background-color: var(--Orange-50);
+    background-color: var(--Orange-40);
   }
   25% {
-    background-color: var(--Lime-Green-50);
+    background-color: var(--Lime-Green-40);
   }
   50% {
-    background-color: var(--Blue-50);
+    background-color: var(--Blue-40);
   }
   75% {
-    background-color: var(--Gold-50);
+    background-color: var(--Gold-40);
   }
   100% {
-    background-color: var(--Purple-50);
+    background-color: var(--Purple-40);
   }
 }
 
-@keyframes backgroundColorChange70 {
+@keyframes backgroundColorChange60 {
   0% {
-    background-color: var(--Brown-70);
+    background-color: var(--Brown-60);
   }
   25% {
-    background-color: var(--Green-70);
+    background-color: var(--Green-60);
   }
   50% {
-    background-color: var(--Navy-70);
+    background-color: var(--Navy-60);
   }
   75% {
-    background-color: var(--Gold-70);
+    background-color: var(--Gold-60);
   }
   100% {
-    background-color: var(--Blue-Purple-70);
+    background-color: var(--Blue-Purple-60);
   }
 }

@@ -42,7 +42,7 @@ const CARD_INFO = [
         colspan : 3,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.devPhilosophy
+        data : store.state[store.state.system.lang].about.selfIntroduction
     }
 ]
 
