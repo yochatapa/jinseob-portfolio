@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 
 const props = defineProps(["scrollYn"]);
+const store = useStore();
 
 const menuYn = ref(false);
 
@@ -12,20 +14,27 @@ const onOffMenu = function(){
 const moveTop = function(){
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
+
+const changeLang = function(){
+    store.dispatch("changeLanguage",{lang:(store.state.system.lang==="ko"?"en":"ko")});
+    menuYn.value = false;
+}
 </script>
 
 <template>
     <div class="nav-button-container">
         <div v-if="menuYn" class="nav-menu-container">
-
+            <div class="nav-button-wrapper" :onclick="changeLang">
+                <label class="nav-button text menu">{{ store.state.system.lang }}</label>
+            </div>
         </div>
         <div class="nav-button-div">
             <div v-show="props.scrollYn" class="nav-button-wrapper" :onclick="moveTop">
                 <label class="nav-button up">▲</label>
             </div>
-            <!-- <div class="nav-button-wrapper" v-on:click="onOffMenu">
+            <div class="nav-button-wrapper" :onclick="onOffMenu">
                 <label class="nav-button text menu">MENU</label>
-            </div> -->
+            </div>
         </div>
         
     </div>
@@ -57,7 +66,7 @@ const moveTop = function(){
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: var(--Spacer-2);
+    margin: var(--Spacer-1) 0 0 var(--Spacer-1);
     background-image: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
     border: 1px solid var(--Grayscale-50);
     border-radius: var(--Spacer-2);

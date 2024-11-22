@@ -1,25 +1,36 @@
-/**
- * mainText, subText, image로 이루어진 1X1 카드
- */
+<!--
+    mainText, subText, image로 이루어진 1X1 카드
+-->
 <script setup lang="ts">
+import { computed, reactive } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+
 const props = defineProps({
-    "data" : {
-        type : Object,
-        required : false
+    "type" : {
+        type : String,
+        required : true
+    },
+    "detail" : {
+        type : String,
+        required : true
     }
 })
 
-const imagePath = new URL(`${props.data?.imagePath}`, import.meta.url).href;
+const cardData = computed(()=>store.state[store.state.system.lang]?.[props.type]?.[props.detail])
+
+const imagePath = new URL(`${cardData.value.imagePath}`, import.meta.url).href;
 </script>
 
 <template>
     <div class="basic-1X1">
-        <h3 v-if="props.data?.mainText && props.data?.mainTextHtml" class="main-text" v-html="props.data?.mainText"></h3>
-        <h3 v-if="props.data?.mainText && !props.data?.mainTextHtml" class="main-text">{{ props.data?.mainText }}</h3>
+        <h3 v-if="cardData.mainText && cardData.mainTextHtml" class="main-text" v-html="cardData.mainText"></h3>
+        <h3 v-if="cardData.mainText && !cardData.mainTextHtml" class="main-text">{{ cardData.mainText }}</h3>
 
-        <span v-if="props.data?.subText && props.data?.subTextHtml" class="sub-text" v-html="props.data?.subText"></span>
-        <span v-if="props.data?.subText && !props.data?.subTextHtml" class="sub-text">{{ props.data?.subText }}</span>
-        <div v-if="props.data?.imagePath" class="image-box" :style="{
+        <span v-if="cardData.subText && cardData.subTextHtml" class="sub-text" v-html="cardData.subText"></span>
+        <span v-if="cardData.subText && !cardData.subTextHtml" class="sub-text">{{ cardData.subText }}</span>
+        <div v-if="cardData.imagePath" class="image-box" :style="{
             backgroundImage : `url(${imagePath})`
         }">
         </div>

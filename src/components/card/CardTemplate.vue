@@ -25,7 +25,7 @@ const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
             gridColumn : `auto / span ${colspan}`
         }"
     >
-        <component :is="props.cardInfo.template" :data="props.cardInfo.data">{{ props.cardInfo.data }}</component>
+        <component :is="props.cardInfo.template" :type="props.cardInfo.type" :detail="props.cardInfo.detail">{{ props.cardInfo.data }}</component>
         <slot></slot>
     </div>
 </template>

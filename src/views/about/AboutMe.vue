@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CardTemplate from '@/components/card/CardTemplate.vue';
-import NavButton from '@/components/NavButton.vue'
 import GridLayout from '@/components/layout/GridLayout.vue';
 import NameCard from '@/components/card/NameCard.vue';
 import Basic1X1 from '@/components/card/Basic1X1.vue';
@@ -18,31 +17,36 @@ const CARD_INFO = [
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.experience
+        type : "about",
+        detail : "experience"
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.school
+        type : "about",
+        detail : "school"
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.personality
+        type : "about",
+        detail : "personality"
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.devPhilosophy
+        type : "about",
+        detail : "devPhilosophy"
     },
     {
         colspan : 3,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state[store.state.system.lang].about.selfIntroduction
+        type : "about",
+        detail : "selfIntroduction"
     }
 ]
 

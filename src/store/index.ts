@@ -152,12 +152,18 @@ export const store = createStore<State>({
         state.en.about.experience.mainText = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
         state.ko.about.experience.mainText = `${monthAge.age} 년  ${monthAge.month} 개월`;
     },
+    setLang(state, newLang){
+        store.state.system.lang = newLang;
+    }
   },
   actions: {
     calculateAgeFromBirthDate({ commit, state }) {
         const monthAge = calculateAge(state.userInfo.expDate);  // 생년월일로 나이 계산
         commit('setExperience', monthAge);  // 계산된 나이를 state에 저장
     },
+    changeLanguage({ commit, state },payload){
+        commit('setLang',payload.lang);  // 계산된 나이를 state에 저장
+    }
   },
   getters: {
     
