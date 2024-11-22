@@ -82,18 +82,18 @@ nav a:first-of-type {
 .circle-1 {
     width: max(80vw,80vh);
     height: max(80vw,80vh);
-    top: 0;
-    left: calc(-50% - max(-80vw, -80vh));
-    animation: moveCircle 20s linear infinite, backgroundColorChange40 20s infinite alternate;
-    background-color: var(--Orange-40);
+    top: calc(-50% );
+    left: calc(-50%);
+    /*animation: moveCircle 20s linear infinite, backgroundColorChange40 20s infinite alternate;*/
+    background-color: var(--Royal-Blue-20);
 }
 
 .circle-2 {
     width: max(70vw,70vh);
     height: max(70vw,70vh);
-    bottom: calc(-50% - min(30vw,30vh));
-    right: calc(-50% + min(-20vw, -20vh));
-    animation: moveCircleReverse 15s linear infinite, backgroundColorChange60 20s infinite alternate;
-    background-color: var(--Orange-60);
+    bottom: calc(-50% );
+    right: calc(-50%);
+    /*animation: moveCircleReverse 15s linear infinite, backgroundColorChange60 20s infinite alternate;*/
+    background-color: var(--Purple-20);
 }
 </style>

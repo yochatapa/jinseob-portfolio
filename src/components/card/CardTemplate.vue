@@ -32,13 +32,13 @@ const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
 
 <style scoped>
 .card-template{
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
     backdrop-filter: blur(15px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);
 }
 
 .card-template * {
-    color: var(--Grayscale-0);
+    color: var(--Grayscale-100);
 }
 </style>
