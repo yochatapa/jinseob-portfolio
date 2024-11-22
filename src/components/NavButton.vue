@@ -1,75 +1,86 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const props = defineProps(["scrollYn"]);
+
+const menuYn = ref(false);
+
+const onOffMenu = function(){
+    menuYn.value = !menuYn.value
+}
+
+const moveTop = function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 </script>
 
 <template>
-    <div class="nav-button-wrapper">
-        <div class="nav-button left"></div>
-        <div class="nav-button right"></div>
+    <div class="nav-button-container">
+        <div v-if="menuYn" class="nav-menu-container">
+
+        </div>
+        <div class="nav-button-div">
+            <div v-show="props.scrollYn" class="nav-button-wrapper" :onclick="moveTop">
+                <label class="nav-button up">▲</label>
+            </div>
+            <!-- <div class="nav-button-wrapper" v-on:click="onOffMenu">
+                <label class="nav-button text menu">MENU</label>
+            </div> -->
+        </div>
+        
     </div>
 </template>
 
 <style scoped>
-.nav-button-wrapper{
-    --horizontal    : var(--Spacer-2);
-    --vertical      : var(--Spacer-4);
+.nav-button-container{
+    --horizontal: calc(var(--Spacer-1)* 1.5);
+    --vertical: calc(var(--Spacer-2)* 1.5);
 
-    --button-color  : var(--Grayscale-40);
-    --button-hover-color  : var(--Grayscale-60);
+    --button-color: var(--Grayscale-60);
+    --button-hover-color: var(--Grayscale-70);
 
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: var(--Spacer-2) var(--Spacer-1);
+    padding: var(--Spacer-6) var(--Spacer-4) var(--Spacer-4) 0;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.nav-button-div{
+    display: flex;
+}
+
+.nav-button-wrapper{
+    width: var(--Spacer-7);
+    height: var(--Spacer-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--Spacer-2);
+    background-image: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
+    border: 1px solid var(--Grayscale-50);
+    border-radius: var(--Spacer-2);
 }
 
 .nav-button{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: relative;
+    color: var(--Grayscale-60);
 }
 
 .nav-button:hover{
     cursor: pointer;
+    color: var(--Grayscale-80);
 }
 
-.nav-button::after{
-    content: "";
-    display: block;
-    position: absolute;
-    width: calc(var(--vertical) + var(--Spacer-3));
-    height: calc(var(--horizontal) * 2  + var(--Spacer-3));
-    border: 1px solid var(--Grayscale-50);
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: var(--Grayscale-10);
-    z-index: -1;
+.nav-button.up:hover{
+    border-color: transparent transparent var(--button-hover-color) transparent;
 }
 
-.nav-button.left {
-    border-width: var(--horizontal) var(--vertical) var(--horizontal) 0;
-    border-color: transparent var(--button-color) transparent transparent;
+.nav-button.up{
+    font-size: var(--Spacer-4);
 }
 
-.nav-button.left:hover{
-    border-color: transparent var(--button-hover-color) transparent transparent;
-}
-
-.nav-button.left::after {
-    top: calc(var(--horizontal) * -1 - var(--Spacer-3) * 0.5);
-    left: calc(var(--Spacer-1) * -1);
-}
-
-.nav-button.right {
-    border-width: var(--horizontal) 0 var(--horizontal) var(--vertical);
-    border-color: transparent transparent transparent var(--button-color);
-}
-
-.nav-button.right:hover{
-    border-color: transparent transparent transparent var(--button-hover-color);
-}
-
-.nav-button.right::after {
-    top: calc(var(--horizontal) * -1 + var(--Spacer-3) * -0.5);
-    left: calc(var(--vertical) * -1 - var(--Spacer-2));
+.nav-button.text{
+    font-size: var(--Spacer-2);
 }
 </style>

@@ -40,7 +40,7 @@ onUnmounted(() => {
         </div>
     </main>
     <footer>
-        <NavButton></NavButton>
+        <NavButton :scrollYn="headerBackgroundChangeYn"></NavButton>
     </footer>
 </template>
 
@@ -67,6 +67,14 @@ header.change nav a{
 
 main {
     z-index: 1;
+    padding-bottom: var(--Spacer-4);
+}
+
+footer {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 nav {
