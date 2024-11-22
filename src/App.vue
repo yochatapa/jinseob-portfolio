@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <background class="app-background">
-        <div v-for="index in 5" :class="['circle', `circle-${index}`]"></div>
+        <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
     </background>
     <header>
         <nav>
@@ -29,6 +29,14 @@ main, .main-container {
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+header {
+    z-index: 1;
+}
+
+main {
+    z-index: 1;
 }
 
 nav {
@@ -83,33 +91,9 @@ nav a:first-of-type {
 .circle-2 {
     width: max(70vw,70vh);
     height: max(70vw,70vh);
-    bottom: calc(-50% - 150px);
+    bottom: calc(-50% - min(30vw,30vh));
     right: calc(-50% + min(-20vw, -20vh));
     animation: moveCircleReverse 15s linear infinite, backgroundColorChange70 20s infinite alternate;
     background-color: var(--Orange-50);
 }
-
-/* .circle-3 {
-    width: var(--Spacer-50);
-    height: var(--Spacer-50);
-    top: 80vh;
-    left: 5vw;
-    animation: moveCircle 15s linear infinite, backgroundColorChange50 20s infinite alternate;
-}
-
-.circle-4 {
-    width: var(--Spacer-60);
-    height: var(--Spacer-60);
-    top: 80vh;
-    left: 80vw;
-    animation: moveCircleReverse 20s linear infinite, backgroundColorChange50 20s infinite alternate;
-}
-
-.circle-5 {
-    width: var(--Spacer-30);
-    height: var(--Spacer-30);
-    top: 80vh;
-    left: 50vw;
-    animation: moveCircle 10s linear infinite, backgroundColorChange50 20s infinite alternate;
-} */
 </style>
