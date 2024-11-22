@@ -2,6 +2,8 @@ import { createStore } from 'vuex';
 import userImage from "@/assets/main-user-image.png"
 import experienceImage from "@/assets/work-experience.png"
 import schoolImage from "@/assets/dongguk-university.png"
+import personalityImage from "@/assets/personality-problem-solve.png"
+import devPhilosophyImage from "@/assets/clean-code.png"
 
 interface State {
     userInfo : {
@@ -27,6 +29,7 @@ interface About {
         school : InterfaceBasic1X1,
         personality : InterfaceBasic1X1
         devPhilosophy : InterfaceBasic1X1
+        selfIntroduction : InterfaceBasic1X1
     };
 }
 
@@ -53,7 +56,7 @@ export const store = createStore<State>({
             nameCard : {
                 introduction: "<strong>프런트엔드</strong>부터 <strong>백엔드</strong>까지,<br>개발의 전체 스펙트럼을 탐구하는 개발자.",
                 introductionHtml : true,
-                imagePath   :  userImage
+                imagePath   :  userImage,
             },
             experience : {
                 mainText : undefined,
@@ -73,14 +76,20 @@ export const store = createStore<State>({
                 mainTextHtml : false,
                 subText : "문제를 분석적으로 접근하여 효율적인 솔루션을 찾습니다.",
                 subTextHtml : true,
-                //imagePath : schoolImage
+                imagePath : personalityImage
             },
             devPhilosophy : {
                 mainText : "목적이 있는 코딩",
                 mainTextHtml : false,
                 subText : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
                 subTextHtml : true,
-                //imagePath : schoolImage
+                imagePath : devPhilosophyImage
+            },
+            selfIntroduction : {
+              mainText : "목적이 있는 코딩",
+                mainTextHtml : false,
+                subText : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
+                subTextHtml : true
             }
         },
     },
@@ -109,14 +118,20 @@ export const store = createStore<State>({
                 mainTextHtml : false,
                 subText : "Approach challenges analytically to find efficient solutions.",
                 subTextHtml : true,
-                //imagePath : schoolImage
+                imagePath : personalityImage
             },
             devPhilosophy : {
                 mainText : "Code with purpose",
                 mainTextHtml : false,
                 subText : "Always focused on delivering value through clear, maintainable code.",
                 subTextHtml : true,
-                //imagePath : schoolImage
+                imagePath : devPhilosophyImage
+            },
+            selfIntroduction : {
+              mainText : "목적이 있는 코딩",
+                mainTextHtml : false,
+                subText : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
+                subTextHtml : true
             }
         },
     }
