@@ -4,54 +4,53 @@ import experienceImage from "@/assets/work-experience.png"
 import schoolImage from "@/assets/dongguk-university.png"
 
 interface State {
-  count: number;
+  userInfo : {
+    koreanName  : string,
+    englishName : string,
+    expDate : string
+  },
+  system : {
+    lang : "ko" | "en"
+  },
+  ko : About,
+  en : About
+}
+
+interface About {
   about : {
     nameCard : {
-      koreanName : string,
-      englishName : string,
       introduction : string,
       introductionHtml?: boolean | undefined,
       imagePath : string | undefined,
     },
-    experience : {
-      mainText : string | undefined,
-      mainTextHtml?: boolean | undefined
-      subText : string | undefined,
-      subTextHtml?: boolean | undefined,
-      imagePath?: string | undefined,
-      since : string
-    },
-    school : {
-      mainText : string,
-      mainTextHtml?: boolean | undefined
-      subText : string | undefined,
-      subTextHtml?: boolean | undefined,
-      imagePath?: string | undefined
-    },
-    personality : {
-      mainText : string,
-      mainTextHtml?: boolean | undefined
-      subText : string | undefined,
-      subTextHtml?: boolean | undefined,
-      imagePath?: string | undefined
-    },
-    devPhilosophy : {
-      mainText : string,
-      mainTextHtml?: boolean | undefined
-      subText : string | undefined,
-      subTextHtml?: boolean | undefined,
-      imagePath?: string | undefined
-    }
+    experience : InterfaceBasic1X1,
+    school : InterfaceBasic1X1,
+    personality : InterfaceBasic1X1
+    devPhilosophy : InterfaceBasic1X1
   };
+}
+
+interface InterfaceBasic1X1 {
+  mainText : string | undefined,
+  mainTextHtml?: boolean | undefined
+  subText : string | undefined,
+  subTextHtml?: boolean | undefined,
+  imagePath?: string | undefined
 }
 
 export const store = createStore<State>({
   state: {
-    count: 0,  // 기본 상태
-    about : {
+    userInfo : {
+      koreanName  : "한진섭",
+      englishName : "Han Jinseob",
+      expDate : "2021.10"
+    },
+    system : {
+      lang : "ko"
+    },
+    ko : {
+      about : {
         nameCard : {
-          koreanName  : "한진섭",
-          englishName : "Han Jinseob",
           introduction: "From <strong>front-end</strong> to <strong>back-end</strong>,<br>Developer exploring the full spectrum.",
           introductionHtml : true,
           imagePath   :  userImage
@@ -60,7 +59,6 @@ export const store = createStore<State>({
           mainText : undefined,
           subText : "Development career since 2021.10",
           subTextHtml : true,
-          since : "2021.10",
           imagePath : experienceImage
         },
         school : {
@@ -84,16 +82,54 @@ export const store = createStore<State>({
           subTextHtml : true,
           //imagePath : schoolImage
         }
+      },
     },
+    en : {
+      about : {
+        nameCard : {
+          introduction: "From <strong>front-end</strong> to <strong>back-end</strong>,<br>Developer exploring the full spectrum.",
+          introductionHtml : true,
+          imagePath   :  userImage
+        },
+        experience : {
+          mainText : undefined,
+          subText : "Development career since 2021.10",
+          subTextHtml : true,
+          imagePath : experienceImage
+        },
+        school : {
+          mainText : "Dongguk University",
+          mainTextHtml : false,
+          subText : "Dept. of <strong>Computer Engineering</strong>",
+          subTextHtml : true,
+          imagePath : schoolImage
+        },
+        personality : {
+          mainText : "Problem solver",
+          mainTextHtml : false,
+          subText : "Approach challenges analytically to find efficient solutions.",
+          subTextHtml : true,
+          //imagePath : schoolImage
+        },
+        devPhilosophy : {
+          mainText : "Code with purpose",
+          mainTextHtml : false,
+          subText : "Always focused on delivering value through clear, maintainable code.",
+          subTextHtml : true,
+          //imagePath : schoolImage
+        }
+      },
+    }
   },
   mutations: {
     setExperience(state, monthAge ) {
-      state.about.experience.mainText = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
+      state.en.about.experience.mainText = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
+      state.ko.about.experience.mainText = `${monthAge.age} 년  ${monthAge.month} 개월`;
     },
   },
   actions: {
     calculateAgeFromBirthDate({ commit, state }) {
-      const monthAge = calculateAge(state.about.experience.since);  // 생년월일로 나이 계산
+      const monthAge = calculateAge(state.userInfo.expDate);  // 생년월일로 나이 계산
       commit('setExperience', monthAge);  // 계산된 나이를 state에 저장
     },
   },

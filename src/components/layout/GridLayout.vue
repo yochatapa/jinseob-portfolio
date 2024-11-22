@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed} from 'vue'
-import CardTemplate from '../card/CardTemplate.vue';
 
 const props = defineProps(["gridInfo","cardInfo"])
 

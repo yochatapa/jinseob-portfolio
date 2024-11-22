@@ -18,25 +18,25 @@ const CARD_INFO = [
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state.about.experience
+        data : store.state[store.state.system.lang].about.experience
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state.about.school
+        data : store.state[store.state.system.lang].about.school
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state.about.personality
+        data : store.state[store.state.system.lang].about.personality
     },
     {
         colspan : 1,
         rowspan : 1,
         template : Basic1X1,
-        data : store.state.about.devPhilosophy
+        data : store.state[store.state.system.lang].about.devPhilosophy
     }
 ]
 
