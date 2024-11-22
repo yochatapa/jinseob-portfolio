@@ -72,7 +72,7 @@ export const store = createStore<State>({
                 imagePath : schoolImage
             },
             personality : {
-                mainText : "문제 해결사",
+                mainText : "문제 해결 능력",
                 mainTextHtml : false,
                 subText : "문제를 분석적으로 접근하여 효율적인 솔루션을 찾습니다.",
                 subTextHtml : true,
@@ -86,9 +86,13 @@ export const store = createStore<State>({
                 imagePath : devPhilosophyImage
             },
             selfIntroduction : {
-              mainText : "목적이 있는 코딩",
+              mainText : "자기 소개",
                 mainTextHtml : false,
-                subText : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
+                subText : `<label style="display: inline-block;text-align:start;line-height: var(--Spacer-5);">안녕하세요. <br>
+                컴퓨터공학을 전공하고 3년 이상의 다양한 SI 개발 경력을 보유한 개발자 <strong>한진섭</strong>입니다.<br>
+                저는 <strong>사용자 친화적</strong>이고 <strong>프로세스를 철저히 준수</strong>하고 정확한 프로그래밍을 통해 <strong>안정적</strong>이고 <strong>신뢰</strong>할 수 있는 결과물을 개발하는 데 집중하는 편이며, <strong>공통화</strong>와 <strong>표준화</strong>를 통해 <strong>효율성</strong>을 높이는 것에 강점을 가지고 있습니다. 
+                세부 사항에 대한 <strong>꼼꼼함</strong>과 <strong>지속적인 학습에 대한 열정</strong>을 바탕으로 <strong>창의적인 문제 해결</strong>을 즐깁니다.<br>
+                앞으로도 의미 있는 프로젝트에 기여하며 개발자로서 성장하는 것을 목표로 하고 있습니다. 감사합니다.</label>`,
                 subTextHtml : true
             }
         },
@@ -128,9 +132,16 @@ export const store = createStore<State>({
                 imagePath : devPhilosophyImage
             },
             selfIntroduction : {
-              mainText : "목적이 있는 코딩",
+              mainText : "Self introduction",
                 mainTextHtml : false,
-                subText : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
+                subText : `<label style="display: inline-block; text-align: start; line-height: var(--Spacer-5);">
+                    Hello, <br>
+                    I am <strong>Jinseob Han</strong>, a developer with a major in computer engineering and over 3 years of diverse experience in SI development.<br>
+                    I focus on creating <strong>user-friendly</strong> and <strong>reliable</strong> solutions by adhering to <strong>rigorous processes</strong> and ensuring <strong>accurate programming</strong>. I excel at enhancing <strong>efficiency</strong> through <strong>standardization</strong> and <strong>unification</strong>. 
+                    I enjoy <strong>creative problem-solving</strong> and take pride in my <strong>attention to detail</strong> and <strong>passion for continuous learning</strong>.<br>
+                    My goal is to contribute to meaningful projects and continue growing as a developer. Thank you.
+                </label>
+                `,
                 subTextHtml : true
             }
         },
