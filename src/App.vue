@@ -70,8 +70,8 @@ nav a:first-of-type {
     left: 0;
     width: 100vw;
     height: 100vh;
-    filter: blur(70px);
-    background: #ffffff24;
+    filter: blur(80px);
+    background: linear-gradient(325deg, var(--Blue-Purple-20) 0%, var(--Sky-Blue-20) 100%);
 }
 
 .circle {
