@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+import NavButton from './components/NavButton.vue';
 
 const scrollPosition = ref(0);
 const headerBackgroundChangeYn = computed(()=>scrollPosition.value>0);
@@ -39,6 +40,7 @@ onUnmounted(() => {
         </div>
     </main>
     <footer>
+        <NavButton></NavButton>
     </footer>
 </template>
 

@@ -71,7 +71,6 @@ const GRID_LAYOUT_INFO = {
             <CardTemplate v-for="(cell,index) in CARD_INFO" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
         </template>
     </GridLayout>
-    <NavButton></NavButton>
 </template>
 
 <style scoped>
