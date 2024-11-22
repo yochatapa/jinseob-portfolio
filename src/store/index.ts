@@ -27,6 +27,20 @@ interface State {
       subText : string | undefined,
       subTextHtml?: boolean | undefined,
       imagePath?: string | undefined
+    },
+    personality : {
+      mainText : string,
+      mainTextHtml?: boolean | undefined
+      subText : string | undefined,
+      subTextHtml?: boolean | undefined,
+      imagePath?: string | undefined
+    },
+    devPhilosophy : {
+      mainText : string,
+      mainTextHtml?: boolean | undefined
+      subText : string | undefined,
+      subTextHtml?: boolean | undefined,
+      imagePath?: string | undefined
     }
   };
 }
@@ -44,7 +58,7 @@ export const store = createStore<State>({
         },
         experience : {
           mainText : undefined,
-          subText : "Since 2021.10",
+          subText : "Development career since 2021.10",
           subTextHtml : true,
           since : "2021.10",
           imagePath : experienceImage
@@ -55,6 +69,20 @@ export const store = createStore<State>({
           subText : "Dept. of <strong>Computer Engineering</strong>",
           subTextHtml : true,
           imagePath : schoolImage
+        },
+        personality : {
+          mainText : "Problem solver",
+          mainTextHtml : false,
+          subText : "Approach challenges analytically to find efficient solutions.",
+          subTextHtml : true,
+          //imagePath : schoolImage
+        },
+        devPhilosophy : {
+          mainText : "Code with purpose",
+          mainTextHtml : false,
+          subText : "Always focused on delivering value through clear, maintainable code.",
+          subTextHtml : true,
+          //imagePath : schoolImage
         }
     },
   },

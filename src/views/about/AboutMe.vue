@@ -29,12 +29,14 @@ const CARD_INFO = [
     {
         colspan : 1,
         rowspan : 1,
-        template : Basic1X1
+        template : Basic1X1,
+        data : store.state.about.personality
     },
     {
         colspan : 1,
         rowspan : 1,
-        template : Basic1X1
+        template : Basic1X1,
+        data : store.state.about.devPhilosophy
     }
 ]
 
