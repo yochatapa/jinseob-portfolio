@@ -1,14 +1,32 @@
 <script setup lang="ts">
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+
+const scrollPosition = ref(0);
+const headerBackgroundChangeYn = computed(()=>scrollPosition.value>0);
+
+const handleScroll = () => {
+    scrollPosition.value = document.documentElement.scrollTop;
+};
+
+// 컴포넌트가 마운트된 후 스크롤 이벤트 리스너 추가
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+// 컴포넌트가 언마운트되면 이벤트 리스너를 제거
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
     <background class="app-background">
         <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
     </background>
-    <header>
+    <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
         <nav>
-            <RouterLink to="/">About Me</RouterLink>
+            <RouterLink to="/">About</RouterLink>
             <RouterLink to="/career">Career</RouterLink>
             <RouterLink to="/projects">Projects</RouterLink>
             <RouterLink to="/skills">Skills</RouterLink>
@@ -32,7 +50,17 @@ main, .main-container {
 }
 
 header {
-    z-index: 1;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+
+header.change{
+    background: linear-gradient(180deg, #90c8ff 0%, #90c8ff9e 70%, rgba(255, 255, 255, 0) 100%);
+}
+
+header.change nav a{
+    color: var(--Grayscale-0);
 }
 
 main {
@@ -41,13 +69,24 @@ main {
 
 nav {
     width: 100%;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 2rem;
+    margin: var(--Spacer-4) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav a.router-link-exact-active {
-    color: var(--color-text);
+    color: var(--Grayscale-80) !important;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a.router-link-exact-active:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--Grayscale-80);
 }
 
 nav a.router-link-exact-active:hover {
@@ -56,8 +95,10 @@ nav a.router-link-exact-active:hover {
 
 nav a {
     display: inline-block;
-    padding: 0 1rem;
-    border-left: 1px solid var(--color-border);
+    padding: 0 var(--Spacer-2);
+    color: var(--Grayscale-50);
+    font-size: var(--Spacer-2);
+    text-decoration-line: none;
 }
 
 nav a:first-of-type {
