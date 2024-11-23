@@ -41,7 +41,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
                 <label class="date">{{ cardData.date }}</label>
             </div>
         </div> 
-        <div class="timeline-card">
+        <div :class="['timeline-card',cardData.type]">
             <h3>{{ cardData.eventName }}</h3>
             <span v-if="cardData.eventDetailHtml">{{ cardData.eventDetail }}</span>
             <span v-else v-html="cardData.eventDetail"></span>
@@ -56,7 +56,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 }
 
 .timeline-line{
-    width: var(--Spacer-10);
+    width: var(--Spacer-14);
     position: relative;
 }
 
@@ -95,20 +95,29 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 .timeline-line>.horizontal-line>.date{
     position: absolute;
     top: var(--Spacer-2);
-    left: var(--Spacer-2);
+    left: var(--Spacer-3);
     font-size: var(--Spacer-2);
     color: var(--Grayscale-70);
     font-weight: bold;
+    line-height: var(--Spacer-3);
 }
 
 .timeline-card{
     width: calc(100% - var(--Spacer-10));
     height: 100%;
-    background: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
+    background: linear-gradient(325deg, rgba(169, 169, 169, 0.1) 0%, rgb(169 169 169 / 40%) 100%);
     backdrop-filter: blur(15px);
     box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);
     padding: var(--Spacer-3);
+}
+
+.timeline-card.company-project{
+    background: linear-gradient(325deg, rgb(92 212 255 / 15%) 0%, rgb(92 212 255 / 30%) 100%);
+}
+
+.timeline-card.personal-project {
+    background: linear-gradient(325deg, rgb(1224 160 237 / 10%) 0%, rgb(224 160 237 / 40%) 100%);
 }
 
 .timeline-card h3{
@@ -119,6 +128,11 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 .timeline-card span{
     font-size: var(--Spacer-2);
     line-height: var(--Spacer-4);
+}
+
+.timeline-card span hr {
+    border-style: dashed;
+    border-color: var(--Grayscale-50);
 }
 
 .timeline-card * {

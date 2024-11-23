@@ -16,6 +16,11 @@ html, body {
   flex-direction: column;
 }
 
+hr {
+  border-style: dashed;
+  border-color: var(--Grayscale-50);
+}
+
 :root{
   /* Primary */
   --Primary-0 :   #FFFFFF;

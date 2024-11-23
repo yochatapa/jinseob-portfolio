@@ -63,7 +63,7 @@ export const store = createStore<State>({
     ko : {
         about : {
             nameCard : {
-                introduction: "<strong>프런트엔드</strong>부터 <strong>백엔드</strong>까지,<br>개발의 전체 스펙트럼을 탐구하는 개발자.",
+                introduction: "<strong>프런트엔드</strong>부터 <strong>Back-end</strong>까지,<br>개발의 전체 스펙트럼을 탐구하는 개발자.",
                 introductionHtml : true,
                 imagePath   :  userImage,
             },
@@ -166,27 +166,60 @@ export const store = createStore<State>({
                     eventName : "동국대학교 졸업",
                     eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
                 },
-                {
-                    date : "2022.03",
-                    eventName : "가스안전공사 ERP 개발",
+                {   
+                    type : "company-project",
+                    date : "2023.12 ~ 2024.06",
+                    eventName : "직페이 안전결제 개발",
                     eventDetail : `
-                        차세대 프로젝트 안전관리, 진단인증, 유해화학 파트 개발<br>(2021.03 ~ 2022.02)`,
+                        대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
+                        팀장 / 안전결제 파트, 공통 파트 개발, <대금 지급 프로세스> 등 핵심 프로세스 재설계`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "company-project",
+                    date : "2023.03 ~ 2023.11",
+                    eventName : "전주시 의료,돌봄 통합지원 시스템 개발",
+                    eventDetail : `
+                        전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
+                        팀장 / <지원 대상자 선별 프로세스> 등 핵심 프로세스 설계 및 개발`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "personal-project",
+                    date : "2023.03 ~ 2023.06",
+                    eventName : "캡스톤 디자인",
+                    eventDetail : `
+                        AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
+                        팀장 / 웹페이지 전체 개발`,
                     evnentDetailHtml : true
                 },
                 {
-                    date : "2020.10",
-                    eventName : "KITRI BtoB 플랫폼",
+                    type : "company-project",
+                    date : "2022.03 ~ 2023.02",
+                    eventName : "한국가스안전공사 ERP 개발",
                     eventDetail : `
-                        서비스 개발 담당<br>(2020.10 ~ 2021.02)`,
+                        한국가스안전공사 차세대 정보시스템 구축 프로젝트<br><hr/>
+                        안전관리 파트 개발, 진단인증, 유해화학 파트 담당
+                        `,
                     evnentDetailHtml : true
                 },
                 {
-                    date : "2020.07",
+                    type : "company-project",
+                    date : "2021.10 ~ 2022.02",
+                    eventName : "KITRI BtoB 플랫폼 개발",
+                    eventDetail : `
+                        KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
+                        KITRI BtoB 지원업무 프로세스 개발`,
+                    evnentDetailHtml : true
+                },
+                {
+                    date : "2021.07",
                     eventName : "전역",
-                    eventDetail : `대한민국 육군 병장 만기 전역 (제6보병사단)`
+                    eventDetail : `대한민국 육군 병장 만기 전역<br>(제6보병사단)`,
+                    evnentDetailHtml : true
                 },
                 {
-                    date : "2017.01",
+                    date : "2017.03",
                     eventName : "동국대학교 입학",
                     eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
                 }
