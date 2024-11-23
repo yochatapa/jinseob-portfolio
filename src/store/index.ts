@@ -168,11 +168,54 @@ export const store = createStore<State>({
                 },
                 {   
                     type : "company-project",
+                    date : "2024.08",
+                    eventName : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
+                    eventDetail : `
+                        핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
+                        Front-end 개발 담당`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "company-project",
+                    date : "2024.07 ~ 2024.08",
+                    eventName : "롯데마트 전자저널 구축",
+                    eventDetail : `
+                        롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트<br><hr/>
+                        Front-end 개발 담당, 교육 담당`,
+                    evnentDetailHtml : true
+                },
+                {
+                    date : "2024.02",
+                    eventName : "동국대학교 수료",
+                    eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`
+                },
+                {   
+                    type : "personal-project",
+                    date : "2024.01 ~",
+                    eventName : "데이터 테이블 컴포넌트 개발",
+                    eventDetail : `
+                        "대용량 데이터 처리" 등 다양한 기능이 들어간 데이터 테이블 컴포넌트를 제작하는 프로젝트<br><hr>
+                        1인 프로젝트
+                    `,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "company-project",
                     date : "2023.12 ~ 2024.06",
                     eventName : "직페이 안전결제 개발",
                     eventDetail : `
                         대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
-                        팀장 / 안전결제 파트, 공통 파트 개발, <대금 지급 프로세스> 등 핵심 프로세스 재설계`,
+                        팀장 / 안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "personal-project",
+                    date : "2023.06",
+                    eventName : "트리 컴포넌트 개발",
+                    eventDetail : `
+                        "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
+                        1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
+                    `,
                     evnentDetailHtml : true
                 },
                 {   
@@ -181,7 +224,7 @@ export const store = createStore<State>({
                     eventName : "전주시 의료,돌봄 통합지원 시스템 개발",
                     eventDetail : `
                         전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
-                        팀장 / <지원 대상자 선별 프로세스> 등 핵심 프로세스 설계 및 개발`,
+                        팀장 / "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`,
                     evnentDetailHtml : true
                 },
                 {   
@@ -190,7 +233,7 @@ export const store = createStore<State>({
                     eventName : "캡스톤 디자인",
                     eventDetail : `
                         AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
-                        팀장 / 웹페이지 전체 개발`,
+                        팀장 (4인 프로젝트) / 웹페이지 전체 개발`,
                     evnentDetailHtml : true
                 },
                 {
@@ -209,13 +252,14 @@ export const store = createStore<State>({
                     eventName : "KITRI BtoB 플랫폼 개발",
                     eventDetail : `
                         KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
-                        KITRI BtoB 지원업무 프로세스 개발`,
+                        "KITRI BtoB 지원업무 프로세스" 개발`,
                     evnentDetailHtml : true
                 },
                 {
                     date : "2021.07",
                     eventName : "전역",
-                    eventDetail : `대한민국 육군 병장 만기 전역<br>(제6보병사단)`,
+                    eventDetail : `대한민국 육군 병장 만기 전역<br>
+                    (제6보병사단)`,
                     evnentDetailHtml : true
                 },
                 {
