@@ -14,23 +14,32 @@ interface State {
     system : {
         lang : "ko" | "en"
     },
-    ko : About,
-    en : About
+    ko : {
+        about : About,
+        timeline : Timeline
+    },
+    en : {
+        about : About,
+        timeline : Timeline
+    }
 }
 
 interface About {
-    about : {
-        nameCard : {
-            introduction : string,
-            introductionHtml?: boolean | undefined,
-            imagePath : string | undefined,
-        },
-        experience : InterfaceBasic1X1,
-        school : InterfaceBasic1X1,
-        personality : InterfaceBasic1X1
-        devPhilosophy : InterfaceBasic1X1
-        selfIntroduction : InterfaceBasic1X1
-    };
+    nameCard : {
+        introduction : string,
+        introductionHtml?: boolean | undefined,
+        imagePath : string | undefined,
+    },
+    experience : InterfaceBasic1X1,
+    school : InterfaceBasic1X1,
+    personality : InterfaceBasic1X1
+    devPhilosophy : InterfaceBasic1X1
+    selfIntroduction : InterfaceBasic1X1
+}
+
+interface Timeline {
+    data : Array<Object>,
+
 }
 
 interface InterfaceBasic1X1 {
@@ -96,6 +105,11 @@ export const store = createStore<State>({
                 subTextHtml : true
             }
         },
+        timeline : {
+            data : [
+                
+            ]
+        }
     },
     en : {
         about : {
@@ -145,6 +159,20 @@ export const store = createStore<State>({
                 subTextHtml : true
             }
         },
+        timeline : {
+            data : [
+                {
+                    date : "2025.02",
+                    eventName : "동국대학교 졸업",
+                    eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
+                },
+                {
+                    date : "2017.01",
+                    eventName : "동국대학교 입학",
+                    eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
+                }
+            ]
+        }
     }
   },
   mutations: {
