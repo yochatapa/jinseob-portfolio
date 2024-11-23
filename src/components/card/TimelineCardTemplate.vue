@@ -105,20 +105,20 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 .timeline-card{
     width: calc(100% - var(--Spacer-10));
     height: 100%;
-    background: linear-gradient(325deg, rgba(169, 169, 169, 0.1) 0%, rgb(169 169 169 / 40%) 100%);
+    background: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
     backdrop-filter: blur(15px);
     box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);
     padding: var(--Spacer-3);
 }
 
-.timeline-card.company-project{
+/* .timeline-card.company-project{
     background: linear-gradient(325deg, rgb(92 212 255 / 15%) 0%, rgb(92 212 255 / 30%) 100%);
 }
 
 .timeline-card.personal-project {
     background: linear-gradient(325deg, rgb(1224 160 237 / 10%) 0%, rgb(224 160 237 / 40%) 100%);
-}
+} */
 
 .timeline-card h3{
     margin-top: 0;
