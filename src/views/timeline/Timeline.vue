@@ -11,7 +11,7 @@ const GRID_LAYOUT_INFO = {
         column : "var(--Spacer-3)"
     },
     row : {
-        height : "var(--Spacer-20)"
+        height : "auto"
     },
     cell : {
         width : "var(--Spacer-50)"
@@ -23,7 +23,7 @@ const GRID_LAYOUT_INFO = {
 <template>
     <GridLayout :grid-info="GRID_LAYOUT_INFO">
         <template v-slot:default="gridInfo">
-            <TimelineCardTemplate v-for="(cell,index) in store.state[store.state.system.lang].timeline.data.length" :gridInfo="gridInfo" :default-length="3"></TimelineCardTemplate>
+            <TimelineCardTemplate v-for="(cell,index) in store.state[store.state.system.lang].timeline.data.length" :index="index" :gridInfo="gridInfo" :default-length="3"></TimelineCardTemplate>
         </template>
     </GridLayout>
 </template>

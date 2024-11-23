@@ -167,6 +167,25 @@ export const store = createStore<State>({
                     eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
                 },
                 {
+                    date : "2022.03",
+                    eventName : "가스안전공사 ERP 개발",
+                    eventDetail : `
+                        차세대 프로젝트 안전관리, 진단인증, 유해화학 파트 개발<br>(2021.03 ~ 2022.02)`,
+                    evnentDetailHtml : true
+                },
+                {
+                    date : "2020.10",
+                    eventName : "KITRI BtoB 플랫폼",
+                    eventDetail : `
+                        서비스 개발 담당<br>(2020.10 ~ 2021.02)`,
+                    evnentDetailHtml : true
+                },
+                {
+                    date : "2020.07",
+                    eventName : "전역",
+                    eventDetail : `대한민국 육군 병장 만기 전역 (제6보병사단)`
+                },
+                {
                     date : "2017.01",
                     eventName : "동국대학교 입학",
                     eventDetail : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
