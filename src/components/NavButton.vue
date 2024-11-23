@@ -72,6 +72,10 @@ const changeLang = function(){
     border-radius: var(--Spacer-2);
 }
 
+.nav-button-wrapper:hover{
+    cursor: pointer;
+}
+
 .nav-button{
     color: var(--Grayscale-60);
 }
