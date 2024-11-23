@@ -112,11 +112,15 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     padding: var(--Spacer-3);
 }
 
-/* .timeline-card.company-project{
-    background: linear-gradient(325deg, rgb(92 212 255 / 15%) 0%, rgb(92 212 255 / 30%) 100%);
+.timeline-card.company-project h3{
+    color: var(--Blue-70);
 }
 
-.timeline-card.personal-project {
+.timeline-card.personal-project h3{
+    color: var(--Funchsia-70);
+}
+
+/*.timeline-card.personal-project {
     background: linear-gradient(325deg, rgb(1224 160 237 / 10%) 0%, rgb(224 160 237 / 40%) 100%);
 } */
 
