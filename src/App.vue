@@ -28,7 +28,7 @@ onUnmounted(() => {
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
         <nav>
             <RouterLink to="/">About</RouterLink>
-            <RouterLink to="/career">Career</RouterLink>
+            <RouterLink to="/timeline">Timeline</RouterLink>
             <RouterLink to="/projects">Projects</RouterLink>
             <RouterLink to="/skills">Skills</RouterLink>
             <RouterLink to="/contact">Contact</RouterLink>
