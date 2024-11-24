@@ -192,9 +192,9 @@ export const store = createStore<State>({
                 {   
                     type : "personal-project",
                     date : "2024.01 ~",
-                    eventName : "데이터 테이블 컴포넌트 개발",
+                    eventName : "그리드 컴포넌트 개발",
                     eventDetail : `
-                        "대용량 데이터 처리" 등 다양한 기능이 들어간 데이터 테이블 컴포넌트를 제작하는 프로젝트<br><hr>
+                        "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
                         1인 프로젝트
                     `,
                     evnentDetailHtml : true
@@ -260,6 +260,24 @@ export const store = createStore<State>({
                     eventName : "전역",
                     eventDetail : `대한민국 육군 병장 만기 전역<br>
                     (제6보병사단)`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "personal-project",
+                    date : "2019.03 ~ 2019.06",
+                    eventName : "Mini Operating System 구현",
+                    eventDetail : `
+                        리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
+                        팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`,
+                    evnentDetailHtml : true
+                },
+                {   
+                    type : "personal-project",
+                    date : "2017.09 ~ 2017.12",
+                    eventName : "텍스트 에디터 구현",
+                    eventDetail : `
+                        자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
+                        1인 프로젝트`,
                     evnentDetailHtml : true
                 },
                 {
