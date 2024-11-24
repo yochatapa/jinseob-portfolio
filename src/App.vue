@@ -121,13 +121,13 @@ nav a:first-of-type {
     left: 0;
     width: 100vw;
     height: 100vh;
-    filter: blur(80px);
     background: linear-gradient(325deg, var(--Blue-Purple-20) 0%, var(--Sky-Blue-20) 100%);
 }
 
 .circle {
     position: absolute;
     border-radius: 50%;
+    filter: blur(100px);
 }
 
 .circle-1 {
@@ -145,6 +145,6 @@ nav a:first-of-type {
     bottom: calc(-50% );
     right: calc(-50%);
     /*animation: moveCircleReverse 15s linear infinite, backgroundColorChange60 20s infinite alternate;*/
-    background-color: var(--Purple-20);
+    background-color: var(--Blue-Purple-20);
 }
 </style>
