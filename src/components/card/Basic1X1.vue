@@ -54,7 +54,7 @@ const imagePath = new URL(`${cardData.value.imagePath}`, import.meta.url).href;
 .basic-1X1 .sub-text{
     margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
-    color: var(--Grayscale-60);
+    color: var(--Grayscale-40);
 }
 
 .basic-1X1 .image-box {

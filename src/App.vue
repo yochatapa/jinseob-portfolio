@@ -57,13 +57,13 @@ header {
     top: 0;
 }
 
-header.change{
+/* header.change{
     background: linear-gradient(180deg, #90c8ff 0%, #90c8ff9e 70%, rgba(255, 255, 255, 0) 100%);
 }
 
 header.change nav a{
     color: var(--Grayscale-0);
-}
+} */
 
 main {
     z-index: 1;
@@ -86,17 +86,9 @@ nav {
 }
 
 nav a.router-link-exact-active {
-    color: var(--Grayscale-80) !important;
+    color: var(--Grayscale-0) !important;
     font-size: 1rem;
     font-weight: bold;
-}
-
-nav a.router-link-exact-active:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--Grayscale-80);
 }
 
 nav a.router-link-exact-active:hover {
@@ -106,9 +98,29 @@ nav a.router-link-exact-active:hover {
 nav a {
     display: inline-block;
     padding: 0 var(--Spacer-2);
-    color: var(--Grayscale-50);
+    color: var(--Grayscale-40);
     font-size: var(--Spacer-2);
     text-decoration-line: none;
+    position: relative;
+    text-align: center;
+}
+
+nav a.router-link-exact-active::before {
+    background: linear-gradient(325deg, rgb(255 255 255 / 0.3), rgba(255, 255, 255, 0.4), rgb(255 255 255 / 0.3));
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--Spacer-1)* -1);
+    left: var(--Spacer-1);
+    width: calc(100% - var(--Spacer-2));
+    height: calc(100% + var(--Spacer-2));
+    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.1), rgb(255 255 255 / 0.2));
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
+    border-radius: var(--Spacer-3);
+    z-index: -1;
 }
 
 nav a:first-of-type {
@@ -121,7 +133,9 @@ nav a:first-of-type {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(325deg, var(--Blue-Purple-20) 0%, var(--Sky-Blue-20) 100%);
+    background: url(/src/assets/waves-macos-big-sur-colorful.png) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .circle {
@@ -130,12 +144,11 @@ nav a:first-of-type {
     filter: blur(100px);
 }
 
-.circle-1 {
+/* .circle-1 {
     width: max(80vw,80vh);
     height: max(80vw,80vh);
     top: calc(-50% );
     left: calc(-50%);
-    /*animation: moveCircle 20s linear infinite, backgroundColorChange40 20s infinite alternate;*/
     background-color: var(--Royal-Blue-20);
 }
 
@@ -144,7 +157,6 @@ nav a:first-of-type {
     height: max(70vw,70vh);
     bottom: calc(-50% );
     right: calc(-50%);
-    /*animation: moveCircleReverse 15s linear infinite, backgroundColorChange60 20s infinite alternate;*/
     background-color: var(--Blue-Purple-20);
-}
+} */
 </style>

@@ -67,7 +67,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     top: var(--Spacer-3);
     left: 0;
     border-radius: 50%;
-    background: linear-gradient(325deg, var(--Blue-40) 0%, var(--Sky-Blue-40) 100%);
+    background: linear-gradient(125deg, var(--Sky-Blue-10) 0%, var(--Sky-Blue-30) 100%);
     box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
     z-index: 1;
 }
@@ -97,7 +97,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     top: var(--Spacer-2);
     left: var(--Spacer-3);
     font-size: var(--Spacer-2);
-    color: var(--Grayscale-70);
+    color: var(--Grayscale-30);
     font-weight: bold;
     line-height: var(--Spacer-3);
 }
@@ -105,19 +105,20 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 .timeline-card{
     width: calc(100% - var(--Spacer-10));
     height: 100%;
-    background: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
+    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.1) , rgb(255 255 255 / 0.2) );
     backdrop-filter: blur(15px);
-    box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
+    box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: var(--Spacer-3);
 }
 
 .timeline-card.company-project h3{
-    color: var(--Blue-70);
+    color: var(--Lime-Green-50);
 }
 
 .timeline-card.personal-project h3{
-    color: var(--Funchsia-70);
+    color: var(--Yellow-50);
 }
 
 /*.timeline-card.personal-project {
@@ -140,6 +141,6 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 }
 
 .timeline-card * {
-    color: var(--Grayscale-100);
+    color: var(--Grayscale-10);
 }
 </style>
