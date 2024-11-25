@@ -28,7 +28,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 </script>
 
 <template>
-    <div class="timeline-card-template"
+    <div :class="['timeline-card-template',cardData.type]"
         :style="{
             gridRow : `auto / span ${rowspan}`,
             gridColumn : `auto / span ${colspan}`
@@ -41,7 +41,7 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
                 <label class="date">{{ cardData.date }}</label>
             </div>
         </div> 
-        <div :class="['timeline-card',cardData.type]">
+        <div class='timeline-card'>
             <h3>{{ cardData.eventName }}</h3>
             <span v-if="cardData.eventDetailHtml">{{ cardData.eventDetail }}</span>
             <span v-else v-html="cardData.eventDetail"></span>
@@ -53,6 +53,12 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
 <style scoped>
 .timeline-card-template{
     display: flex;
+
+    --company-basic-color : var(--Gold-40);
+    --company-sub-color : var(--Gold-20);
+
+    --personal-basic-color : var(--Teal-40);
+    --personal-sub-color : var(--Teal-20);
 }
 
 .timeline-line{
@@ -67,10 +73,19 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     top: var(--Spacer-3);
     left: 0;
     border-radius: 50%;
-    background: linear-gradient(125deg, var(--Sky-Blue-10) 0%, var(--Sky-Blue-30) 100%);
+    background: linear-gradient(125deg, var(--Grayscale-10) 0%, var(--Grayscale-30) 100%);
     box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
     z-index: 1;
 }
+
+.company-project .timeline-line>.dot{
+    background: linear-gradient(125deg, var(--company-sub-color) 0%, var(--company-basic-color) 100%);
+}
+
+.personal-project .timeline-line>.dot{
+    background: linear-gradient(125deg, var(--personal-sub-color) 0%, var(--personal-basic-color) 100%);
+}
+
 
 .timeline-line>.vertical-line{
     width: 3px;
@@ -90,6 +105,14 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     left: 0;
     background: rgb(255 255 255 / 40%);
     box-shadow: 0 4px 6px rgb(0 0 0 / 30%);
+}
+
+.company-project .timeline-line>.horizontal-line{
+    background: linear-gradient(125deg, var(--company-sub-color) 0%, var(--company-basic-color) 100%);
+}
+
+.personal-project .timeline-line>.horizontal-line{
+    background: linear-gradient(125deg, var(--personal-sub-color) 0%, var(--personal-basic-color) 100%);
 }
 
 .timeline-line>.horizontal-line>.date{
@@ -113,12 +136,20 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
     padding: var(--Spacer-3);
 }
 
-.timeline-card.company-project h3{
-    color: var(--Lime-Green-50);
+.company-project .timeline-card{
+    border-color: var(--company-basic-color);
 }
 
-.timeline-card.personal-project h3{
-    color: var(--Yellow-50);
+.personal-project .timeline-card{
+    border-color: var(--personal-basic-color);
+}
+
+.company-project h3{
+    color: var(--company-basic-color);
+}
+
+.personal-project h3{
+    color: var(--personal-basic-color);
 }
 
 /*.timeline-card.personal-project {
