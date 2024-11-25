@@ -1,5 +1,6 @@
 import { markRaw, type Component } from 'vue';
 import { createStore } from 'vuex';
+import modal from './modal';
 
 import NameCard from '@/components/card/NameCard.vue';
 import Basic1X1 from '@/components/card/Basic1X1.vue';
@@ -78,548 +79,551 @@ interface InterfaceBasic1X1 {
 }
 
 export const store = createStore<State>({
-  state: {
-    userInfo : {
-        koreanName  : "한진섭",
-        englishName : "Han Jinseob",
-        expDate : "2021.10"
-    },
-    system : {
-        lang : "en"
-    },
-    about : {
-        nameCard : {
-            introduction: {
-                ko : "<strong>프런트엔드</strong>부터 <strong>Back-end</strong>까지,<br>개발의 전체 스펙트럼을 탐구하는 개발자.",
-                en : "From <strong>front-end</strong> to <strong>back-end</strong>,<br>Developer exploring the full spectrum.",
-            },
-            introductionHtml : {
-                ko : true,
-                en : true
-            },
-            imagePath   :  userImage,
-            colspan : 1,
-            rowspan : 2,
-            template : markRaw(NameCard)
+    state: {
+        userInfo : {
+            koreanName  : "한진섭",
+            englishName : "Han Jinseob",
+            expDate : "2021.10"
         },
-        experience : {
-            mainText : {
-                ko : undefined,
-                en : undefined
-            },
-            subText : {
-                ko : "2021.10 부터 개발 중",
-                en : "Development career since 2021.10"
-            },
-            imagePath : experienceImage,
-            colspan : 1,
-            rowspan : 1,
-            template : markRaw(Basic1X1),
+        system : {
+            lang : "en"
         },
-        school : {
-            mainText : {
-                ko : "동국대학교",
-                en : "Dongguk University"
+        about : {
+            nameCard : {
+                introduction: {
+                    ko : "<strong>프런트엔드</strong>부터 <strong>Back-end</strong>까지,<br>개발의 전체 스펙트럼을 탐구하는 개발자.",
+                    en : "From <strong>front-end</strong> to <strong>back-end</strong>,<br>Developer exploring the full spectrum.",
+                },
+                introductionHtml : {
+                    ko : true,
+                    en : true
+                },
+                imagePath   :  userImage,
+                colspan : 1,
+                rowspan : 2,
+                template : markRaw(NameCard)
             },
-            subText : {
-                ko : "컴퓨터공학부 정보통신공학전공",
-                en : "Dept. of <strong>Computer Engineering</strong>"
+            experience : {
+                mainText : {
+                    ko : undefined,
+                    en : undefined
+                },
+                subText : {
+                    ko : "2021.10 부터 개발 중",
+                    en : "Development career since 2021.10"
+                },
+                imagePath : experienceImage,
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(Basic1X1),
             },
-            subTextHtml : {
-                ko : false,
-                en : true
+            school : {
+                mainText : {
+                    ko : "동국대학교",
+                    en : "Dongguk University"
+                },
+                subText : {
+                    ko : "컴퓨터공학부 정보통신공학전공",
+                    en : "Dept. of <strong>Computer Engineering</strong>"
+                },
+                subTextHtml : {
+                    ko : false,
+                    en : true
+                },
+                imagePath : schoolImage,
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(Basic1X1),
             },
-            imagePath : schoolImage,
-            colspan : 1,
-            rowspan : 1,
-            template : markRaw(Basic1X1),
+            personality : {
+                mainText : {
+                    ko : "문제 해결 능력",
+                    en : "Problem solver"
+                },
+                subText : {
+                    ko : "문제를 분석적으로 접근하여 효율적인 솔루션을 찾습니다.",
+                    en : "Approach challenges analytically to find efficient solutions."
+                },
+                imagePath : personalityImage,
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(Basic1X1),
+            },
+            devPhilosophy : {
+                mainText : {
+                    ko : "목적이 있는 코딩",
+                    en : "Problem solver"
+                },
+                subText : {
+                    ko : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
+                    en : "Always focused on delivering value through clear, maintainable code."
+                },
+                imagePath : devPhilosophyImage,
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(Basic1X1),
+            },
+            selfIntroduction : {
+                mainText : {
+                    ko : "자기 소개",
+                    en : "Self Introduction"
+                },
+                subText : {
+                    ko : `<label style="display: inline-block;text-align:start;line-height: var(--Spacer-5);">
+                        안녕하세요. <br>
+                        컴퓨터공학을 전공하고 3년 이상의 다양한 SI 개발 경력을 보유한 개발자 <strong>한진섭</strong>입니다.<br>
+                        저는 <strong>사용자 친화적</strong>이고 <strong>프로세스를 철저히 준수</strong>하고 정확한 프로그래밍을 통해 <strong>안정적</strong>이고 <strong>신뢰</strong>할 수 있는 결과물을 개발하는 데 집중하는 편이며, <strong>공통화</strong>와 <strong>표준화</strong>를 통해 <strong>효율성</strong>을 높이는 것에 강점을 가지고 있습니다. 
+                        세부 사항에 대한 <strong>꼼꼼함</strong>과 <strong>지속적인 학습에 대한 열정</strong>을 바탕으로 <strong>창의적인 문제 해결</strong>을 즐깁니다.<br>
+                        앞으로도 의미 있는 프로젝트에 기여하며 개발자로서 성장하는 것을 목표로 하고 있습니다. 감사합니다.
+                    </label>`,
+                    en : `<label style="display: inline-block; text-align: start; line-height: var(--Spacer-5);">
+                        Hello, <br>
+                        I am <strong>Jinseob Han</strong>, a developer with a major in computer engineering and over 3 years of diverse experience in SI development.<br>
+                        I focus on creating <strong>user-friendly</strong> and <strong>reliable</strong> solutions by adhering to <strong>rigorous processes</strong> and ensuring <strong>accurate programming</strong>. I excel at enhancing <strong>efficiency</strong> through <strong>standardization</strong> and <strong>unification</strong>. 
+                        I enjoy <strong>creative problem-solving</strong> and take pride in my <strong>attention to detail</strong> and <strong>passion for continuous learning</strong>.<br>
+                        My goal is to contribute to meaningful projects and continue growing as a developer. Thank you.
+                    </label>
+                    `
+                },
+                subTextHtml : {
+                    ko : true,
+                    en : true
+                },
+                colspan : 3,
+                rowspan : 1,
+                template : markRaw(Basic1X1),
+            }
         },
-        personality : {
-            mainText : {
-                ko : "문제 해결 능력",
-                en : "Problem solver"
-            },
-            subText : {
-                ko : "문제를 분석적으로 접근하여 효율적인 솔루션을 찾습니다.",
-                en : "Approach challenges analytically to find efficient solutions."
-            },
-            imagePath : personalityImage,
-            colspan : 1,
-            rowspan : 1,
-            template : markRaw(Basic1X1),
+        timeline : {
+            data : [
+                {
+                    date : "2025.02",
+                    eventName : {
+                        ko : "동국대학교 졸업",
+                        en : "",
+                    },
+                    eventDetail : {
+                        ko : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`,
+                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
+                    }
+                },
+                {   
+                    type : "company-project",
+                    date : "2024.08",
+                    eventName : {
+                        ko : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
+                        en : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
+                    },
+                    eventDetail : {
+                        ko : `
+                            핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
+                            Front-end 개발 담당`,
+                        en : `
+                            핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
+                            Front-end 개발 담당`,
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "company-project",
+                    date : "2024.07 ~ 2024.08",
+                    eventName : {
+                        ko : "롯데마트 전자저널 구축",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `
+                            롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트<br><hr/>
+                            Front-end 개발 담당, 교육 담당`,
+                        en : ``
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {
+                    date : "2024.02",
+                    eventName : {
+                        ko : "동국대학교 수료",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`,
+                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`
+                    }
+                },
+                {   
+                    type : "personal-project",
+                    date : "2024.01 ~",
+                    eventName : {
+                        ko : "그리드 컴포넌트 개발",
+                        en : "그리드 컴포넌트 개발"
+                    },
+                    eventDetail : {
+                        ko : `
+                            "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
+                            1인 프로젝트
+                        `,
+                        en : `
+                            "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
+                            1인 프로젝트
+                        `
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "company-project",
+                    date : "2023.12 ~ 2024.06",
+                    eventName : {
+                        ko : "직페이 안전결제 개발",
+                        en : "직페이 안전결제 개발"
+                    },
+                    eventDetail : {
+                        ko : `
+                            대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
+                            안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`,
+                        en : `
+                            대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
+                            안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "personal-project",
+                    date : "2023.06",
+                    eventName : {
+                        ko : "트리 컴포넌트 개발",
+                        en : "트리 컴포넌트 개발"
+                    },
+                    eventDetail : {
+                        ko : `
+                            "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
+                            1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
+                        `,
+                        en : `
+                            "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
+                            1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
+                        `
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "company-project",
+                    date : "2023.03 ~ 2023.11",
+                    eventName : {
+                        ko : "전주시 의료,돌봄 통합지원 시스템 개발",
+                        en : "전주시 의료,돌봄 통합지원 시스템 개발"
+                    },
+                    eventDetail : {
+                        ko : `
+                            전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
+                            "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`,
+                        en : `
+                            전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
+                            "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "personal-project",
+                    date : "2023.03 ~ 2023.06",
+                    eventName : {
+                        ko : "캡스톤 디자인",
+                        en : "캡스톤 디자인"
+                    },
+                    eventDetail : {
+                        ko : `
+                            AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
+                            팀장 (4인 프로젝트) / 웹페이지 전체 개발`,
+                        en : `
+                            AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
+                            팀장 (4인 프로젝트) / 웹페이지 전체 개발`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {
+                    type : "company-project",
+                    date : "2022.03 ~ 2023.02",
+                    eventName : {
+                        ko : "한국가스안전공사 차세대 ERP 개발",
+                        en : "한국가스안전공사 차세대 ERP 개발"
+                    },
+                    eventDetail : {
+                        ko : `
+                        한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
+                        안전관리 파트 개발, 진단인증, 유해화학 파트 담당
+                        `,
+                        en : `
+                        한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
+                        안전관리 파트 개발, 진단인증, 유해화학 파트 담당
+                        `
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {
+                    type : "company-project",
+                    date : "2021.10 ~ 2022.02",
+                    eventName : {
+                        ko : "KITRI BtoB 플랫폼 개발",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `
+                        KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
+                        "KITRI BtoB 지원업무 프로세스" 개발`,
+                        en : `
+                        KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
+                        "KITRI BtoB 지원업무 프로세스" 개발`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {
+                    date : "2021.07",
+                    eventName : {
+                        ko : "전역",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `대한민국 육군 병장 만기 전역<br>
+                            (제6보병사단)`,
+                        en : `대한민국 육군 병장 만기 전역<br>
+                            (제6보병사단)`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "personal-project",
+                    date : "2019.03 ~ 2019.06",
+                    eventName : {
+                        ko : "Mini Operating System 구현",
+                        en : "Mini Operating System 구현"
+                    },
+                    eventDetail : {
+                        ko : `
+                        리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
+                        팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`,
+                        en : `
+                        리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
+                        팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {   
+                    type : "personal-project",
+                    date : "2017.09 ~ 2017.12",
+                    eventName : {
+                        ko : "텍스트 에디터 구현",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `
+                        자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
+                        1인 프로젝트`,
+                        en : `
+                        자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
+                        1인 프로젝트`
+                    },
+                    evnentDetailHtml : {
+                        ko : true,
+                        en : true
+                    }
+                },
+                {
+                    date : "2017.03",
+                    eventName : {
+                        ko : "동국대학교 입학",
+                        en : ""
+                    },
+                    eventDetail : {
+                        ko : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`,
+                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
+                    }
+                }
+            ]
         },
-        devPhilosophy : {
-            mainText : {
-                ko : "목적이 있는 코딩",
-                en : "Problem solver"
-            },
-            subText : {
-                ko : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
-                en : "Always focused on delivering value through clear, maintainable code."
-            },
-            imagePath : devPhilosophyImage,
-            colspan : 1,
-            rowspan : 1,
-            template : markRaw(Basic1X1),
-        },
-        selfIntroduction : {
-            mainText : {
-                ko : "자기 소개",
-                en : "Self Introduction"
-            },
-            subText : {
-                ko : `<label style="display: inline-block;text-align:start;line-height: var(--Spacer-5);">
-                    안녕하세요. <br>
-                    컴퓨터공학을 전공하고 3년 이상의 다양한 SI 개발 경력을 보유한 개발자 <strong>한진섭</strong>입니다.<br>
-                    저는 <strong>사용자 친화적</strong>이고 <strong>프로세스를 철저히 준수</strong>하고 정확한 프로그래밍을 통해 <strong>안정적</strong>이고 <strong>신뢰</strong>할 수 있는 결과물을 개발하는 데 집중하는 편이며, <strong>공통화</strong>와 <strong>표준화</strong>를 통해 <strong>효율성</strong>을 높이는 것에 강점을 가지고 있습니다. 
-                    세부 사항에 대한 <strong>꼼꼼함</strong>과 <strong>지속적인 학습에 대한 열정</strong>을 바탕으로 <strong>창의적인 문제 해결</strong>을 즐깁니다.<br>
-                    앞으로도 의미 있는 프로젝트에 기여하며 개발자로서 성장하는 것을 목표로 하고 있습니다. 감사합니다.
-                </label>`,
-                en : `<label style="display: inline-block; text-align: start; line-height: var(--Spacer-5);">
-                    Hello, <br>
-                    I am <strong>Jinseob Han</strong>, a developer with a major in computer engineering and over 3 years of diverse experience in SI development.<br>
-                    I focus on creating <strong>user-friendly</strong> and <strong>reliable</strong> solutions by adhering to <strong>rigorous processes</strong> and ensuring <strong>accurate programming</strong>. I excel at enhancing <strong>efficiency</strong> through <strong>standardization</strong> and <strong>unification</strong>. 
-                    I enjoy <strong>creative problem-solving</strong> and take pride in my <strong>attention to detail</strong> and <strong>passion for continuous learning</strong>.<br>
-                    My goal is to contribute to meaningful projects and continue growing as a developer. Thank you.
-                </label>
-                `
-            },
-            subTextHtml : {
-                ko : true,
-                en : true
-            },
-            colspan : 3,
-            rowspan : 1,
-            template : markRaw(Basic1X1),
+        projects : {
+            data : [
+                {
+                    mainText : {
+                        ko : "한국가스안전공사 차세대 정보시스템",
+                        en : "KGS Next-Generation Information System",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : gasLogo,
+                },
+                {
+                    mainText : {
+                        ko : "전주시 의료,돌봄 통합지원 시스템",
+                        en : "Integrated Medical&Care Support System",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : jeonjuLogo
+                },
+                {
+                    mainText : {
+                        ko : "직페이 안전결제",
+                        en : "ZIKPAY",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : zikpayLogo
+                },
+                {
+                    mainText :{
+                        ko : "롯데마트 전자저널",
+                        en : "Lotte Mart Electronic Journal",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : lotteMartLogo
+                },
+                {
+                    mainText : {
+                        ko : "KITRI BtoB 플랫폼",
+                        en : "KITRI BtoB Platform",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : kitriLogo
+                },
+                {
+                    mainText : {
+                        ko : "디지털 경제금융연구원 홈페이지",
+                        en : "DEFI Hompage",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : defiLogo
+                },
+                {
+                    mainText : {
+                        ko : "트리 컴포넌트",
+                        en : "Tree Component",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : treeComponent
+                },
+                {
+                    mainText : {
+                        ko : "그리드 컴포넌트",
+                        en : "Grid Component",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : gridComponent
+                },
+                {
+                    mainText : {
+                        ko : "캡스톤 디자인",
+                        en : "Capstone Design",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : novaiLogo
+                },
+                {
+                    mainText : {
+                        ko : "미니 OS 시스템",
+                        en : "Mini OS System",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : miniLinux
+                },
+                {
+                    mainText : {
+                        ko : "텍스트 에디터",
+                        en : "Text Editor",
+                    },
+                    type : "personal-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : textEditor
+                }
+            ]
         }
     },
-    timeline : {
-        data : [
-            {
-                date : "2025.02",
-                eventName : {
-                    ko : "동국대학교 졸업",
-                    en : "",
-                },
-                eventDetail : {
-                    ko : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`,
-                    en : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
-                }
-            },
-            {   
-                type : "company-project",
-                date : "2024.08",
-                eventName : {
-                    ko : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
-                    en : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
-                },
-                eventDetail : {
-                    ko : `
-                        핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
-                        Front-end 개발 담당`,
-                    en : `
-                        핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
-                        Front-end 개발 담당`,
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "company-project",
-                date : "2024.07 ~ 2024.08",
-                eventName : {
-                    ko : "롯데마트 전자저널 구축",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `
-                        롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트<br><hr/>
-                        Front-end 개발 담당, 교육 담당`,
-                    en : ``
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {
-                date : "2024.02",
-                eventName : {
-                    ko : "동국대학교 수료",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`,
-                    en : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`
-                }
-            },
-            {   
-                type : "personal-project",
-                date : "2024.01 ~",
-                eventName : {
-                    ko : "그리드 컴포넌트 개발",
-                    en : "그리드 컴포넌트 개발"
-                },
-                eventDetail : {
-                    ko : `
-                        "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
-                        1인 프로젝트
-                    `,
-                    en : `
-                        "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
-                        1인 프로젝트
-                    `
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "company-project",
-                date : "2023.12 ~ 2024.06",
-                eventName : {
-                    ko : "직페이 안전결제 개발",
-                    en : "직페이 안전결제 개발"
-                },
-                eventDetail : {
-                    ko : `
-                        대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
-                        안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`,
-                    en : `
-                        대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
-                        안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "personal-project",
-                date : "2023.06",
-                eventName : {
-                    ko : "트리 컴포넌트 개발",
-                    en : "트리 컴포넌트 개발"
-                },
-                eventDetail : {
-                    ko : `
-                        "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
-                        1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
-                    `,
-                    en : `
-                        "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
-                        1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
-                    `
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "company-project",
-                date : "2023.03 ~ 2023.11",
-                eventName : {
-                    ko : "전주시 의료,돌봄 통합지원 시스템 개발",
-                    en : "전주시 의료,돌봄 통합지원 시스템 개발"
-                },
-                eventDetail : {
-                    ko : `
-                        전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
-                        "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`,
-                    en : `
-                        전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
-                        "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "personal-project",
-                date : "2023.03 ~ 2023.06",
-                eventName : {
-                    ko : "캡스톤 디자인",
-                    en : "캡스톤 디자인"
-                },
-                eventDetail : {
-                    ko : `
-                        AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
-                        팀장 (4인 프로젝트) / 웹페이지 전체 개발`,
-                    en : `
-                        AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
-                        팀장 (4인 프로젝트) / 웹페이지 전체 개발`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {
-                type : "company-project",
-                date : "2022.03 ~ 2023.02",
-                eventName : {
-                    ko : "한국가스안전공사 차세대 ERP 개발",
-                    en : "한국가스안전공사 차세대 ERP 개발"
-                },
-                eventDetail : {
-                    ko : `
-                    한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
-                    안전관리 파트 개발, 진단인증, 유해화학 파트 담당
-                    `,
-                    en : `
-                    한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
-                    안전관리 파트 개발, 진단인증, 유해화학 파트 담당
-                    `
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {
-                type : "company-project",
-                date : "2021.10 ~ 2022.02",
-                eventName : {
-                    ko : "KITRI BtoB 플랫폼 개발",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `
-                    KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
-                    "KITRI BtoB 지원업무 프로세스" 개발`,
-                    en : `
-                    KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
-                    "KITRI BtoB 지원업무 프로세스" 개발`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {
-                date : "2021.07",
-                eventName : {
-                    ko : "전역",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `대한민국 육군 병장 만기 전역<br>
-                        (제6보병사단)`,
-                    en : `대한민국 육군 병장 만기 전역<br>
-                        (제6보병사단)`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "personal-project",
-                date : "2019.03 ~ 2019.06",
-                eventName : {
-                    ko : "Mini Operating System 구현",
-                    en : "Mini Operating System 구현"
-                },
-                eventDetail : {
-                    ko : `
-                    리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
-                    팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`,
-                    en : `
-                    리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
-                    팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {   
-                type : "personal-project",
-                date : "2017.09 ~ 2017.12",
-                eventName : {
-                    ko : "텍스트 에디터 구현",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `
-                    자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
-                    1인 프로젝트`,
-                    en : `
-                    자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
-                    1인 프로젝트`
-                },
-                evnentDetailHtml : {
-                    ko : true,
-                    en : true
-                }
-            },
-            {
-                date : "2017.03",
-                eventName : {
-                    ko : "동국대학교 입학",
-                    en : ""
-                },
-                eventDetail : {
-                    ko : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`,
-                    en : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
-                }
+    mutations: {
+        setExperience(state, monthAge ) {
+            if(state.about.experience.mainText && typeof state.about.experience.mainText !== "string"){
+                state.about.experience.mainText.en = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
+                state.about.experience.mainText.ko = `${monthAge.age} 년  ${monthAge.month} 개월`;
             }
-        ]
-    },
-    projects : {
-        data : [
-            {
-                mainText : {
-                    ko : "한국가스안전공사 차세대 정보시스템",
-                    en : "KGS Next-Generation Information System",
-                },
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : gasLogo,
-            },
-            {
-                mainText : {
-                    ko : "전주시 의료,돌봄 통합지원 시스템",
-                    en : "Integrated Medical&Care Support System",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : jeonjuLogo
-            },
-            {
-                mainText : {
-                    ko : "직페이 안전결제",
-                    en : "ZIKPAY",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : zikpayLogo
-            },
-            {
-                mainText :{
-                    ko : "롯데마트 전자저널",
-                    en : "Lotte Mart Electronic Journal",
-                },
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : lotteMartLogo
-            },
-            {
-                mainText : {
-                    ko : "KITRI BtoB 플랫폼",
-                    en : "KITRI BtoB Platform",
-                },
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : kitriLogo
-            },
-            {
-                mainText : {
-                    ko : "디지털 경제금융연구원 홈페이지",
-                    en : "DEFI Hompage",
-                },
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : defiLogo
-            },
-            {
-                mainText : {
-                    ko : "트리 컴포넌트",
-                    en : "Tree Component",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : treeComponent
-            },
-            {
-                mainText : {
-                    ko : "그리드 컴포넌트",
-                    en : "Grid Component",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : gridComponent
-            },
-            {
-                mainText : {
-                    ko : "캡스톤 디자인",
-                    en : "Capstone Design",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : novaiLogo
-            },
-            {
-                mainText : {
-                    ko : "미니 OS 시스템",
-                    en : "Mini OS System",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : miniLinux
-            },
-            {
-                mainText : {
-                    ko : "텍스트 에디터",
-                    en : "Text Editor",
-                },
-                type : "personal-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-                imagePath : textEditor
-            }
-        ]
-    }
-  },
-  mutations: {
-    setExperience(state, monthAge ) {
-        if(state.about.experience.mainText && typeof state.about.experience.mainText !== "string"){
-            state.about.experience.mainText.en = `${monthAge.age} year${monthAge.age!==1?"s":""}  ${monthAge.month} month${monthAge.month!==1?"s":""}`;
-            state.about.experience.mainText.ko = `${monthAge.age} 년  ${monthAge.month} 개월`;
+        },
+        setLang(state, newLang){
+            store.state.system.lang = newLang;
         }
     },
-    setLang(state, newLang){
-        store.state.system.lang = newLang;
-    }
-  },
-  actions: {
-    calculateAgeFromBirthDate({ commit, state }) {
-        const monthAge = calculateAge(state.userInfo.expDate);  // 생년월일로 나이 계산
-        commit('setExperience', monthAge);  // 계산된 나이를 state에 저장
+    actions: {
+        calculateAgeFromBirthDate({ commit, state }) {
+            const monthAge = calculateAge(state.userInfo.expDate);  // 생년월일로 나이 계산
+            commit('setExperience', monthAge);  // 계산된 나이를 state에 저장
+        },
+        changeLanguage({ commit, state },payload){
+            commit('setLang',payload.lang);  // 계산된 나이를 state에 저장
+        }
     },
-    changeLanguage({ commit, state },payload){
-        commit('setLang',payload.lang);  // 계산된 나이를 state에 저장
-    }
-  },
-  getters: {
-    
-  },
+    getters: {
+        
+    },
+    modules: {
+        modal, // 모달 모듈 등록
+    },
 });
 
 function calculateAge(birthDate:string) {

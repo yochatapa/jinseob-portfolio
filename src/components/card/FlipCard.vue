@@ -61,6 +61,11 @@ onMounted(()=>{
 onUnmounted(()=>{
     flipCard.value?.removeEventListener("mouseover",mouseOver)
 })
+
+const openModal = () => {
+    // 모달을 열고 /modal-page로 라우트 이동
+    store.dispatch('modal/openModal', "Kitri");
+};
 </script>
 
 <template>
@@ -74,7 +79,7 @@ onUnmounted(()=>{
                 <h3 v-if="mainText && !mainTextHtml" class="main-text">{{ mainText }}</h3>
                 <span v-if="subText && subTextHtml" class="sub-text" v-html="subText"></span>
                 <span v-if="subText && !subTextHtml" class="sub-text">{{ subText }}</span>
-                <a href="#" class="btn">View More</a>
+                <a  class="btn" :onclick="openModal">View More</a>
             </div>
         </div>
     </div>
@@ -150,6 +155,7 @@ onUnmounted(()=>{
 .btn:hover {
   background-color: var(--Primary-50);
   color: var(--Grayscale-0);
+  cursor: pointer;
 }
 
 </style>

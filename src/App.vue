@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import NavButton from './components/NavButton.vue';
+import ModalView from './components/ModalView.vue';
 
 const scrollPosition = ref(0);
 const headerBackgroundChangeYn = computed(()=>scrollPosition.value>0);
@@ -22,9 +23,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <background class="app-background">
+    <div class="app-background">
         <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
-    </background>
+    </div>
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
         <nav>
             <RouterLink to="/">About</RouterLink>
@@ -42,6 +43,7 @@ onUnmounted(() => {
     <footer>
         <NavButton :scrollYn="headerBackgroundChangeYn"></NavButton>
     </footer>
+    <ModalView></ModalView>
 </template>
 
 <style scoped>
