@@ -77,12 +77,12 @@ const changeLang = function(){
 }
 
 .nav-button{
-    color: var(--Grayscale-60);
+    color: var(--Grayscale-40);
 }
 
 .nav-button:hover{
     cursor: pointer;
-    color: var(--Grayscale-80);
+    color: var(--Grayscale-20);
 }
 
 .nav-button.up:hover{
