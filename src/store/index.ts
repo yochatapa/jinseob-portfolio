@@ -11,6 +11,16 @@ import schoolImage from "@/assets/dongguk-university.png"
 import personalityImage from "@/assets/personality-problem-solve.png"
 import devPhilosophyImage from "@/assets/clean-code.png"
 import gasLogo from "@/assets/gas-logo.svg"
+import lotteMartLogo from "@/assets/lotte-mart-logo.png"
+import jeonjuLogo from "@/assets/jeonju-logo.png"
+import kitriLogo from "@/assets/KITRI-logo.svg"
+import defiLogo from "@/assets/defi-logo.svg"
+import zikpayLogo from "@/assets/zikpay-logo.svg"
+import treeComponent from "@/assets/tree-component.svg"
+import gridComponent from "@/assets/grid-component.svg"
+import novaiLogo from "@/assets/NOVAI.svg"
+import miniLinux from "@/assets/mini-linux.svg"
+import textEditor from "@/assets/text-editor.svg"
 
 interface State {
     userInfo : {
@@ -464,7 +474,10 @@ export const store = createStore<State>({
     projects : {
         data : [
             {
-                mainText : "한국가스안전공사 차세대 ERP 개발",
+                mainText : {
+                    ko : "한국가스안전공사 차세대 정보시스템",
+                    en : "KGS Next-Generation Information System",
+                },
                 type : "company-project",
                 colspan : 1,
                 rowspan : 1,
@@ -472,32 +485,114 @@ export const store = createStore<State>({
                 imagePath : gasLogo,
             },
             {
-                mainText : "프로젝트2",
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-            },
-            {
-                mainText : "프로젝트3",
+                mainText : {
+                    ko : "전주시 의료,돌봄 통합지원 시스템",
+                    en : "Integrated Medical&Care Support System",
+                },
                 type : "personal-project",
                 colspan : 1,
                 rowspan : 1,
                 template : markRaw(FlipCard),
+                imagePath : jeonjuLogo
             },
             {
-                mainText : "프로젝트4",
-                type : "company-project",
-                colspan : 1,
-                rowspan : 1,
-                template : markRaw(FlipCard),
-            },
-            {
-                mainText : "프로젝트5",
+                mainText : {
+                    ko : "직페이 안전결제",
+                    en : "ZIKPAY",
+                },
                 type : "personal-project",
                 colspan : 1,
                 rowspan : 1,
                 template : markRaw(FlipCard),
+                imagePath : zikpayLogo
+            },
+            {
+                mainText :{
+                    ko : "롯데마트 전자저널",
+                    en : "Lotte Mart Electronic Journal",
+                },
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : lotteMartLogo
+            },
+            {
+                mainText : {
+                    ko : "KITRI BtoB 플랫폼",
+                    en : "KITRI BtoB Platform",
+                },
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : kitriLogo
+            },
+            {
+                mainText : {
+                    ko : "디지털 경제금융연구원 홈페이지",
+                    en : "DEFI Hompage",
+                },
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : defiLogo
+            },
+            {
+                mainText : {
+                    ko : "트리 컴포넌트",
+                    en : "Tree Component",
+                },
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : treeComponent
+            },
+            {
+                mainText : {
+                    ko : "그리드 컴포넌트",
+                    en : "Grid Component",
+                },
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : gridComponent
+            },
+            {
+                mainText : {
+                    ko : "캡스톤 디자인",
+                    en : "Capstone Design",
+                },
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : novaiLogo
+            },
+            {
+                mainText : {
+                    ko : "미니 OS 시스템",
+                    en : "Mini OS System",
+                },
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : miniLinux
+            },
+            {
+                mainText : {
+                    ko : "텍스트 에디터",
+                    en : "Text Editor",
+                },
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : textEditor
             }
         ]
     }

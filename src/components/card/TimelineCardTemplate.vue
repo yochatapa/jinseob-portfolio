@@ -159,11 +159,13 @@ const cardData = store.state.timeline.data[props.index];
 .timeline-card h3{
     margin-top: 0;
     font-size: var(--Spacer-3);
+    word-break: keep-all;
 }
 
 .timeline-card span{
     font-size: var(--Spacer-2);
     line-height: var(--Spacer-4);
+    word-break: keep-all;
 }
 
 .timeline-card span hr {

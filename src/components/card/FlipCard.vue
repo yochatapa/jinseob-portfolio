@@ -91,17 +91,18 @@ onUnmounted(()=>{
 .flip-card-template .main-text{
     margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
+    word-break: keep-all;
 }
 
 .flip-card-template .sub-text{
     margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
+    word-break: keep-all;
     color: var(--Grayscale-40);
 }
 
 .flip-card-template .image-box {
     width: 100%;
-    flex : 1;
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -138,7 +139,6 @@ onUnmounted(()=>{
 }
 
 .btn {
-  margin-top: 10px;
   padding: 8px 16px;
   background-color: var(--Grayscale-0);
   color: var(--Primary-50);

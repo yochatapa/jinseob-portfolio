@@ -64,12 +64,14 @@ const imagePath = new URL(`${props.cardInfo.imagePath}`, import.meta.url).href;
 .basic-1X1 .main-text{
     margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
+    word-break: keep-all;
 }
 
 .basic-1X1 .sub-text{
     margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
     color: var(--Grayscale-40);
+    word-break: keep-all;
 }
 
 .basic-1X1 .image-box {

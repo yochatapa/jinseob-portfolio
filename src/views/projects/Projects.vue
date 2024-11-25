@@ -16,12 +16,12 @@ const GRID_LAYOUT_INFO = {
         column : "var(--Spacer-3)"
     },
     row : {
-        height : "var(--Spacer-30)"
+        height : "var(--Spacer-25)"
     },
     cell : {
-        width : "var(--Spacer-30)"
+        width : "var(--Spacer-25)"
     },
-    maxColumnLength : 4,
+    maxColumnLength : 5,
 }
 
 
