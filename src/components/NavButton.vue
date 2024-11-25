@@ -25,7 +25,7 @@ const changeLang = function(){
     <div class="nav-button-container">
         <div v-if="menuYn" class="nav-menu-container">
             <div class="nav-button-wrapper" :onclick="changeLang">
-                <label class="nav-button text menu">{{ store.state.system.lang }}</label>
+                <label class="nav-button text menu">{{ store.state.system.lang === "ko" ? "en" : "한국어" }}</label>
             </div>
         </div>
         <div class="nav-button-div">
