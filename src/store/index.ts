@@ -1,14 +1,16 @@
+import { markRaw, type Component } from 'vue';
 import { createStore } from 'vuex';
 
 import NameCard from '@/components/card/NameCard.vue';
 import Basic1X1 from '@/components/card/Basic1X1.vue';
+import FlipCard from '@/components/card/FlipCard.vue';
 
 import userImage from "@/assets/main-user-image.png"
 import experienceImage from "@/assets/work-experience.png"
 import schoolImage from "@/assets/dongguk-university.png"
 import personalityImage from "@/assets/personality-problem-solve.png"
 import devPhilosophyImage from "@/assets/clean-code.png"
-import { markRaw, type Component, type VueElement } from 'vue';
+import gasLogo from "@/assets/gas-logo.svg"
 
 interface State {
     userInfo : {
@@ -20,7 +22,8 @@ interface State {
         lang : "ko" | "en"
     },
     about : About,
-    timeline : Timeline
+    timeline : Timeline,
+    projects : Projects
 }
 
 interface About {
@@ -42,6 +45,11 @@ interface About {
 interface Timeline {
     data : Array<Object>,
 }
+
+interface Projects {
+    data : Array<Object>,
+}
+
 
 interface langObject{
     ko : string | boolean | undefined,
@@ -345,16 +353,16 @@ export const store = createStore<State>({
                 type : "company-project",
                 date : "2022.03 ~ 2023.02",
                 eventName : {
-                    ko : "한국가스안전공사 차세대 정보시스템 개발",
-                    en : "한국가스안전공사 차세대 정보시스템 개발"
+                    ko : "한국가스안전공사 차세대 ERP 개발",
+                    en : "한국가스안전공사 차세대 ERP 개발"
                 },
                 eventDetail : {
                     ko : `
-                    한국가스안전공사 차세대 정보시스템 구축 프로젝트<br><hr/>
+                    한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
                     안전관리 파트 개발, 진단인증, 유해화학 파트 담당
                     `,
                     en : `
-                    한국가스안전공사 차세대 정보시스템 구축 프로젝트<br><hr/>
+                    한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
                     안전관리 파트 개발, 진단인증, 유해화학 파트 담당
                     `
                 },
@@ -453,6 +461,46 @@ export const store = createStore<State>({
             }
         ]
     },
+    projects : {
+        data : [
+            {
+                mainText : "한국가스안전공사 차세대 ERP 개발",
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+                imagePath : gasLogo,
+            },
+            {
+                mainText : "프로젝트2",
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+            },
+            {
+                mainText : "프로젝트3",
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+            },
+            {
+                mainText : "프로젝트4",
+                type : "company-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+            },
+            {
+                mainText : "프로젝트5",
+                type : "personal-project",
+                colspan : 1,
+                rowspan : 1,
+                template : markRaw(FlipCard),
+            }
+        ]
+    }
   },
   mutations: {
     setExperience(state, monthAge ) {
