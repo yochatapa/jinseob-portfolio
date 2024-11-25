@@ -12,19 +12,19 @@ const props = defineProps({
     }
 })
 
+const pCardInfo = props.cardInfo[1]??props.cardInfo
+
 const cardInfo = {
-    mainText : props.cardInfo[1].mainText,
-    mainTextHtml : props.cardInfo[1].subTextHtml,
-    subText : props.cardInfo[1].subText,
-    subTextHtml : props.cardInfo[1].subTextHtml,
-    colspan : props.cardInfo[1].colspan,
-    rowspan : props.cardInfo[1].rowspan,
-    imagePath : props.cardInfo[1].imagePath
+    mainText : pCardInfo.mainText,
+    mainTextHtml : pCardInfo.subTextHtml,
+    subText : pCardInfo.subText,
+    subTextHtml : pCardInfo.subTextHtml,
+    colspan : pCardInfo.colspan,
+    rowspan : pCardInfo.rowspan,
+    imagePath : pCardInfo.imagePath
 };
 
 const rowXcol = cardInfo.rowspan * cardInfo.colspan;
-
-console.log(cardInfo,props.cardInfo)
 
 const colspan = computed(()=>Math.min(props.gridInfo.cellNumberInRow,cardInfo.colspan));
 const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
@@ -37,7 +37,7 @@ const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
             gridColumn : `auto / span ${colspan}`
         }"
     >
-        <component :is="props.cardInfo[1].template" :cardInfo="cardInfo"></component>
+        <component :is="pCardInfo.template" :cardInfo="cardInfo"></component>
         <slot></slot>
     </div>
 </template>

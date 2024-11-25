@@ -6,7 +6,7 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-const aboutInfo = store.state.about;
+const projectsData = store.state.projects.data;
 
 store.dispatch('calculateAgeFromBirthDate');
 
@@ -16,12 +16,12 @@ const GRID_LAYOUT_INFO = {
         column : "var(--Spacer-3)"
     },
     row : {
-        height : "var(--Spacer-40)"
+        height : "var(--Spacer-30)"
     },
     cell : {
-        width : "var(--Spacer-50)"
+        width : "var(--Spacer-30)"
     },
-    maxColumnLength : 3,
+    maxColumnLength : 4,
 }
 
 
@@ -30,7 +30,7 @@ const GRID_LAYOUT_INFO = {
 <template>
     <GridLayout :grid-info="GRID_LAYOUT_INFO">
         <template v-slot:default="gridInfo">
-            <CardTemplate v-for="(cell,index) in Object.entries(aboutInfo)" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
+            <CardTemplate v-for="(cell,index) in projectsData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
         </template>
     </GridLayout>
 </template>
