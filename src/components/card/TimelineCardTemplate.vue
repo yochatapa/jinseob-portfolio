@@ -24,7 +24,7 @@ const rowXcol = props.defaultLength;
 const colspan = computed(()=>Math.min(props.gridInfo.cellNumberInRow,props.defaultLength));
 const rowspan = 1;
 
-const cardData = store.state[store.state.system.lang].timeline.data[props.index];
+const cardData = store.state.timeline.data[props.index];
 </script>
 
 <template>
@@ -42,9 +42,9 @@ const cardData = store.state[store.state.system.lang].timeline.data[props.index]
             </div>
         </div> 
         <div class='timeline-card'>
-            <h3>{{ cardData.eventName }}</h3>
-            <span v-if="cardData.eventDetailHtml">{{ cardData.eventDetail }}</span>
-            <span v-else v-html="cardData.eventDetail"></span>
+            <h3>{{ cardData.eventName[store.state.system.lang] }}</h3>
+            <span v-if="cardData.eventDetailHtml">{{ cardData.eventDetail[store.state.system.lang] }}</span>
+            <span v-else v-html="cardData.eventDetail[store.state.system.lang]"></span>
         </div>
     </div>
     <slot></slot>

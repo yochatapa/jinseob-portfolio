@@ -8,29 +8,41 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 const props = defineProps({
-    "type" : {
-        type : String,
-        required : true
-    },
-    "detail" : {
-        type : String,
+    "cardInfo" : {
+        type : Object,
         required : true
     }
 })
 
-const cardData = computed(()=>store.state[store.state.system.lang]?.[props.type]?.[props.detail])
+const mainTextHtml = computed(()=>{
+    if(typeof props.cardInfo.mainTextHtml === "boolean"){
+        return props.cardInfo.mainTextHtml
+    }else if(props.cardInfo.mainTextHtml){
+        return props.cardInfo.mainTextHtml[store.state.system.lang];
+    }
+    return false;
+})
 
-const imagePath = new URL(`${cardData.value.imagePath}`, import.meta.url).href;
+const subTextHtml = computed(()=>{
+    if(typeof props.cardInfo.subTextHtml === "boolean"){
+        return props.cardInfo.subTextHtml
+    }else if(props.cardInfo.subTextHtml){
+        return props.cardInfo.subTextHtml[store.state.system.lang];
+    }
+    return false;
+})
+
+const imagePath = new URL(`${props.cardInfo.imagePath}`, import.meta.url).href;
 </script>
 
 <template>
     <div class="basic-1X1">
-        <h3 v-if="cardData.mainText && cardData.mainTextHtml" class="main-text" v-html="cardData.mainText"></h3>
-        <h3 v-if="cardData.mainText && !cardData.mainTextHtml" class="main-text">{{ cardData.mainText }}</h3>
+        <h3 v-if="props.cardInfo.mainText[store.state.system.lang] && mainTextHtml" class="main-text" v-html="props.cardInfo.mainText[store.state.system.lang]"></h3>
+        <h3 v-if="props.cardInfo.mainText[store.state.system.lang] && !mainTextHtml" class="main-text">{{ props.cardInfo.mainText[store.state.system.lang] }}</h3>
 
-        <span v-if="cardData.subText && cardData.subTextHtml" class="sub-text" v-html="cardData.subText"></span>
-        <span v-if="cardData.subText && !cardData.subTextHtml" class="sub-text">{{ cardData.subText }}</span>
-        <div v-if="cardData.imagePath" class="image-box" :style="{
+        <span v-if="props.cardInfo.subText[store.state.system.lang] && subTextHtml" class="sub-text" v-html="props.cardInfo.subText[store.state.system.lang]"></span>
+        <span v-if="props.cardInfo.subText[store.state.system.lang] && !subTextHtml" class="sub-text">{{ props.cardInfo.subText[store.state.system.lang] }}</span>
+        <div v-if="props.cardInfo.imagePath" class="image-box" :style="{
             backgroundImage : `url(${imagePath})`
         }">
         </div>

@@ -3,7 +3,7 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-const imagePath = new URL(`${store.state[store.state.system.lang].about.nameCard.imagePath}`, import.meta.url).href;
+const imagePath = new URL(`${store.state.about.nameCard.imagePath}`, import.meta.url).href;
 </script>
 
 <template>
@@ -11,8 +11,8 @@ const imagePath = new URL(`${store.state[store.state.system.lang].about.nameCard
         <div class="name-wrapper">
             <h2 v-if="store.state.userInfo.koreanName" class="ko-name">{{ store.state.userInfo.koreanName }}</h2>
             <h4 v-if="store.state.userInfo.englishName" class="en-name">{{ store.state.userInfo.englishName }}</h4>
-            <span v-if="store.state[store.state.system.lang].about.nameCard.introduction && !store.state[store.state.system.lang].about.nameCard.introductionHtml" class="introduction">{{ store.state[store.state.system.lang].about.nameCard.introduction }}</span>
-            <span v-if="store.state[store.state.system.lang].about.nameCard.introduction && store.state[store.state.system.lang].about.nameCard.introductionHtml" class="introduction" v-html="store.state[store.state.system.lang].about.nameCard.introduction"></span>
+            <span v-if="store.state.about.nameCard.introduction[store.state.system.lang] && !store.state.about.nameCard.introductionHtml[store.state.system.lang]" class="introduction">{{ store.state.about.nameCard.introduction[store.state.system.lang] }}</span>
+            <span v-if="store.state.about.nameCard.introduction[store.state.system.lang] && store.state.about.nameCard.introductionHtml[store.state.system.lang]" class="introduction" v-html="store.state.about.nameCard.introduction[store.state.system.lang]"></span>
         </div>
         <div class="image-wrapper">
             <img :src="imagePath" alt="main-user-image" class="main-image"/>

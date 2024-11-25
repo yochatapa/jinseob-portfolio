@@ -23,7 +23,7 @@ const GRID_LAYOUT_INFO = {
 <template>
     <GridLayout :grid-info="GRID_LAYOUT_INFO">
         <template v-slot:default="gridInfo">
-            <TimelineCardTemplate v-for="(cell,index) in store.state[store.state.system.lang].timeline.data.length" :index="index" :gridInfo="gridInfo" :default-length="3"></TimelineCardTemplate>
+            <TimelineCardTemplate v-for="(cell,index) in store.state.timeline.data.length" :index="index" :gridInfo="gridInfo" :default-length="3"></TimelineCardTemplate>
         </template>
     </GridLayout>
 </template>
