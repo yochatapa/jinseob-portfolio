@@ -30,7 +30,8 @@ interface State {
         expDate : string
     },
     system : {
-        lang : "ko" | "en"
+        lang : "ko" | "en",
+        message : Object,
     },
     about : About,
     timeline : Timeline,
@@ -92,7 +93,17 @@ export const store = createStore<State>({
             expDate : "2021.10"
         },
         system : {
-            lang : "en"
+            lang : "en",
+            message : {
+                loading : {
+                    ko : "로딩중입니다...",
+                    en : "Loading..."
+                },
+                pageNotFound : {
+                    ko : "페이지를 찾을 수 없습니다.",
+                    en : "Page Not Found."
+                },
+            }
         },
         about : {
             nameCard : {
@@ -502,7 +513,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
+                    fileName : 'ProjectsKGS',
                     imagePath : gasLogo,
                 },
                 {

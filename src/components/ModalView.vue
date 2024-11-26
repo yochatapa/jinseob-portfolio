@@ -54,8 +54,8 @@ const dynamicModalComponent = computed(() => {
             width : parameter.width?parameter.width:'100%',
             height : parameter.height?parameter.height:'100%',
         }">
-            <div v-if="isLoading">로딩 중...</div>  <!-- 로딩 상태 표시 -->
-            <div v-if="hasError">페이지를 찾을 수 없습니다.</div>  <!-- 에러 상태 표시 -->
+            <div v-if="isLoading">{{ store.state.system.message.loading[store.state.system.lang] }}</div>  <!-- 로딩 상태 표시 -->
+            <div v-if="hasError">{{ store.state.system.message.pageNotFound[store.state.system.lang] }}</div>  <!-- 에러 상태 표시 -->
             <component :is="dynamicModalComponent" />
         </main>
     </div>
