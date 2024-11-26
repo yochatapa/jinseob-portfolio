@@ -22,6 +22,7 @@ const dynamicModalComponent = computed(() => {
         loader: async () => {
             try {
                 isLoading.value = true;
+                hasError.value = false;
                 const component = await import(`../views/popup/${modalComponent.value}.vue`);
                 isLoading.value = false;
                 return component.default;  // default export된 컴포넌트를 반환
@@ -30,12 +31,6 @@ const dynamicModalComponent = computed(() => {
                 hasError.value = true;
                 throw error;
             }
-        },
-        loadingComponent: {
-            template: '<div>Loading...</div>',
-        },
-        errorComponent: {
-            template: '<div>페이지를 찾을 수 없습니다.</div>',
         },
         delay: 200,  // 로딩을 기다릴 시간
         timeout: 3000 // 타임아웃 시간
