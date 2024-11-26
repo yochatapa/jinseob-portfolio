@@ -8,8 +8,9 @@ function closeModal() {
     store.dispatch('modal/closeModal');  // 'modal/closeModal'로 수정
 }
 
-const isModalOpen = computed(() => store.getters['modal/isModalOpen']);  // 'modal/isModalOpen' 형식으로 호출
-const modalComponent = computed(() => store.getters['modal/modalComponent']);  // 'modal/modalComponent' 형식으로 호출
+const isModalOpen = computed(() => store.getters['modal/isModalOpen']);
+const modalComponent = computed(() => store.getters['modal/modalComponent']);
+const parameter = computed(()=>store.getters['modal/parameter']);
 
 // 로딩 상태와 오류 상태를 추적할 변수
 const isLoading = ref(false);
@@ -37,19 +38,26 @@ const dynamicModalComponent = computed(() => {
             template: '<div>페이지를 찾을 수 없습니다.</div>',
         },
         delay: 200,  // 로딩을 기다릴 시간
-        timeout: 5000 // 타임아웃 시간
+        timeout: 3000 // 타임아웃 시간
     });
 });
 </script>
 
 <template>
     <div v-if="isModalOpen" class="modal">
-        <div class="modal-content">
-            <button @click="closeModal">Close</button>
+        <header class="modal-header" :style="{
+            width : parameter.width?parameter.width:'100%'
+        }">
+            <button class="close-button" @click="closeModal">X</button>
+        </header>
+        <main class="modal-content" :style="{
+            width : parameter.width?parameter.width:'100%',
+            height : parameter.height?parameter.height:'100%',
+        }">
             <div v-if="isLoading">로딩 중...</div>  <!-- 로딩 상태 표시 -->
             <div v-if="hasError">페이지를 찾을 수 없습니다.</div>  <!-- 에러 상태 표시 -->
             <component :is="dynamicModalComponent" />
-        </div>
+        </main>
     </div>
 </template>
 
@@ -60,15 +68,44 @@ const dynamicModalComponent = computed(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(128 128 128 / 30%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: var(--Spacer-5);
     z-index: 9999999;
 }
+
+.modal-header{
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--Grayscale-40);
+    padding: var(--Spacer-1);
+    border-radius: var(--Spacer-3) var(--Spacer-3) 0 0;
+    box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
+}
+
+button.close-button {
+    background: var(--Dark-Red-40);
+    width: var(--Spacer-4);
+    height: var(--Spacer-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    font-size: var(--Spacer-3);
+    cursor: pointer;
+    color: var(--Grayscale-0);
+    border-radius: 50%;
+    box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
+}
+
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    background: var(--Grayscale-0);
+    padding: var(--Spacer-1);
+    min-height: 20vh;
+    border-radius: 0 0 var(--Spacer-3) var(--Spacer-3);
+    box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
 }
 </style>

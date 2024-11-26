@@ -64,7 +64,13 @@ onUnmounted(()=>{
 
 const openModal = () => {
     // 모달을 열고 /modal-page로 라우트 이동
-    store.dispatch('modal/openModal', "Kitri");
+    store.dispatch('modal/openModal', {
+        component : "Kitri",
+        parameter : {
+            width : "100%",
+            height : "100%"
+        }
+    });
 };
 </script>
 
