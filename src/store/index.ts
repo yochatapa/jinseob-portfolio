@@ -200,11 +200,11 @@ export const store = createStore<State>({
                     date : "2025.02",
                     eventName : {
                         ko : "동국대학교 졸업",
-                        en : "",
+                        en : "Graduated from Dongguk University",
                     },
                     eventDetail : {
                         ko : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`,
-                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 졸업`
+                        en : `Graduated from Dongguk University, Department of Computer Science and Engineering, Major in Information and Communication Engineering`
                     }
                 },
                 {   
@@ -212,15 +212,16 @@ export const store = createStore<State>({
                     date : "2024.08",
                     eventName : {
                         ko : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
-                        en : "핀테크산업협회 디지털경제금융연구원 홈페이지 구축",
+                        en : "Building the DEFI Website",
                     },
                     eventDetail : {
                         ko : `
                             핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
                             Front-end 개발 담당`,
                         en : `
-                            핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
-                            Front-end 개발 담당`,
+                            A project to develop the DEFI website
+                            <br><hr/>
+                            Responsible for Front-end Development`,
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -232,13 +233,15 @@ export const store = createStore<State>({
                     date : "2024.07 ~ 2024.08",
                     eventName : {
                         ko : "롯데마트 전자저널 구축",
-                        en : ""
+                        en : "Lotte Mart Electronic Journal Development"
                     },
                     eventDetail : {
                         ko : `
                             롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트<br><hr/>
                             Front-end 개발 담당, 교육 담당`,
-                        en : ``
+                        en : `A project to rebuild the electronic journal system for retrieving receipts at Lotte Mart
+                            <br><hr/>
+                            Responsible for Front-end Development and Training`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -249,11 +252,11 @@ export const store = createStore<State>({
                     date : "2024.02",
                     eventName : {
                         ko : "동국대학교 수료",
-                        en : ""
+                        en : "Completed coursework at Dongguk University"
                     },
                     eventDetail : {
                         ko : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`,
-                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 수료`
+                        en : `Completed coursework at Dongguk University, Department of Computer Science and Engineering, Major in Information and Communication Engineering`
                     }
                 },
                 {   
@@ -261,7 +264,7 @@ export const store = createStore<State>({
                     date : "2024.01 ~",
                     eventName : {
                         ko : "그리드 컴포넌트 개발",
-                        en : "그리드 컴포넌트 개발"
+                        en : "Grid Component Development"
                     },
                     eventDetail : {
                         ko : `
@@ -269,8 +272,9 @@ export const store = createStore<State>({
                             1인 프로젝트
                         `,
                         en : `
-                            "대용량 데이터 처리" 등 다양한 기능이 들어간 그리드 컴포넌트를 제작하는 프로젝트<br><hr>
-                            1인 프로젝트
+                            A project to create a grid component with various features such as "large-scale data processing"
+                            <br><hr/>
+                            Solo Project
                         `
                     },
                     evnentDetailHtml : {
@@ -283,15 +287,16 @@ export const store = createStore<State>({
                     date : "2023.12 ~ 2024.06",
                     eventName : {
                         ko : "직페이 안전결제 개발",
-                        en : "직페이 안전결제 개발"
+                        en : "ZIKPAY Secure Payment Development"
                     },
                     eventDetail : {
                         ko : `
                             대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
                             안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`,
                         en : `
-                            대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
-                            안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`
+                            A project to build a secure payment system ensuring asset protection during transactions such as payments and settlements
+                            <br><hr/>
+                            Responsible for developing the Secure Payment and Common Modules, including redesigning core processes like the "Payment Settlement Process`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -303,7 +308,7 @@ export const store = createStore<State>({
                     date : "2023.06",
                     eventName : {
                         ko : "트리 컴포넌트 개발",
-                        en : "트리 컴포넌트 개발"
+                        en : "Tree Component Development"
                     },
                     eventDetail : {
                         ko : `
@@ -311,8 +316,9 @@ export const store = createStore<State>({
                             1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
                         `,
                         en : `
-                            "트리 내 이동 시, 데이터 변경" 등 다양한 기능이 들어간 트리 컴포넌트를 제작하는 프로젝트<br><hr>
-                            1인 프로젝트 / "전주시 의료,돌봄 통합지원 시스템 개발" 프로젝트에서 사용
+                            A project to create a tree component with various features, such as "data modification during node movement within the tree"
+                            <br><hr/>
+                            Solo Project / Used in the "Jeonju City Integrated Healthcare and Care Support System Development" project
                         `
                     },
                     evnentDetailHtml : {
@@ -325,15 +331,16 @@ export const store = createStore<State>({
                     date : "2023.03 ~ 2023.11",
                     eventName : {
                         ko : "전주시 의료,돌봄 통합지원 시스템 개발",
-                        en : "전주시 의료,돌봄 통합지원 시스템 개발"
+                        en : "Jeonju City Integrated Healthcare and Care Support System Development"
                     },
                     eventDetail : {
                         ko : `
                             전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
                             "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`,
                         en : `
-                            전주시 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상저를 선별 및 선정하여 관리하는 프로젝트<br><hr/>
-                            "지원 대상자 선별 프로세스" 등 핵심 프로세스 설계 및 개발`
+                            A project to assess the healthcare and care needs of seniors in Jeonju City, select and manage eligible support recipients
+                            <br><hr/>
+                            Responsible for designing and developing core processes, including the "Support Recipient Selection Process"`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -345,15 +352,16 @@ export const store = createStore<State>({
                     date : "2023.03 ~ 2023.06",
                     eventName : {
                         ko : "캡스톤 디자인",
-                        en : "캡스톤 디자인"
+                        en : "Capstone Design"
                     },
                     eventDetail : {
                         ko : `
                             AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
                             팀장 (4인 프로젝트) / 웹페이지 전체 개발`,
                         en : `
-                            AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
-                            팀장 (4인 프로젝트) / 웹페이지 전체 개발`
+                            A project to create web novel protagonists using AI and generate illustrations by training protagonist models
+                            <br><hr/>
+                            Team Leader (4-member project) / Full development of the web page`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -364,17 +372,18 @@ export const store = createStore<State>({
                     type : "company-project",
                     date : "2022.03 ~ 2023.02",
                     eventName : {
-                        ko : "한국가스안전공사 차세대 ERP 개발",
-                        en : "한국가스안전공사 차세대 ERP 개발"
+                        ko : "한국가스안전공사 차세대 정보시스템 개발",
+                        en : "KGS Next-Generation Information System Development"
                     },
                     eventDetail : {
                         ko : `
-                        한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
+                        한국가스안전공사 차세대 정보시스템 구축 프로젝트<br><hr/>
                         안전관리 파트 개발, 진단인증, 유해화학 파트 담당
                         `,
                         en : `
-                        한국가스안전공사 차세대 ERP 구축 프로젝트<br><hr/>
-                        안전관리 파트 개발, 진단인증, 유해화학 파트 담당
+                        KGS Next-Generation Information System Development
+                        <br><hr/>
+                        Responsible for the Safety Management Module Development, Diagnostics and Certification, and Hazardous Chemicals Modules
                         `
                     },
                     evnentDetailHtml : {
@@ -387,15 +396,16 @@ export const store = createStore<State>({
                     date : "2021.10 ~ 2022.02",
                     eventName : {
                         ko : "KITRI BtoB 플랫폼 개발",
-                        en : ""
+                        en : "KITRI BtoB Platform Development"
                     },
                     eventDetail : {
                         ko : `
                         KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
                         "KITRI BtoB 지원업무 프로세스" 개발`,
                         en : `
-                        KITRI를 통해 BtoB간 프로젝트 생성 및 관리하는 플랫폼 구축<br><hr/>
-                        "KITRI BtoB 지원업무 프로세스" 개발`
+                        Building a Platform for Creating and Managing BtoB Projects through KITRI
+                        <br><hr/>
+                        Developed the "KITRI BtoB Support Workflow"`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -406,13 +416,14 @@ export const store = createStore<State>({
                     date : "2021.07",
                     eventName : {
                         ko : "전역",
-                        en : ""
+                        en : "Discharged from Military Service"
                     },
                     eventDetail : {
                         ko : `대한민국 육군 병장 만기 전역<br>
                             (제6보병사단)`,
-                        en : `대한민국 육군 병장 만기 전역<br>
-                            (제6보병사단)`
+                        en : `Completed mandatory service as a Sergeant in the Republic of Korea Army
+                            <br>
+                            (6th Infantry Division)`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -424,15 +435,16 @@ export const store = createStore<State>({
                     date : "2019.03 ~ 2019.06",
                     eventName : {
                         ko : "Mini Operating System 구현",
-                        en : "Mini Operating System 구현"
+                        en : "Mini Operating System Development"
                     },
                     eventDetail : {
                         ko : `
                         리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
                         팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`,
                         en : `
-                        리눅스의 기본 동작 구조와 체계를 이해하고 동일하게 작동 가능한 시스템을 구현하는 프로젝트<br><hr/>
-                        팀장 (4인 프로젝트) / 미니리눅스 기능 구현 (전체)`
+                        A project to understand the basic operating structure and system of Linux and implement a system with similar functionality
+                        <br><hr/>
+                        Team Leader (4-member project) / Implementation of Mini-Linux functionality (entire system)`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -444,15 +456,16 @@ export const store = createStore<State>({
                     date : "2017.09 ~ 2017.12",
                     eventName : {
                         ko : "텍스트 에디터 구현",
-                        en : ""
+                        en : "Text Editor Development"
                     },
                     eventDetail : {
                         ko : `
                         자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
                         1인 프로젝트`,
                         en : `
-                        자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
-                        1인 프로젝트`
+                        A project to develop a text editor with features such as auto-save, color change, and more
+                        <br><hr/>
+                        Solo Project`
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -463,11 +476,11 @@ export const store = createStore<State>({
                     date : "2017.03",
                     eventName : {
                         ko : "동국대학교 입학",
-                        en : ""
+                        en : "Enrolled at Dongguk University"
                     },
                     eventDetail : {
                         ko : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`,
-                        en : `동국대학교 컴퓨터공학부 정보통신공학전공 입학`
+                        en : `Enrolled at Dongguk University, Department of Computer Science and Engineering, Major in Information and Communication Engineering`
                     }
                 }
             ]
