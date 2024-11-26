@@ -1,1 +1,0 @@
-import{_ as e,o as t,c}from"./index-CXRxG7Wk.js";const r={},o={class:"flip-card-template",ref:"flipCard"};function s(a,i){return t(),c("div",o," Kitri!!! ",512)}const _=e(r,[["render",s]]);export{_ as default};
