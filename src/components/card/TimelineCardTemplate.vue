@@ -128,7 +128,7 @@ const cardData = store.state.timeline.data[props.index];
 .timeline-card{
     width: calc(100% - var(--Spacer-10));
     height: 100%;
-    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.1) , rgb(255 255 255 / 0.2) );
+    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.3) , rgb(255 255 255 / 0.2) );
     backdrop-filter: blur(15px);
     box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);

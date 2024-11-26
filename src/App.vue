@@ -118,7 +118,7 @@ nav a::before {
     left: var(--Spacer-1);
     width: calc(100% - var(--Spacer-2));
     height: calc(100% + var(--Spacer-2));
-    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.1), rgb(255 255 255 / 0.2));
+    background: linear-gradient(325deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3), rgb(255 255 255 / 0.2));
     backdrop-filter: blur(15px);
     box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
     border-radius: var(--Spacer-3);

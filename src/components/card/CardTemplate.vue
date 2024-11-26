@@ -44,7 +44,7 @@ const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
 
 <style scoped>
 .card-template{
-    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.1) , rgb(255 255 255 / 0.2) );
+    background: linear-gradient(325deg, rgb(255 255 255 / 0.2), rgba(255, 255, 255, 0.3) , rgb(255 255 255 / 0.2) );
     backdrop-filter: blur(15px);
     box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
     border-radius: var(--Spacer-3);

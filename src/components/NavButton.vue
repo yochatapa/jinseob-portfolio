@@ -67,7 +67,7 @@ const changeLang = function(){
     align-items: center;
     justify-content: center;
     margin: var(--Spacer-1) 0 0 var(--Spacer-1);
-    background-image: linear-gradient(325deg, rgba(255, 255, 255, 0.1) 0%, rgb(255 255 255 / 40%) 100%);
+    background-image: linear-gradient(325deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3), rgb(255 255 255 / 0.2));
     border: 1px solid var(--Grayscale-50);
     border-radius: var(--Spacer-2);
 }
@@ -77,7 +77,7 @@ const changeLang = function(){
 }
 
 .nav-button{
-    color: var(--Grayscale-40);
+    color: var(--Grayscale-10);
 }
 
 .nav-button:hover{
