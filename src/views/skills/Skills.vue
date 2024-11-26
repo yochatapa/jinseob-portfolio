@@ -1,15 +1,57 @@
 <script setup lang="ts">
 import CardTemplate from '@/components/card/CardTemplate.vue';
 import GridLayout from '@/components/layout/GridLayout.vue';
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
+import type { SkillsData } from '@/store/index';
 
 import { useStore } from 'vuex';
 
 const store = useStore();
 
-const advancedData = store.state.skills.advanced;
-const intermediateData = store.state.skills.intermediate;
-const beginnerData = store.state.skills.beginner;
+const skills = store.state.skills;
+
+let frontendData = reactive(new Array());
+let backendData = reactive(new Array()); 
+let etcData = reactive(new Array());
+
+skills.forEach((data:SkillsData) => {
+    const flipData = {
+        colspan : 1,
+        rowspan : 1,
+        mainText : data.name,
+        subText : "⭐".repeat(data.proficiency),
+        ...data,
+    }
+
+    if(flipData.important) flipData.type += " important"
+    
+    switch(data.type){
+        case "frontend":
+            frontendData.push(flipData)
+            break;
+        case "backend":
+            backendData.push(flipData)
+            break;
+        case "etc":
+            etcData.push(flipData) 
+            break;
+    }
+});
+
+const flipDataSort = (a:any, b:any)=>{
+    // 먼저 important가 true인 객체가 앞에 오도록 정렬
+    if (a.important && !b.important) return -1; // a가 먼저 오도록
+    if (!a.important && b.important) return 1; // b가 먼저 오도록
+    
+    // important가 같다면 proficiency 값에 따라 정렬 (내림차순)
+    return b.proficiency - a.proficiency; 
+}
+
+frontendData = frontendData.sort(flipDataSort)
+
+backendData = backendData.sort(flipDataSort)
+
+etcData = etcData.sort(flipDataSort)
 
 store.dispatch('calculateAgeFromBirthDate');
 
@@ -32,38 +74,38 @@ const GRID_LAYOUT_INFO = {
 
 <template>
     <div class="skills-container">
-        <div class="advanced skills">
+        <div class="frontend skills">
             <div class="text">
-                <label>advanced</label>
+                <label>{{ store.state.system.lang === "ko" ? "프론트엔드" : "Front-end" }}</label>
             </div>
             <div  class="container">
                 <GridLayout :grid-info="GRID_LAYOUT_INFO">
                     <template v-slot:default="gridInfo">
-                        <CardTemplate v-for="(cell,index) in advancedData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
+                        <CardTemplate v-for="(cell,index) in frontendData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
                     </template>
                 </GridLayout>
             </div>
         </div>
-        <div class="intermediate skills">
+        <div class="backend skills">
             <div class="text">
-                <label>intermediate</label>
+                <label>{{ store.state.system.lang === "ko" ? "백엔드" : "Back-end" }}</label>
             </div>
             <div  class="container">
                 <GridLayout :grid-info="GRID_LAYOUT_INFO">
                     <template v-slot:default="gridInfo">
-                        <CardTemplate v-for="(cell,index) in intermediateData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
+                        <CardTemplate v-for="(cell,index) in backendData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
                     </template>
                 </GridLayout>
             </div>
         </div>
-        <div class="beginner skills">
+        <div class="etc skills">
             <div class="text">
-                <label>beginner</label>
+                <label>{{ store.state.system.lang === "ko" ? "기타" : "etc" }}</label>
             </div>
             <div  class="container">
                 <GridLayout :grid-info="GRID_LAYOUT_INFO">
                     <template v-slot:default="gridInfo">
-                        <CardTemplate v-for="(cell,index) in beginnerData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
+                        <CardTemplate v-for="(cell,index) in etcData" :card-info="cell" :gridInfo="gridInfo"></CardTemplate>
                     </template>
                 </GridLayout>
             </div>
@@ -74,6 +116,14 @@ const GRID_LAYOUT_INFO = {
 <style scoped>
 .skills-container .skills {
     margin-bottom: var(--Spacer-5);
+}
+
+.card-template:has(.flip-card.important)::after{
+    content: "⭐";
+    font-size: var(--Spacer-4);
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .skills-container .skills .text {

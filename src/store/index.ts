@@ -11,17 +11,38 @@ import experienceImage from "@/assets/work-experience.png"
 import schoolImage from "@/assets/dongguk-university.png"
 import personalityImage from "@/assets/personality-problem-solve.png"
 import devPhilosophyImage from "@/assets/clean-code.png"
-import gasLogo from "@/assets/gas-logo.svg"
-import lotteMartLogo from "@/assets/lotte-mart-logo.png"
-import jeonjuLogo from "@/assets/jeonju-logo.png"
-import kitriLogo from "@/assets/KITRI-logo.svg"
-import defiLogo from "@/assets/defi-logo.svg"
-import zikpayLogo from "@/assets/zikpay-logo.svg"
-import treeComponent from "@/assets/tree-component.svg"
-import gridComponent from "@/assets/grid-component.svg"
-import novaiLogo from "@/assets/NOVAI.svg"
-import miniLinux from "@/assets/mini-linux.svg"
-import textEditor from "@/assets/text-editor.svg"
+
+import gasLogo from "@/assets/projects/gas-logo.svg"
+import lotteMartLogo from "@/assets/projects/lotte-mart-logo.png"
+import jeonjuLogo from "@/assets/projects/jeonju-logo.png"
+import kitriLogo from "@/assets/projects/KITRI-logo.svg"
+import defiLogo from "@/assets/projects/defi-logo.svg"
+import zikpayLogo from "@/assets/projects/zikpay-logo.svg"
+import treeComponent from "@/assets/projects/tree-component.svg"
+import gridComponent from "@/assets/projects/grid-component.svg"
+import novaiLogo from "@/assets/projects/NOVAI.svg"
+import miniLinux from "@/assets/projects/mini-linux.svg"
+import textEditor from "@/assets/projects/text-editor.svg"
+
+import htmlLogo from "@/assets/skills/html-logo.svg"
+import jsLogo from "@/assets/skills/js-logo.png"
+import cssLogo from "@/assets/skills/css-logo.png"
+import vueLogo from "@/assets/skills/vue-logo.png"
+import vuexLogo from "@/assets/skills/vuex-logo.png"
+import jqueryLogo from "@/assets/skills/jquery-logo.png"
+import tsLogo from "@/assets/skills/ts-logo.svg"
+import javaLogo from "@/assets/skills/java-logo.png"
+import springLogo from "@/assets/skills/spring-logo.png"
+import pythonLogo from "@/assets/skills/python-logo.png"
+import flaskLogo from "@/assets/skills/flask-logo.png"
+import mysqlLogo from "@/assets/skills/mysql-logo.svg"
+import oracleLogo from "@/assets/skills/oracle-logo.png"
+import gitLogo from "@/assets/skills/git-logo.png"
+import vsCodeLogo from "@/assets/skills/vs-code-logo.png"
+import figmaLogo from "@/assets/skills/figma-logo.png"
+import cLangLogo from "@/assets/skills/c-language-logo.svg"
+import vuepressLogo from "@/assets/skills/vuepress-logo.png"
+import dockerLogo from "@/assets/skills/docker-logo.png"
 
 interface State {
     userInfo : {
@@ -36,7 +57,7 @@ interface State {
     about : About,
     timeline : Timeline,
     projects : Projects,
-    skills : Skills
+    skills : Array<SkillsData>
 }
 
 interface About {
@@ -63,10 +84,13 @@ interface Projects {
     data : Array<Object>,
 }
 
-interface Skills {
-    advanced : Array<Object>,
-    intermediate : Array<Object>,
-    beginner : Array<Object>,
+export interface SkillsData {
+    name : string | langObject,
+    proficiency : number,
+    type : string,
+    important?: boolean
+    template : Component,
+    imagePath : string
 }
 
 interface langObject{
@@ -169,7 +193,7 @@ export const store = createStore<State>({
             devPhilosophy : {
                 mainText : {
                     ko : "목적이 있는 코딩",
-                    en : "Problem solver"
+                    en : "Coding with purpose"
                 },
                 subText : {
                     ko : "명확하고 유지 관리 가능한 코드를 작성하기 위해 노력합니다.",
@@ -638,64 +662,148 @@ export const store = createStore<State>({
                 }
             ]
         },
-        skills : {
-            advanced : [
-                {
-                    mainText : {
-                        ko : "한국가스안전공사 차세대 정보시스템",
-                        en : "KGS Next-Generation Information System",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : gasLogo,
-                },
-                {
-                    mainText : {
-                        ko : "한국가스안전공사 차세대 정보시스템",
-                        en : "KGS Next-Generation Information System",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : gasLogo,
-                },
-                {
-                    mainText : {
-                        ko : "한국가스안전공사 차세대 정보시스템",
-                        en : "KGS Next-Generation Information System",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : gasLogo,
-                },
-                {
-                    mainText : {
-                        ko : "한국가스안전공사 차세대 정보시스템",
-                        en : "KGS Next-Generation Information System",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : gasLogo,
-                },
-            ],
-            intermediate : [
-
-            ],
-            beginner : [
-
-            ]
-        }
+        skills : [
+            {
+                name : "HTML5",
+                proficiency : 5,
+                type : "frontend",
+                template : markRaw(FlipCard),
+                imagePath : htmlLogo,
+            },
+            {
+                name : "CSS3",
+                proficiency : 5,
+                type : "frontend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : cssLogo,
+            },
+            {
+                name : "Javascript",
+                proficiency : 5,
+                type : "frontend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : jsLogo,
+            },
+            {
+                name : "Vue.js",
+                proficiency : 4,
+                type : "frontend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : vueLogo,
+            },
+            {
+                name : "Vuex",
+                proficiency : 4,
+                type : "frontend",
+                template : markRaw(FlipCard),
+                imagePath : vuexLogo,
+            },
+            {
+                name : "typescript",
+                proficiency : 4,
+                type : "frontend",
+                template : markRaw(FlipCard),
+                imagePath : tsLogo,
+            },
+            {
+                name : "jQuery",
+                proficiency : 5,
+                type : "frontend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : jqueryLogo,
+            },
+            {
+                name : "MySQL",
+                proficiency : 5,
+                type : "backend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : mysqlLogo,
+            },
+            {
+                name : "ORACLE",
+                proficiency : 4,
+                type : "backend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : oracleLogo,
+            },
+            {
+                name : "JAVA",
+                proficiency : 4,
+                type : "backend",
+                template : markRaw(FlipCard),
+                imagePath : javaLogo,
+            },
+            {
+                name : "Spring Framework",
+                proficiency : 3,
+                type : "backend",
+                template : markRaw(FlipCard),
+                imagePath : springLogo,
+            },
+            {
+                name : "Python",
+                proficiency :3,
+                type : "backend",
+                template : markRaw(FlipCard),
+                imagePath : pythonLogo,
+            },
+            {
+                name : "Flask",
+                proficiency : 2,
+                type : "backend",
+                template : markRaw(FlipCard),
+                imagePath : flaskLogo,
+            },
+            {
+                name : "Git",
+                proficiency : 4,
+                type : "etc",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : gitLogo,
+            },
+            {
+                name : "docker",
+                proficiency : 3,
+                type : "etc",
+                template : markRaw(FlipCard),
+                imagePath : dockerLogo,
+            },
+            {
+                name : "VS Code",
+                proficiency : 5,
+                type : "etc",
+                template : markRaw(FlipCard),
+                imagePath : vsCodeLogo,
+            },
+            {
+                name : "figma",
+                proficiency : 3,
+                type : "etc",
+                template : markRaw(FlipCard),
+                imagePath : figmaLogo,
+            },
+            {
+                name : "C",
+                proficiency : 4,
+                type : "etc",
+                template : markRaw(FlipCard),
+                imagePath : cLangLogo,
+            },
+            {
+                name : "vuepress",
+                proficiency : 4,
+                type : "etc",
+                template : markRaw(FlipCard),
+                imagePath : vuepressLogo,
+            },
+        ]
     },
     mutations: {
         setExperience(state, monthAge ) {

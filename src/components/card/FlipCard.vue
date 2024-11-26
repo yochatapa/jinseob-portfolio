@@ -76,7 +76,7 @@ const openModal = () => {
 
 <template>
     <div class="flip-card-template" ref="flipCard">
-        <div :class="['flip-card',`${flipYn?'flipped':''}`]" >
+        <div :class="['flip-card',`${flipYn?'flipped':''}`,`${props.cardInfo.type?props.cardInfo.type:''}`]" >
             <div class="flip-card-front">
                 <img class="image-box" :src="imagePath" :alt="mainText"></img>
             </div>
@@ -85,7 +85,7 @@ const openModal = () => {
                 <h3 v-if="mainText && !mainTextHtml" class="main-text">{{ mainText }}</h3>
                 <span v-if="subText && subTextHtml" class="sub-text" v-html="subText"></span>
                 <span v-if="subText && !subTextHtml" class="sub-text">{{ subText }}</span>
-                <a  class="btn" :onclick="openModal">View More</a>
+                <a v-if="props.cardInfo.fileName" class="btn" :onclick="openModal">View More</a>
             </div>
         </div>
     </div>
@@ -100,16 +100,17 @@ const openModal = () => {
 }
 
 .flip-card-template .main-text{
-    margin: 0 0 var(--Spacer-2) 0;
     text-align: center;
     word-break: keep-all;
+    margin: 0;
 }
 
 .flip-card-template .sub-text{
-    margin: 0 0 var(--Spacer-2) 0;
+    margin: var(--Spacer-2)0 0 0;
     text-align: center;
     word-break: keep-all;
     color: var(--Grayscale-40);
+    line-height: var(--Spacer-5);
 }
 
 .flip-card-template .image-box {
@@ -120,11 +121,11 @@ const openModal = () => {
 }
 
 .flip-card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
 .flip-card.flipped {
@@ -133,16 +134,16 @@ const openModal = () => {
 
 .flip-card-front,
 .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding: var(--Spacer-3);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: var(--Spacer-3);
 }
 
 .flip-card-back {
@@ -150,18 +151,19 @@ const openModal = () => {
 }
 
 .btn {
-  padding: 8px 16px;
-  background-color: var(--Grayscale-0);
-  color: var(--Primary-50);
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+    margin: var(--Spacer-2)0 0 0;;
+    padding: 8px 16px;
+    background-color: var(--Grayscale-0);
+    color: var(--Primary-50);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-  background-color: var(--Primary-50);
-  color: var(--Grayscale-0);
-  cursor: pointer;
+    background-color: var(--Primary-50);
+    color: var(--Grayscale-0);
+    cursor: pointer;
 }
 
 </style>
