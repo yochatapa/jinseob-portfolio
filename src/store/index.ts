@@ -34,7 +34,8 @@ interface State {
     },
     about : About,
     timeline : Timeline,
-    projects : Projects
+    projects : Projects,
+    skills : Skills
 }
 
 interface About {
@@ -61,6 +62,11 @@ interface Projects {
     data : Array<Object>,
 }
 
+interface Skills {
+    advanced : Array<Object>,
+    intermediate : Array<Object>,
+    beginner : Array<Object>,
+}
 
 interface langObject{
     ko : string | boolean | undefined,
@@ -75,7 +81,7 @@ interface InterfaceBasic1X1 {
     imagePath?: langObject | string | undefined,
     colspan : number,
     rowspan : number,
-    template : Component
+    template : Component,
 }
 
 export const store = createStore<State>({
@@ -496,6 +502,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : gasLogo,
                 },
                 {
@@ -507,6 +514,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : jeonjuLogo
                 },
                 {
@@ -518,6 +526,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : zikpayLogo
                 },
                 {
@@ -529,6 +538,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : kitriLogo
                 },
                 {
@@ -540,6 +550,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : lotteMartLogo
                 },
                 {
@@ -551,6 +562,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : defiLogo
                 },
                 {
@@ -562,6 +574,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : treeComponent
                 },
                 {
@@ -573,6 +586,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : gridComponent
                 },
                 {
@@ -584,6 +598,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : novaiLogo
                 },
                 {
@@ -595,6 +610,7 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : miniLinux
                 },
                 {
@@ -606,8 +622,67 @@ export const store = createStore<State>({
                     colspan : 1,
                     rowspan : 1,
                     template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
                     imagePath : textEditor
                 }
+            ]
+        },
+        skills : {
+            advanced : [
+                {
+                    mainText : {
+                        ko : "한국가스안전공사 차세대 정보시스템",
+                        en : "KGS Next-Generation Information System",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
+                    imagePath : gasLogo,
+                },
+                {
+                    mainText : {
+                        ko : "한국가스안전공사 차세대 정보시스템",
+                        en : "KGS Next-Generation Information System",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
+                    imagePath : gasLogo,
+                },
+                {
+                    mainText : {
+                        ko : "한국가스안전공사 차세대 정보시스템",
+                        en : "KGS Next-Generation Information System",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
+                    imagePath : gasLogo,
+                },
+                {
+                    mainText : {
+                        ko : "한국가스안전공사 차세대 정보시스템",
+                        en : "KGS Next-Generation Information System",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    fileName : 'ProjectsKitri',
+                    imagePath : gasLogo,
+                },
+            ],
+            intermediate : [
+
+            ],
+            beginner : [
+
             ]
         }
     },
@@ -632,7 +707,9 @@ export const store = createStore<State>({
         }
     },
     getters: {
-        
+        getLang(state): 'ko' | 'en' {
+            return state.system.lang;
+        }
     },
     modules: {
         modal, // 모달 모듈 등록
