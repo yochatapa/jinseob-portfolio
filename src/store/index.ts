@@ -508,17 +508,6 @@ export const store = createStore<State>({
                     imagePath : zikpayLogo
                 },
                 {
-                    mainText :{
-                        ko : "롯데마트 전자저널",
-                        en : "Lotte Mart Electronic Journal",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    imagePath : lotteMartLogo
-                },
-                {
                     mainText : {
                         ko : "KITRI BtoB 플랫폼",
                         en : "KITRI BtoB Platform",
@@ -528,6 +517,17 @@ export const store = createStore<State>({
                     rowspan : 1,
                     template : markRaw(FlipCard),
                     imagePath : kitriLogo
+                },
+                {
+                    mainText :{
+                        ko : "롯데마트 전자저널",
+                        en : "Lotte Mart Electronic Journal",
+                    },
+                    type : "company-project",
+                    colspan : 1,
+                    rowspan : 1,
+                    template : markRaw(FlipCard),
+                    imagePath : lotteMartLogo
                 },
                 {
                     mainText : {
