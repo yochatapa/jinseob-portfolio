@@ -14,19 +14,11 @@ const props = defineProps({
 
 const pCardInfo = props.cardInfo[1]??props.cardInfo
 
-const cardInfo = {
-    mainText : pCardInfo.mainText,
-    mainTextHtml : pCardInfo.subTextHtml,
-    subText : pCardInfo.subText,
-    subTextHtml : pCardInfo.subTextHtml,
-    colspan : pCardInfo.colspan,
-    rowspan : pCardInfo.rowspan,
-    imagePath : pCardInfo.imagePath
-};
+const cardInfo = computed(()=>pCardInfo);
 
-const rowXcol = cardInfo.rowspan * cardInfo.colspan;
+const rowXcol = cardInfo.value.rowspan * cardInfo.value.colspan;
 
-const colspan = computed(()=>Math.min(props.gridInfo.cellNumberInRow,cardInfo.colspan));
+const colspan = computed(()=>Math.min(props.gridInfo.cellNumberInRow,cardInfo.value.colspan));
 const rowspan = computed(()=>Math.ceil(rowXcol/colspan.value));
 </script>
 
