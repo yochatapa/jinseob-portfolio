@@ -671,20 +671,20 @@ export const store = createStore<State>({
                 imagePath : htmlLogo,
             },
             {
-                name : "CSS3",
-                proficiency : 5,
-                type : "frontend",
-                important : true,
-                template : markRaw(FlipCard),
-                imagePath : cssLogo,
-            },
-            {
                 name : "Javascript",
                 proficiency : 5,
                 type : "frontend",
                 important : true,
                 template : markRaw(FlipCard),
                 imagePath : jsLogo,
+            },
+            {
+                name : "CSS3",
+                proficiency : 5,
+                type : "frontend",
+                important : true,
+                template : markRaw(FlipCard),
+                imagePath : cssLogo,
             },
             {
                 name : "Vue.js",
