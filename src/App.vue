@@ -100,7 +100,7 @@ nav a.router-link-exact-active:hover {
 nav a {
     display: inline-block;
     padding: 0 var(--Spacer-2);
-    color: var(--Grayscale-40);
+    color: var(--Grayscale-60);
     font-size: var(--Spacer-2);
     text-decoration-line: none;
     position: relative;
