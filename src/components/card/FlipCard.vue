@@ -68,7 +68,8 @@ const openModal = () => {
         component : props.cardInfo.fileName,
         parameter : {
             width : "100%",
-            height : "100%"
+            height : "100%",
+            cardInfo : props.cardInfo
         }
     });
 };
