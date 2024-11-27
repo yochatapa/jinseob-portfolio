@@ -41,20 +41,40 @@ const imagePath = new URL(`${props.cardInfo.imagePath}`, import.meta.url).href;
 
 const flipCard = ref<HTMLElement|null>(null);
 
-const flipYn = ref(false)
+const flipYn = ref(false);
+const mouseOverYn = ref(false);
+
+const aTag = ref(null);
 
 const mouseOver = function(){
     flipYn.value = true;
+    mouseOverYn.value = true;
 }
 
 const mouseOut = function(){
     flipYn.value = false;
+    mouseOverYn.value = false;
+}
+
+const touchStart = function(e:TouchEvent){
+    if(e.target !== aTag.value){
+        if(flipYn.value && !mouseOverYn.value){
+            e?.preventDefault();
+            e?.stopPropagation();
+            flipYn.value = false;
+        }else if(mouseOverYn.value){
+            e?.preventDefault();
+            e?.stopPropagation();
+            flipYn.value = !flipYn.value
+        }
+    }
 }
 
 onMounted(()=>{
     if(flipCard.value){
         flipCard.value.addEventListener("mouseover",mouseOver);
         flipCard.value.addEventListener("mouseout",mouseOut);
+        flipCard.value.addEventListener("touchstart",touchStart);
     }
 })
 
@@ -62,7 +82,7 @@ onUnmounted(()=>{
     flipCard.value?.removeEventListener("mouseover",mouseOver)
 })
 
-const openModal = () => {
+const openModal = (e:Event) => {
     // 모달을 열고 /modal-page로 라우트 이동
     store.dispatch('modal/openModal', {
         component : props.cardInfo.fileName,
@@ -86,7 +106,7 @@ const openModal = () => {
                 <h3 v-if="mainText && !mainTextHtml" class="main-text">{{ mainText }}</h3>
                 <span v-if="subText && subTextHtml" class="sub-text" v-html="subText"></span>
                 <span v-if="subText && !subTextHtml" class="sub-text">{{ subText }}</span>
-                <a v-if="props.cardInfo.fileName" class="btn" :onclick="openModal">View More</a>
+                <a ref="aTag" v-if="props.cardInfo.fileName" class="btn" :onclick="openModal">View More</a>
             </div>
         </div>
     </div>
