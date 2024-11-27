@@ -19,6 +19,8 @@ function setProjectData(rawData:Array<Projects>){
             colspan : 1,
             rowspan : 1,
             template : markRaw(FlipCard),
+            viewMore : true,
+            fileName : "ProjectDetail",
             ...rData
         })
     })
