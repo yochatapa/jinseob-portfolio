@@ -85,11 +85,12 @@ export interface Projects {
     name : string | langObject,
     type : string,
     imagePath : string,
-    fileName : string
+    fileName : string,
+    skills : Array<string>
 }
 
 export interface SkillsData {
-    name : string | langObject,
+    name : string,
     proficiency : number,
     type : string,
     important?: boolean,
@@ -539,6 +540,7 @@ export const store = createStore<State>({
                 type : "company-project",
                 fileName : 'ProjectsKGS',
                 imagePath : gasLogo,
+                skills : [],
             },
             {
                 id : "pjt_02",
@@ -548,7 +550,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : jeonjuLogo
+                imagePath : jeonjuLogo,
+                skills : ['Javascript'],
             },
             {
                 id : "pjt_03",
@@ -558,7 +561,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : zikpayLogo
+                imagePath : zikpayLogo,
+                skills : [],
             },
             {
                 id : "pjt_04",
@@ -568,7 +572,8 @@ export const store = createStore<State>({
                 },
                 type : "company-project",
                 fileName : 'ProjectsKitri',
-                imagePath : kitriLogo
+                imagePath : kitriLogo,
+                skills : [],
             },
             {
                 id : "pjt_05",
@@ -578,7 +583,8 @@ export const store = createStore<State>({
                 },
                 type : "company-project",
                 fileName : 'ProjectsKitri',
-                imagePath : lotteMartLogo
+                imagePath : lotteMartLogo,
+                skills : [],
             },
             {
                 id : "pjt_06",
@@ -588,7 +594,8 @@ export const store = createStore<State>({
                 },
                 type : "company-project",
                 fileName : 'ProjectsKitri',
-                imagePath : defiLogo
+                imagePath : defiLogo,
+                skills : [],
             },
             {
                 id : "pjt_07",
@@ -598,7 +605,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : treeComponent
+                imagePath : treeComponent,
+                skills : [],
             },
             {
                 id : "pjt_08",
@@ -608,7 +616,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : gridComponent
+                imagePath : gridComponent,
+                skills : [],
             },
             {
                 id : "pjt_09",
@@ -618,7 +627,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : novaiLogo
+                imagePath : novaiLogo,
+                skills : [],
             },
             {
                 id : "pjt_10",
@@ -628,7 +638,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : miniLinux
+                imagePath : miniLinux,
+                skills : [],
             },
             {
                 id : "pjt_11",
@@ -638,7 +649,8 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 fileName : 'ProjectsKitri',
-                imagePath : textEditor
+                imagePath : textEditor,
+                skills : [],
             }
         ],
         skills : [
