@@ -98,9 +98,10 @@ button.close-button {
 
 .modal-content {
     background: var(--Grayscale-0);
-    padding: var(--Spacer-1);
+    padding: var(--Spacer-2);
     min-height: 20vh;
     border-radius: 0 0 var(--Spacer-3) var(--Spacer-3);
     box-shadow: 0 var(--Spacer-1) var(--Spacer-3) rgb(0 0 0 / 30%);
+    overflow: auto;
 }
 </style>
