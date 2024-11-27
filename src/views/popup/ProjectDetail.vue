@@ -11,11 +11,13 @@ const description = computed(()=>parameter.cardInfo.description)
 const role = computed(()=>parameter.cardInfo.role)
 const skills = computed(()=>parameter.cardInfo.skills) 
 const tasks = computed(()=>parameter.cardInfo.tasks) 
+const problemSolvings = computed(()=>parameter.cardInfo.problemSolvings) 
+const impressions = computed(()=>parameter.cardInfo.impressions) 
 
 </script>
 
 <template>
-    <div class="flip-card-template" ref="flipCard">
+    <div class="project-detail-view">
         <div class="container">
             <h1>{{ parameter.cardInfo.name[lang] }}</h1>
             <h2>{{ parameter.cardInfo.name[lang==="ko"?"en":"ko"] }}</h2>
@@ -33,31 +35,57 @@ const tasks = computed(()=>parameter.cardInfo.tasks)
 
             <!-- Project Details -->
             <div class="details">
-            <h3>{{ lang==="ko"?"프로젝트 설명":"Project Description" }}:</h3>
-            <p>
-                {{ typeof description.value === "string"?description.value:description[lang] }}
-            </p>
+                <h3 v-if="typeof description.value === 'string'?description.value:description[lang]">{{ lang==="ko"?"프로젝트 설명":"Project Description" }}:</h3>
+                <p v-if="typeof description.value === 'string'?description.value:description[lang]">
+                    {{ typeof description.value === "string"?description.value:description[lang] }}
+                </p>
 
-            <h3>{{ lang==="ko"?"내 역할":"My Role" }}:</h3>
-            <p>
-                {{ typeof role.value === "string"?role.value:role[lang] }}
-            </p>
+                <h3 v-if="typeof role.value === 'string'?role.value:role[lang]">{{ lang==="ko"?"내 역할":"My Role" }}:</h3>
+                <p v-if="typeof role.value === 'string'?role.value:role[lang]">
+                    {{ typeof role.value === "string"?role.value:role[lang] }}
+                </p>
 
-            <h3>{{ lang==="ko"?"사용한 기술":"Technologies Used" }}:</h3>
-            <div class="tags">
-                <span class="tag" v-for="(skill,index) in skills">{{ skill }}</span>
-            </div>
+                <h3 v-if="skills.length>0">{{ lang==="ko"?"사용한 기술":"Technologies Used" }}:</h3>
+                <div v-if="skills.length>0" class="tags">
+                    <span class="tag" v-for="(skill,index) in skills">{{ skill }}</span>
+                </div>
 
-            <h3>{{ lang==="ko"?"내가 한 작업":"Tasks I Worked On" }}:</h3>
-            <ul>
-                <li v-for="(task,index) in tasks">{{ typeof task === "string" ? task : task[lang] }}</li>
-            </ul>
+                <h3 v-if="tasks.length>0">{{ lang==="ko"?"작업한 업무":"Tasks I Worked On" }}:</h3>
+                <ul v-if="tasks.length>0">
+                    <li v-for="(task,index) in tasks">{{ typeof task === "string" ? task : task[lang] }}</li>
+                </ul>
+                
+                <h3 v-if="problemSolvings.length>0">{{ lang==="ko"?"문제 해결":"Problem Solving" }}:</h3>
+                <ul v-if="problemSolvings.length>0">
+                    <li v-for="(problemSolving,index) in problemSolvings" class="problem-solving">
+                        <strong>{{ lang==="ko"?"문제":"Problem" }} {{ index+1 }}</strong> : {{ typeof problemSolving.problem === "string" ? problemSolving.problem : problemSolving.problem[lang] }}
+                        <br>
+                        <strong>{{ lang==="ko"?"해결 방법":"Solution" }} {{ index+1 }}</strong> : {{ typeof problemSolving.solution === "string" ? problemSolving.solution : problemSolving.solution[lang] }} 
+                    </li>
+                </ul>
+
+                <h3 v-if="impressions.length>0">{{ lang==="ko"?"느낀 점":"Impressions" }}:</h3>
+                <ul v-if="impressions.length>0">
+                    <li v-for="(impression,index) in impressions">
+                        {{ typeof impression === "string" ? impression : impression[lang] }}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+.project-detail-view{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    max-width: calc(var(--Spacer-100)* 2);
+    width: 100%;
+}
+
 h1, h2 {
     text-align: center;
     color: var(--Green-30);
@@ -114,5 +142,8 @@ h1, h2 {
     padding: 0.3rem 0.6rem;
     border-radius: 3px;
     font-size: 0.9rem;
+}
+.problem-solving:not(:first-child){
+    margin-top: var(--Spacer-2);
 }
 </style>
