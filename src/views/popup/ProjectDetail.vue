@@ -81,6 +81,10 @@ const impressions = computed(()=>parameter.cardInfo.impressions)
     justify-content: center;
 }
 
+.project-detail-view *{
+    word-break: keep-all;
+}
+
 .container{
     max-width: calc(var(--Spacer-100)* 2);
     width: 100%;
@@ -88,7 +92,12 @@ const impressions = computed(()=>parameter.cardInfo.impressions)
 
 h1, h2 {
     text-align: center;
+}
+h1{
     color: var(--Green-30);
+}
+h2{
+    color: var(--Grayscale-50);
 }
 .slider {
     position: relative;
