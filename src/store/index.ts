@@ -56,7 +56,7 @@ interface State {
     },
     about : About,
     timeline : Timeline,
-    projects : Projects,
+    projects : Array<Projects>,
     skills : Array<SkillsData>
 }
 
@@ -80,16 +80,19 @@ interface Timeline {
     data : Array<Object>,
 }
 
-interface Projects {
-    data : Array<Object>,
+export interface Projects {
+    id : string,
+    name : string | langObject,
+    type : string,
+    imagePath : string,
+    fileName : string
 }
 
 export interface SkillsData {
     name : string | langObject,
     proficiency : number,
     type : string,
-    important?: boolean
-    template : Component,
+    important?: boolean,
     imagePath : string
 }
 
@@ -526,148 +529,123 @@ export const store = createStore<State>({
                 }
             ]
         },
-        projects : {
-            data : [
-                {
-                    mainText : {
-                        ko : "한국가스안전공사 차세대 정보시스템",
-                        en : "KGS Next-Generation Information System",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKGS',
-                    imagePath : gasLogo,
+        projects :[
+            {
+                id : "pjt_01",
+                name : {
+                    ko : "한국가스안전공사 차세대 정보시스템",
+                    en : "KGS Next-Generation Information System",
                 },
-                {
-                    mainText : {
-                        ko : "전주시 의료,돌봄 통합지원 시스템",
-                        en : "Integrated Medical&Care Support System",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : jeonjuLogo
+                type : "company-project",
+                fileName : 'ProjectsKGS',
+                imagePath : gasLogo,
+            },
+            {
+                id : "pjt_02",
+                name : {
+                    ko : "전주시 의료,돌봄 통합지원 시스템",
+                    en : "Integrated Medical&Care Support System",
                 },
-                {
-                    mainText : {
-                        ko : "직페이 안전결제",
-                        en : "ZIKPAY",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : zikpayLogo
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : jeonjuLogo
+            },
+            {
+                id : "pjt_03",
+                name : {
+                    ko : "직페이 안전결제",
+                    en : "ZIKPAY",
                 },
-                {
-                    mainText : {
-                        ko : "KITRI BtoB 플랫폼",
-                        en : "KITRI BtoB Platform",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : kitriLogo
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : zikpayLogo
+            },
+            {
+                id : "pjt_04",
+                name : {
+                    ko : "KITRI BtoB 플랫폼",
+                    en : "KITRI BtoB Platform",
                 },
-                {
-                    mainText :{
-                        ko : "롯데마트 전자저널",
-                        en : "Lotte Mart Electronic Journal",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : lotteMartLogo
+                type : "company-project",
+                fileName : 'ProjectsKitri',
+                imagePath : kitriLogo
+            },
+            {
+                id : "pjt_05",
+                name :{
+                    ko : "롯데마트 전자저널",
+                    en : "Lotte Mart Electronic Journal",
                 },
-                {
-                    mainText : {
-                        ko : "디지털 경제금융연구원 홈페이지",
-                        en : "DEFI Hompage",
-                    },
-                    type : "company-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : defiLogo
+                type : "company-project",
+                fileName : 'ProjectsKitri',
+                imagePath : lotteMartLogo
+            },
+            {
+                id : "pjt_06",
+                name : {
+                    ko : "디지털 경제금융연구원 홈페이지",
+                    en : "DEFI Hompage",
                 },
-                {
-                    mainText : {
-                        ko : "트리 컴포넌트",
-                        en : "Tree Component",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : treeComponent
+                type : "company-project",
+                fileName : 'ProjectsKitri',
+                imagePath : defiLogo
+            },
+            {
+                id : "pjt_07",
+                name : {
+                    ko : "트리 컴포넌트",
+                    en : "Tree Component",
                 },
-                {
-                    mainText : {
-                        ko : "그리드 컴포넌트",
-                        en : "Grid Component",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : gridComponent
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : treeComponent
+            },
+            {
+                id : "pjt_08",
+                name : {
+                    ko : "그리드 컴포넌트",
+                    en : "Grid Component",
                 },
-                {
-                    mainText : {
-                        ko : "캡스톤 디자인",
-                        en : "Capstone Design",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : novaiLogo
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : gridComponent
+            },
+            {
+                id : "pjt_09",
+                name : {
+                    ko : "캡스톤 디자인",
+                    en : "Capstone Design",
                 },
-                {
-                    mainText : {
-                        ko : "미니 OS 시스템",
-                        en : "Mini OS System",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : miniLinux
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : novaiLogo
+            },
+            {
+                id : "pjt_10",
+                name : {
+                    ko : "미니 OS 시스템",
+                    en : "Mini OS System",
                 },
-                {
-                    mainText : {
-                        ko : "텍스트 에디터",
-                        en : "Text Editor",
-                    },
-                    type : "personal-project",
-                    colspan : 1,
-                    rowspan : 1,
-                    template : markRaw(FlipCard),
-                    fileName : 'ProjectsKitri',
-                    imagePath : textEditor
-                }
-            ]
-        },
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : miniLinux
+            },
+            {
+                id : "pjt_11",
+                name : {
+                    ko : "텍스트 에디터",
+                    en : "Text Editor",
+                },
+                type : "personal-project",
+                fileName : 'ProjectsKitri',
+                imagePath : textEditor
+            }
+        ],
         skills : [
             {
                 name : "HTML5",
                 proficiency : 5,
                 type : "frontend",
-                template : markRaw(FlipCard),
                 imagePath : htmlLogo,
             },
             {
@@ -675,7 +653,6 @@ export const store = createStore<State>({
                 proficiency : 5,
                 type : "frontend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : jsLogo,
             },
             {
@@ -683,7 +660,6 @@ export const store = createStore<State>({
                 proficiency : 5,
                 type : "frontend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : cssLogo,
             },
             {
@@ -691,21 +667,18 @@ export const store = createStore<State>({
                 proficiency : 4,
                 type : "frontend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : vueLogo,
             },
             {
                 name : "Vuex",
                 proficiency : 4,
                 type : "frontend",
-                template : markRaw(FlipCard),
                 imagePath : vuexLogo,
             },
             {
                 name : "typescript",
                 proficiency : 4,
                 type : "frontend",
-                template : markRaw(FlipCard),
                 imagePath : tsLogo,
             },
             {
@@ -713,7 +686,6 @@ export const store = createStore<State>({
                 proficiency : 5,
                 type : "frontend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : jqueryLogo,
             },
             {
@@ -721,7 +693,6 @@ export const store = createStore<State>({
                 proficiency : 5,
                 type : "backend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : mysqlLogo,
             },
             {
@@ -729,35 +700,30 @@ export const store = createStore<State>({
                 proficiency : 4,
                 type : "backend",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : oracleLogo,
             },
             {
                 name : "JAVA",
                 proficiency : 4,
                 type : "backend",
-                template : markRaw(FlipCard),
                 imagePath : javaLogo,
             },
             {
                 name : "Spring Framework",
                 proficiency : 3,
                 type : "backend",
-                template : markRaw(FlipCard),
                 imagePath : springLogo,
             },
             {
                 name : "Python",
                 proficiency :3,
                 type : "backend",
-                template : markRaw(FlipCard),
                 imagePath : pythonLogo,
             },
             {
                 name : "Flask",
                 proficiency : 2,
                 type : "backend",
-                template : markRaw(FlipCard),
                 imagePath : flaskLogo,
             },
             {
@@ -765,42 +731,36 @@ export const store = createStore<State>({
                 proficiency : 4,
                 type : "etc",
                 important : true,
-                template : markRaw(FlipCard),
                 imagePath : gitLogo,
             },
             {
                 name : "docker",
                 proficiency : 3,
                 type : "etc",
-                template : markRaw(FlipCard),
                 imagePath : dockerLogo,
             },
             {
                 name : "VS Code",
                 proficiency : 5,
                 type : "etc",
-                template : markRaw(FlipCard),
                 imagePath : vsCodeLogo,
             },
             {
                 name : "figma",
                 proficiency : 3,
                 type : "etc",
-                template : markRaw(FlipCard),
                 imagePath : figmaLogo,
             },
             {
                 name : "C",
                 proficiency : 4,
                 type : "etc",
-                template : markRaw(FlipCard),
                 imagePath : cLangLogo,
             },
             {
                 name : "vuepress",
                 proficiency : 4,
                 type : "etc",
-                template : markRaw(FlipCard),
                 imagePath : vuepressLogo,
             },
         ]

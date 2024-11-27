@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import CardTemplate from '@/components/card/CardTemplate.vue';
 import GridLayout from '@/components/layout/GridLayout.vue';
-import { computed, reactive } from 'vue';
+import { computed, markRaw, reactive, watch } from 'vue';
 import type { SkillsData } from '@/store/index';
 
 import { useStore } from 'vuex';
+import FlipCard from '@/components/card/FlipCard.vue';
 
 const store = useStore();
 
@@ -14,29 +15,43 @@ let frontendData = reactive(new Array());
 let backendData = reactive(new Array()); 
 let etcData = reactive(new Array());
 
-skills.forEach((data:SkillsData) => {
-    const flipData = {
-        colspan : 1,
-        rowspan : 1,
-        mainText : data.name,
-        subText : "⭐".repeat(data.proficiency),
-        ...data,
-    }
+function setData(rData:Array<SkillsData>){
+    frontendData = new Array();
+    backendData = new Array();
+    etcData = new Array();
 
-    if(flipData.important) flipData.type += " important"
-    
-    switch(data.type){
-        case "frontend":
-            frontendData.push(flipData)
-            break;
-        case "backend":
-            backendData.push(flipData)
-            break;
-        case "etc":
-            etcData.push(flipData) 
-            break;
-    }
-});
+    rData.forEach((data:SkillsData) => {
+        const flipData = {
+            colspan : 1,
+            rowspan : 1,
+            mainText : data.name,
+            template : markRaw(FlipCard),
+            subText : "⭐".repeat(data.proficiency),
+            ...data,
+        }
+
+        if(flipData.important) flipData.type += " important"
+        
+        switch(data.type){
+            case "frontend":
+                frontendData.push(flipData)
+                break;
+            case "backend":
+                backendData.push(flipData)
+                break;
+            case "etc":
+                etcData.push(flipData) 
+                break;
+        }
+    });
+}
+
+
+watch(skills,(newValue, oldValue)=>{
+    setData(newValue)
+})
+
+setData(skills);
 
 const flipDataSort = (a:any, b:any)=>{
     // 먼저 important가 true인 객체가 앞에 오도록 정렬
