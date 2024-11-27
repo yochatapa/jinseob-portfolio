@@ -345,10 +345,10 @@ export const store = createStore<State>({
                     },
                     eventDetail : {
                         ko : `
-                            대금지급 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
+                            대금지급, 포인트 사용 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트<br><hr/>
                             안전결제 파트, 공통 파트 개발, "대금 지급 프로세스" 등 핵심 프로세스 재설계`,
                         en : `
-                            A project to build a secure payment system ensuring asset protection during transactions such as payments and settlements
+                            A project to build a secure payment system that protects assets during transactions, such as payment disbursements and point usage
                             <br><hr/>
                             Responsible for developing the Secure Payment and Common Modules, including redesigning core processes like the "Payment Settlement Process`
                     },
@@ -568,12 +568,16 @@ export const store = createStore<State>({
                     en : "Integrated Medical&Care Support System",
                 },
                 description : {
-                    ko : `전주시에 거주하는 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상자를 선별 및 선정하여 관리하는 프로젝트입니다.`,
-                    en : `This is a project to assess the healthcare and care needs of senior residents in Jeonju City, identify and select eligible support recipients, and manage their information.`,
+                    ko : `전주시에 거주하는 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상자를 선별 및 선정하여 관리하는 프로젝트입니다. 
+                        국민건강보험공단과 보건복지부, 전주시의 지침에 따라서 노인분들의 건강, 복지욕구 등을 조사하여 상황에 맞는 의료,돌봄 대상자를 선별, 관리하는 프로그램입니다.
+                        대상자 선별, 조사, 선정, 관리, 서비스 지원의 의료,돌봄 전 프로세스를 관리하는 프로그램입니다.`,
+                    en : `This project involves assessing the medical and care needs of elderly residents in Jeonju, selecting and managing eligible recipients for support. 
+                        The program adheres to the guidelines of the National Health Insurance Service, the Ministry of Health and Welfare, and Jeonju City to survey the health and welfare needs of elderly individuals, selecting and managing recipients for appropriate medical and care services.
+                        It is a comprehensive program that manages the entire process of medical and care services, including recipient selection, surveys, approval, management, and service provision.`,
                 },
                 role : {
-                    ko : `DB 설계, 프론트엔드 개발, 백엔드 개발`,
-                    en : `Database Design, Frontend Development, Backend Development`,
+                    ko : `프론트엔드 개발, 백엔드 개발, DB 설계, 화면 설계`,
+                    en : `Frontend Development, Backend Development, Database Design`,
                 },
                 type : "personal-project",
                 imagePath : jeonjuLogo,
@@ -670,23 +674,118 @@ export const store = createStore<State>({
             {
                 id : "pjt_03",
                 name : {
-                    ko : "직페이 안전결제",
-                    en : "ZIKPAY",
+                    ko : "직페이 안전결제 시스템",
+                    en : "ZIKPAY Secure Payment System",
                 },
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `대금지급, 포인트 사용 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트입니다. 
+                        AS-IS는 대금지급에 특화되어 있는 프로세스였으나, TO-BE에서는 실시간 결제, 토큰 종류 추가, 토큰 변환 등의 새로운 프로세스가 추가되며 대금지급 뿐만이 아니라 다양한 결제에서 사용될 수 있도록 개발하였습니다.
+                        다양한 결제 상황에서 사용하기 용이하도록 UI/UX와 DB를 모두 재설계하였습니다.`,
+                    en : `This project involved building a secure payment system to protect assets during transactions such as payment disbursements and point usage. 
+                        While the AS-IS system was specialized for payment disbursements, the TO-BE system introduced new processes such as real-time payments, additional token types and token conversion, expanding its functionality to support various payment scenarios.
+                        To accommodate diverse payment situations, the UI/UX and database were entirely redesigned for improved usability and flexibility.`,
                 },
                 role : {
-                    ko : "",
-                    en : "",
+                    ko : `프로젝트 리더 / 프론트엔드 개발, 백엔드 개발, DB 재설계, 화면 재설계`,
+                    en : `Project Leader / Frontend Development, Backend Development, Database Redesign, UI Redesign`,
                 },
                 type : "personal-project",
                 imagePath : zikpayLogo,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ['Javascript','HTML5',"CSS3","Vue.js","MySQL","JAVA","Spring Framework","Vuex","jQuery","PDFBox"],
+                tasks : [
+                    {
+                        ko : "AS-IS 데이터를 유지한 상태로, TO-BE 요구사항(실시간 결제, 토큰 종류 추가, 지급승인 등)에 적합하도록 프로세스 재설계",
+                        en : "Redesigned processes to align with TO-BE requirements (real-time payments, additional token types and token conversion, etc.) while maintaining AS-IS data",
+                    },
+                    {
+                        ko : "일별 토큰/요청 현황, 안전결제 정보 등 결제 현황이 우선시 되는 UI/UX로 변경",
+                        en : "Redesigned the UI/UX to prioritize payment status information, such as daily token/request status and secure payment details",
+                    },
+                    {
+                        ko : "실시간으로 사용약정 체결, 토큰 지급, 토큰 변환, 사용약정 금액 증액, 사용약정 금액 감액 처리",
+                        en : "Real-time processing of user agreements, token disbursement, token conversion, agreement amount increase, and agreement amount decrease",
+                    },
+                    {
+                        ko : "은행과의 REST API 통신을 통해 가상계좌 발급, 출금 요청, 입출금 확인, 거래내역 대사 기능 구현",
+                        en : "Implemented functionalities such as virtual account issuance, withdrawal requests, deposit/withdrawal verification, and transaction reconciliation through REST API communication with the bank.",
+                    },
+                    {
+                        ko : "결제 진행 시, 감사추적인증서 발급",
+                        en : "Issuance of audit trail certificates during the payment process",
+                    },
+                    {
+                        ko : "계약서 첨부 후, 전자 서명 오류 수정",
+                        en : "Fixed electronic signature errors after attaching the contract document",
+                    },
+                    {
+                        ko : "사용자 관리, 코드 관리 등 관리자 메뉴 개발",
+                        en : "Develop Admin Menu for User Management, Code Management, and Other Features",
+                    },
+                    {
+                        ko : "프로젝트 WBS 작성 및 개발 일정 관리",
+                        en : "Project WBS creation and development schedule management.",
+                    },
+                ],
+                problemSolvings : [
+                    {
+                        problem : {
+                            ko : "대금 결제만 가능한 현 시스템은 자유로운 결제가 불가능합니다.",
+                            en : "The current system, which only supports payment disbursements, does not allow for flexible payments.",
+                        },
+                        solution : {
+                            ko : `"승인토큰"이라는 새로운 종류의 결제 토큰을 추가하여, AS-IS의 대금지급 프로세스는 살리되, 실시간 토큰 지급, 변환, 증액, 감액 등 다양한 결제 기능들을 가능하도록 재설계했습니다.`,
+                            en : `By adding a new type of payment token called "Approval Token," I redesigned the system to retain the existing payment disbursement process (AS-IS) while enabling various payment functions such as real-time token disbursement, conversion, increase, and decrease.`,
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "AS-IS 시스템은 조건에 따라 숨겨진 화면 구성이 많고 일관성이 없어서 사용자가 시스템을 사용하는데 어려움을 겪습니다.",
+                            en : "The AS-IS system has many hidden screen elements based on conditions and lacks consistency, making it difficult for users to navigate the system effectively.",
+                        },
+                        solution : {
+                            ko : `시스템이 메인이 되는 사용약정을 중심으로, 현재 내가 대금 지급인인지 대금 수령인인지 명확하게 표시하였습니다. 결제 진행 시, 알림 기능을 적극 활용하여 사용자가 결제정보에 대해서 놓치지 않도록 하였습니다. 현재 잔액, 미지급액, 거래량 등을 그래프를 포함하여 사용자가 이해하기 쉽도록 개발하였습니다.`,
+                            en : `The system clearly indicates whether the user is the payer or the payee, focusing on the user agreement as the central element. During the payment process, the notification feature is actively utilized to ensure users do not miss any payment information. I also developed the system to display current balance, unpaid amounts, transaction volume, etc., in an easy-to-understand format, including graphs.`,
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "AS-IS 결제 데이터가 존재하기 때문에 AS-IS 데이터는 유지시켜야 합니다.",
+                            en : "Since the AS-IS payment data exists, it is important to preserve the AS-IS data.",
+                        },
+                        solution : {
+                            ko : `AS-IS 테이블과 컬럼은 최소한으로 수정하여 TO-BE 시스템으로 마이그래이션 시 변화를 최소화하였습니다.`,
+                            en : `The AS-IS tables and columns were minimally modified to minimize changes during the migration to the TO-BE system.`,
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "AS-IS 시스템에서는 대금 결제 지급이 하루에 한 번만 가능합니다.",
+                            en : "In the AS-IS system, payment disbursements can only be processed once a day.",
+                        },
+                        solution : {
+                            ko : `입출금 배치의 시간 1분으로 줄여서 실시간에 가깝도록 구현하였고, 하루에 한번 은행과 결제내역 대사를 진행하여 오차가 발생하지 않도록 처리하였습니다.`,
+                            en : `The deposit and withdrawal batch time was reduced to one minute, making it nearly real-time. Additionally, daily reconciliation with the bank was implemented to ensure no discrepancies occur in the payment records.`,
+                        },
+                    },
+                ],
+                impressions : [
+                    {
+                        ko : "프로젝트 리더로서 기간 내 성공적으로 프로젝트를 완수 하기위해 WBS를 작성하여 일정관리를 하였고, 팀원들의 역량과 능력을 고려하여 업무 분장을 하였습니다.",
+                        en : "As the project leader, I created a Work Breakdown Structure (WBS) to manage the schedule and ensure the successful completion of the project within the given timeframe. I also efficiently delegated tasks, considering the strengths and capabilities of each team member.",
+                    },
+                    {
+                        ko : "고객의 요구사항을 유연하게 대응하되, 개발 방향에 맞지 않는 요구사항은 적절한 대안을 제시하거나 조정하여 프로젝트 목표와 일관성을 유지했습니다. 프로젝트 초기에 요구사항 정의 과정의 중요성에 대해 느끼는 계기가 되었습니다.",
+                        en : "I responded flexibly to customer requirements, but for those that didn't align with the development direction, I suggested appropriate alternatives or adjustments to maintain consistency with the project goals. This experience reinforced the importance of the requirements definition phase at the start of a project.",
+                    },
+                    {
+                        ko : "은행과의 REST API 통신을 통해 다양한 금융 기능을 구현하면서, 결제 보안 및 트랜잭션 관리에 대한 깊은 이해를 쌓았습니다.",
+                        en : "By implementing various financial functions through REST API communication with the bank, I developed a deep understanding of payment security and transaction management.",
+                    },
+                    {
+                        ko : "불특정 다수의 사용자를 대상으로 하는 서비스를 구현하기 위해 다양한 페르소나를 설정하고, 각 페르소나의 요구사항을 도출하여 분석한 후, 이를 반영하여 UI/UX를 설계하고 구현했습니다.",
+                        en : "To implement a service for an unspecified number of users, I defined various personas, derived and analyzed their requirements, and then reflected these insights to design and implement the UI/UX.",
+                    },
+                ] 
             },
             {
                 id : "pjt_04",
