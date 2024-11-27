@@ -83,10 +83,14 @@ interface Timeline {
 export interface Projects {
     id : string,
     name : string | langObject,
+    description : string | langObject
+    role : string | langObject
     type : string,
     imagePath : string,
-    fileName : string,
-    skills : Array<string>
+    skills : Array<string>,
+    tasks : Array<string | langObject>,
+    problemSolvings : Array<ProblemSolving>,
+    impressions : Array<string | langObject>,
 }
 
 export interface SkillsData {
@@ -100,6 +104,11 @@ export interface SkillsData {
 interface langObject{
     ko : string | boolean | undefined,
     en : string | boolean | undefined
+}
+
+interface ProblemSolving{
+    problem : string | langObject,
+    solution : string | langObject,
 }
 
 interface InterfaceBasic1X1 {
@@ -225,7 +234,7 @@ export const store = createStore<State>({
                         Hello, <br>
                         I am <strong>Jinseob Han</strong>, a developer with a major in computer engineering and over 3 years of diverse experience in SI development.<br>
                         I focus on creating <strong>user-friendly</strong> and <strong>reliable</strong> solutions by adhering to <strong>rigorous processes</strong> and ensuring <strong>accurate programming</strong>. I excel at enhancing <strong>efficiency</strong> through <strong>standardization</strong> and <strong>unification</strong>. 
-                        I enjoy <strong>creative problem-solving</strong> and take pride in my <strong>attention to detail</strong> and <strong>passion for continuous learning</strong>.<br>
+                        I enjoy <strong>creative problem-solution</strong> and take pride in my <strong>attention to detail</strong> and <strong>passion for continuous learning</strong>.<br>
                         My goal is to contribute to meaningful projects and continue growing as a developer. Thank you.
                     </label>
                     `
@@ -537,10 +546,20 @@ export const store = createStore<State>({
                     ko : "한국가스안전공사 차세대 정보시스템",
                     en : "KGS Next-Generation Information System",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "company-project",
-                fileName : 'ProjectsKGS',
                 imagePath : gasLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_02",
@@ -548,10 +567,105 @@ export const store = createStore<State>({
                     ko : "전주시 의료,돌봄 통합지원 시스템",
                     en : "Integrated Medical&Care Support System",
                 },
+                description : {
+                    ko : `전주시에 거주하는 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상자를 선별 및 선정하여 관리하는 프로젝트입니다.`,
+                    en : `This is a project to assess the healthcare and care needs of senior residents in Jeonju City, identify and select eligible support recipients, and manage their information.`,
+                },
+                role : {
+                    ko : `DB 설계, 프론트엔드 개발, 백엔드 개발`,
+                    en : `Database Design, Frontend Development, Backend Development`,
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : jeonjuLogo,
-                skills : ['Javascript'],
+                skills : ['Javascript','HTML5',"CSS3","MySQL","JAVA","Spring Framework",'Docker'],
+                tasks : [
+                    {
+                        ko : "프로세스와 기능에 맞는 데이터 베이스 설계",
+                        en : "Design the Database According to the Processes and Functions",
+                    },
+                    {
+                        ko : "통합지원회의를 통한 지원 대상자 선별 프로세스 설계 및 개발",
+                        en : "Design and Develop the Support Recipient Selection Process through Integrated Support Meetings",
+                    },
+                    {
+                        ko : "필요도 조사 등 다양한 설문지를 동적으로 만들 수 있도록 설계 및 개발",
+                        en : "Design and Develop a System to Dynamically Create Various Questionnaires, Including Needs Assessments",
+                    },
+                    {
+                        ko : "사용자 관리, 코드 관리 등 관리자 메뉴 개발",
+                        en : "Develop Admin Menu for User Management, Code Management, and Other Features",
+                    },
+                    {
+                        ko : "메일, 카카오톡 알림 기능을 통한 알림 전송",
+                        en : "Send Notifications via Email and KakaoTalk Alert Features",
+                    },
+                    {
+                        ko : "Docker를 활용하여 개발,운영환경 세팅",
+                        en : "Set Up Development and Production Environments Using Docker",
+                    },
+                ],
+                problemSolvings : [
+                    {
+                        problem : {
+                            ko : "잦은 조사지 변경으로 인해, 데이터 수집 및 관리의 어려움이 있습니다.",
+                            en : "There are difficulties in data collection and management due to frequent changes in the survey questionnaire.",
+                        },
+                        solution : {
+                            ko : "관리자가 조사지 항목을 조합하여 동적으로 조사지를 생성할 수 있도록 기능을 개발하였습니다. 이로 인해, 기존 18개의 조사지와 향후 추가 될 조사지도 대응가능하도록 개발했습니다.",
+                            en : "I developed a feature that allows administrators to dynamically create surveys by combining survey question items. As a result, it was designed to accommodate the existing 18 surveys as well as any future surveys that may be added.",
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "상위 기관에서 승인하지 않았으나, 하위 기관에서 정보가 누락되어 지원 대상자가 아닌 사람을 지원하는 경우가 있습니다.",
+                            en : "There are cases where individuals who are not eligible for support are mistakenly supported by lower-level institutions, even though the upper-level institution did not approve them.",
+                        },
+                        solution : {
+                            ko : "상위 기관의 통합지원회의에서 미승인 되었을 경우, 하위 기관에서 지원 대상자에게 지원할 수 없도록 데이터 처리를 했습니다.",
+                            en : "I handled the data processing to prevent lower-level institutions from providing support to ineligible individuals when they were not approved in the integrated support meeting of the upper-level institution.",
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "조사자들이 일정을 잊어버려서 조사를 하지 못하는 경우가 많습니다.",
+                            en : "There are many cases where surveyors forget the schedule and fail to conduct the survey.",
+                        },
+                        solution : {
+                            ko : "메일, 카카오톡 알림 기능을 통해 조사일 하루 전, 알림 발송이 되도록 기능 개발을 했습니다. 또한, 조사자가 로그인 시, 메인화면에 달력 컴포넌트를 배치하고 알림이 왔음을 띄워주며 조사자가 일정을 잊지 않도록 했습니다.",
+                            en : "I developed a notification feature that sends reminders one day before the survey through email and KakaoTalk alert functions. Additionally, when surveyors log in, a calendar component is placed on the main screen, and notifications are displayed to remind them, ensuring that they do not forget their schedules.",
+                        },
+                    },
+                    {
+                        problem : {
+                            ko : "조사자는 태블릿을 사용하기 때문에 각 카드의 크기를 터치로 자유롭게 수정할 수 있었으면 좋겠습니다.",
+                            en : "Since the surveyors use tablets, they would like to be able to freely adjust the size of each card by touch.",
+                        },
+                        solution : {
+                            ko : "각 카드는 상하 또는 좌우로 배치하고 각 카드 중간에는 크기 조절을 위한 핸들러를 배치하여 핸들러 이동을 통해 각 카드의 크기를 조절할 수 있도록 했습니다.",
+                            en : "Each card is arranged vertically or horizontally, and a handler is placed in the center of each card. By moving the handler, the size of each card can be adjusted.",
+                        },
+                    },
+                    // {
+                    //     problem : {
+                    //         ko : "상위 기관에서 사용하는 테이블, 컬럼 구조 일부는 그대로 맞추어주었으면 함",
+                    //         en : "Since the surveyors use tablets, they would like to be able to freely adjust the size of each card by touch.",
+                    //     },
+                    //     solution : {
+                    //         ko : "각 카드는 상하 또는 좌우로 배치하고 각 카드 중간에는 크기 조절을 위한 핸들러를 배치하여 핸들러 이동을 통해 각 카드의 크기를 조절할 수 있도록 함",
+                    //         en : "Each card is arranged vertically or horizontally, and a handler is placed in the center of each card. By moving the handler, the size of each card can be adjusted.",
+                    //     },
+                    // },
+                ],
+                impressions : [
+                    {
+                        ko : "다양한 사용자(공무원, 조사자, 서비스 제공자 등)가 사용하는 시스템이고, 다양한 기기(PC, 태블릿)로 접속하는 업무 시스템이기 때문에 각 상황에서 자연스럽게 화면이 표출되도록 개발하면서 다양한 환경을 고려하며 개발하는 것의 중요성을 느꼈습니다.",
+                        en : "The system is used by various users (such as government officials, surveyors, service providers, etc.) and accessed from different devices (PCs, tablets). Therefore, it was developed to ensure that the screen is displayed naturally in each situation.",
+                    },
+                    {
+                        ko : "Docker를 사용해 개발, 검증, 운영 서버를 구성하면서 각 환경을 일관되게 유지할 수 있어 환경 차이로 인한 문제를 줄일 수 있었습니다. 이를 통해 빠른 배포와 효율적인 자원 관리의 중요성을 깨달았습니다.",
+                        en : "By using Docker to set up development, testing, and production servers, I was able to maintain consistency across environments and reduce issues caused by environmental differences. This made me realize the importance of fast deployment and efficient resource management.",
+                    },
+                ]
             },
             {
                 id : "pjt_03",
@@ -559,10 +673,20 @@ export const store = createStore<State>({
                     ko : "직페이 안전결제",
                     en : "ZIKPAY",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : zikpayLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_04",
@@ -570,10 +694,20 @@ export const store = createStore<State>({
                     ko : "KITRI BtoB 플랫폼",
                     en : "KITRI BtoB Platform",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "company-project",
-                fileName : 'ProjectsKitri',
                 imagePath : kitriLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_05",
@@ -581,10 +715,20 @@ export const store = createStore<State>({
                     ko : "롯데마트 전자저널",
                     en : "Lotte Mart Electronic Journal",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "company-project",
-                fileName : 'ProjectsKitri',
                 imagePath : lotteMartLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_06",
@@ -592,10 +736,20 @@ export const store = createStore<State>({
                     ko : "디지털 경제금융연구원 홈페이지",
                     en : "DEFI Hompage",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "company-project",
-                fileName : 'ProjectsKitri',
                 imagePath : defiLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_07",
@@ -603,10 +757,20 @@ export const store = createStore<State>({
                     ko : "트리 컴포넌트",
                     en : "Tree Component",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : treeComponent,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_08",
@@ -614,10 +778,20 @@ export const store = createStore<State>({
                     ko : "그리드 컴포넌트",
                     en : "Grid Component",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : gridComponent,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_09",
@@ -625,10 +799,20 @@ export const store = createStore<State>({
                     ko : "캡스톤 디자인",
                     en : "Capstone Design",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : novaiLogo,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_10",
@@ -636,10 +820,20 @@ export const store = createStore<State>({
                     ko : "미니 OS 시스템",
                     en : "Mini OS System",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : miniLinux,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             },
             {
                 id : "pjt_11",
@@ -647,10 +841,20 @@ export const store = createStore<State>({
                     ko : "텍스트 에디터",
                     en : "Text Editor",
                 },
+                description : {
+                    ko : "",
+                    en : "",
+                },
+                role : {
+                    ko : "",
+                    en : "",
+                },
                 type : "personal-project",
-                fileName : 'ProjectsKitri',
                 imagePath : textEditor,
                 skills : [],
+                tasks : [],
+                problemSolvings : [],
+                impressions : [] 
             }
         ],
         skills : [
@@ -746,7 +950,7 @@ export const store = createStore<State>({
                 imagePath : gitLogo,
             },
             {
-                name : "docker",
+                name : "Docker",
                 proficiency : 3,
                 type : "etc",
                 imagePath : dockerLogo,
