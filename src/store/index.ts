@@ -547,18 +547,57 @@ export const store = createStore<State>({
                     en : "KGS Next-Generation Information System",
                 },
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `한국가스안전공사 차세대 정보시스템을 구축하는 프로젝트입니다. 
+                        크게 9가지 파트(안전관리, 진단인증, 안전교육, 안전점검, 연구관리, 유해화학, 회계/세금/자금, 인사, 공통) 중 진단인증, 유해화학 파트를 전담하여 개발하였고 안전관리 및 공통기능 중 일부 중요기능(업소/시설 관리, 인증서 발급, 결재프로세스 등)을 개발하였습니다.
+                        `,
+                    en : ``,
                 },
                 role : {
-                    ko : "",
+                    ko : "프론트엔드 개발, 백엔드 개발 / 진단인증, 유해화학 담당 / 안전관리, 공통기능 개발",
                     en : "",
                 },
                 type : "company-project",
                 imagePath : gasLogo,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
+                skills : ['Javascript',"ORACLE","JAVA","Spring Framework",'Nexacro','SVN'],
+                tasks : [
+                    {
+                        ko: "진단인증 파트 담당 - 안전진단결과관리, 송유관 검사, 안전관리자 관리, SMS 업소 관리 등",
+                        en: "Responsible for the Certification and Diagnosis part - Safety inspection results management, pipeline inspection, safety manager management, SMS business management, etc.",
+                    },
+                    {
+                        ko: "유해화학 파트 담당 - 유해화학 업소/시설 관리, 유해화학 검사원 배정 및 검사일정관리 등",
+                        en: "Responsible for the Hazardous Chemicals part - Hazardous chemical business/facility management, hazardous chemical inspector assignment and inspection schedule management, etc.",
+                    },
+                    {
+                        ko: "안전관리 파트 개발 - 업소/시설 관리, 인증서 관리, 검사원 배정 및 검사일정관리 등",
+                        en: "Developed the Safety Management part - Business/facility management, certificate management, inspector assignment and inspection schedule management, etc.",
+                    },
+                    {
+                        ko: "공통 파트 개발 - 간이 결재, 공통 코드 관리, 권한별 메뉴관리 등",
+                        en: "Developed the Common part - Simplified approval, common code management, menu management by permissions, etc.",
+                    },
+                    {
+                        ko: `AS-IS 컬럼명을 TO-BE 컬럼명으로 변경해주는 "컬럼명 변환기" 개발`,
+                        en: `Developed a "Column Name Converter" that changes AS-IS column names to TO-BE column names.`,
+                    },
+                    {
+                        ko: "새로운 사용해보는 툴(Nexacro)에 맞는 다양한 공통 컴포넌트 개발 (아코디언, 멀티선택 콤보박스 등)",
+                        en: "Developed various common components compatible with a new tool (Nexacro) such as accordion and multi-select combo boxes.",
+                    },
+                    
+                ],
+                problemSolvings : [
+                    {
+                        problem : {
+                            ko : "",
+                            en : "",
+                        },
+                        solution : {
+                            ko : "",
+                            en : "",
+                        },
+                    },
+                ],
                 impressions : [] 
             },
             {
