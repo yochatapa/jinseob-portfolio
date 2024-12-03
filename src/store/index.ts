@@ -899,8 +899,8 @@ export const store = createStore<State>({
                       ko: "시스템 코드 관리 등 공통 기능 개발",
                       en: "Developed common features such as system code management"
                     }
-                  ],
-                  problemSolvings: [
+                ],
+                problemSolvings: [
                     {
                       problem: {
                         ko: "프로젝트 참여 시간과 전문가 가능 시간을 비교하기가 어렵습니다.",
@@ -921,8 +921,8 @@ export const store = createStore<State>({
                         en: "Implemented a calendar library allowing users to select desired dates through drag-and-drop functionality."
                       }
                     }
-                  ],
-                  impressions: [
+                ],
+                impressions: [
                     {
                       ko: "시스템 코드를 활용하여 하드코딩을 줄이는 것을 배웠습니다.",
                       en: "Learned how to reduce hardcoding by utilizing system codes."
@@ -931,7 +931,7 @@ export const store = createStore<State>({
                       ko: "계층형 쿼리를 활용해 댓글, 대댓글 구현을 하였습니다.",
                       en: "Implemented comments and replies using hierarchical queries."
                     }
-                  ]
+                ]
             },
             {
                 id : "pjt_05",
@@ -940,19 +940,66 @@ export const store = createStore<State>({
                     en : "Lotte Mart Electronic Journal",
                 },
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트입니다.
+                        20년 가까이 된 오래된 AS-IS 시스템을 재구축하고, 영수증 검색, 데이터 필터 기능 등 편의 기능을 추가하였습니다.
+                        솔루션 POC로 진행된 프로젝트여서 개발에 사용된 솔루션을 롯데마트, 롯데이노베이트 직원에게 교육을 진행하였습니다.`,
+                    en : `This project involved rebuilding the electronic journal system for Lotte Mart, enabling receipt inquiries. 
+                        The project modernized the nearly 20-year-old AS-IS system, adding convenience features such as receipt search and data filtering. 
+                        As this was a proof-of-concept (POC) project, training on the solution used for development was provided to Lotte Mart and Lotte Innovate employees.`,
                 },
                 role : {
-                    ko : "",
+                    ko : "프론트엔드 개발, 솔루션 교육",
                     en : "",
                 },
                 type : "company-project",
                 imagePath : lotteMartLogo,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ['Javascript','HTML5',"CSS3","MS SQL","JAVA","Spring Framework"],
+                tasks: [
+                    {
+                        ko: "솔루션 교육",
+                        en: "Solution training"
+                    },
+                    {
+                        ko: "대용량 데이터 처리",
+                        en: "Large-scale data processing"
+                    },
+                    {
+                        ko: "데이터 필터 기능 추가",
+                        en: "Added data filtering functionality"
+                    }
+                ],
+                problemSolvings: [
+                    {
+                        problem: {
+                        ko: "AS-IS에서 영수증을 조회하면 화면이동이 되어서 영수증 목록과 영수증 상세 화면을 한번에 볼 수 없습니다.",
+                        en: "In the AS-IS system, viewing receipts requires screen transitions, making it impossible to see both the receipt list and detailed view simultaneously."
+                        },
+                        solution: {
+                        ko: "TO-BE에서 영수증 목록과 영수증 상세를 하나의 화면에 배치하고, 영수증 목록에서 키보드로 이동이 가능하게 만들어서 사용자 경험을 향상시켰습니다.",
+                        en: "In the TO-BE system, placed the receipt list and details on the same screen, and enabled keyboard navigation for an improved user experience."
+                        }
+                    },
+                    {
+                        problem: {
+                        ko: "많은 데이터를 조회하면 화면에 표출하지 못하고 브라우저가 멈춥니다.",
+                        en: "When querying a large volume of data, the browser freezes and cannot display all the data."
+                        },
+                        solution: {
+                        ko: "DB에서 받아온 대용량 데이터를 브라우저가 모두 표출시킬 수 없어서 발생한 문제로, virtual scrolling을 구현하여 대용량 데이터도 표출될 수 있도록 조치하였습니다.",
+                        en: "Implemented virtual scrolling to handle the issue of the browser freezing when displaying large-scale data fetched from the database."
+                        }
+                    }
+                ],
+                impressions: [
+                    {
+                        ko: "시니어 개발자 30명을 대상으로 한 솔루션 교육을 위해 발표 준비를 하며, 프레젠테이션에 대한 연습과 경험을 쌓을 수 있었습니다.",
+                        en: "Prepared and delivered a presentation for solution training to 30 senior developers, gaining experience and practice in presentation skills."
+                    },
+                    {
+                        ko: "대용량 데이터 처리를 통해, virtual scrolling 기능에 대해 익힐 수 있었습니다.",
+                        en: "Learned about implementing virtual scrolling through large-scale data processing."
+                    }
+                ]
             },
             {
                 id : "pjt_06",
