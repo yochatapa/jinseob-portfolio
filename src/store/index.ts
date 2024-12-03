@@ -271,11 +271,11 @@ export const store = createStore<State>({
                     eventDetail : {
                         ko : `
                             핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트<br><hr/>
-                            Front-end 개발 담당`,
+                            Front-end 개발 담당, DB 설계`,
                         en : `
                             A project to develop the DEFI website
                             <br><hr/>
-                            Responsible for Front-end Development`,
+                            Responsible for Front-end Development, Design the Database`,
                     },
                     evnentDetailHtml : {
                         ko : true,
@@ -1008,16 +1008,17 @@ export const store = createStore<State>({
                     en : "DEFI Hompage",
                 },
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트입니다. 간단한 협회소개 홈페이지이나, 옵션 선택만으로 원하는 게시판을 생성 할 수 있도록 설계하였습니다.`,
+                    en : `This project involved building the Fintech Industry Association's Digital Economy and Finance Research Institute website. 
+                        Although a simple introductory website for the association, it was designed to allow users to create desired bulletin boards through simple option selections.`,
                 },
                 role : {
-                    ko : "",
-                    en : "",
+                    ko : `Front-end 개발, Database 설계`,
+                    en : `Front-end Development, Design the Database`,
                 },
                 type : "company-project",
                 imagePath : defiLogo,
-                skills : [],
+                skills : ['Javascript','HTML5',"CSS3","MySQL","JAVA","Spring Framework"],
                 tasks : [],
                 problemSolvings : [],
                 impressions : [] 
