@@ -51,7 +51,7 @@ interface State {
         expDate : string
     },
     system : {
-        lang : "ko" | "en",
+        lang : 'ko' | 'en',
         message : Object,
     },
     about : About,
@@ -432,7 +432,7 @@ export const store = createStore<State>({
                     eventDetail : {
                         ko : `
                         한국가스안전공사 차세대 정보시스템 구축 프로젝트<br><hr/>
-                        안전관리 파트 개발, 진단인증, 유해화학 파트 담당
+                        안전관리, 공통 파트 개발, 진단인증, 유해화학 파트 담당
                         `,
                         en : `
                         KGS Next-Generation Information System Development
@@ -547,18 +547,18 @@ export const store = createStore<State>({
                     en : "KGS Next-Generation Information System",
                 },
                 description : {
-                    ko : `한국가스안전공사 차세대 정보시스템을 구축하는 프로젝트입니다. 
-                        크게 9가지 파트(안전관리, 진단인증, 안전교육, 안전점검, 연구관리, 유해화학, 회계/세금/자금, 인사, 공통) 중 진단인증, 유해화학 파트를 전담하여 개발하였고 안전관리 및 공통기능 중 일부 중요기능(업소/시설 관리, 인증서 발급, 결재프로세스 등)을 개발하였습니다.
-                        `,
-                    en : ``,
+                    ko : "한국가스안전공사 차세대 정보시스템 구축를 구축하는 프로젝트입니다. 총 9개의 개발 파트(안전관리, 진단인증, 사고점검, 유해화학, 연구개발, 안전교육, 인사, 회계, 공통) 중 진단인증, 유해화학 파트를 메인으로 담당하였으며, 안전관리, 공통 파트에서도 일부 핵심 기능(업소/시설 관리, 간이결재, 파일첨부 등)을 개발하였습니다.",
+                    en : `This project involved the development of the next-generation information system for the Korea Gas Safety Corporation. 
+                        Among a total of 9 development areas (Safety Management, Diagnostic Certification, Accident Inspection, Hazardous Chemicals, R&D, Safety Education, HR, Accounting, and Common Functions), I primarily handled the Diagnostic Certification and Hazardous Chemicals modules. 
+                        Additionally, I contributed to key features in the Safety Management and Common Functions modules, including business/facility management, simplified approval, and file attachment functionality.`,
                 },
                 role : {
-                    ko : "프론트엔드 개발, 백엔드 개발 / 진단인증, 유해화학 담당 / 안전관리, 공통기능 개발",
-                    en : "",
+                    ko : "진단인증, 유해화학 파트 담당 / 안전관리, 공통 파트 개발",
+                    en : "Responsible for the Certification and Diagnosis and Hazardous Chemicals parts / Developed the Safety Management and Common parts",
                 },
                 type : "company-project",
                 imagePath : gasLogo,
-                skills : ['Javascript',"ORACLE","JAVA","Spring Framework",'Nexacro','SVN'],
+                skills : ['Javascript',"ORACLE","JAVA","Spring Framework",'Nexacro','OZ Report','SVN'],
                 tasks : [
                     {
                         ko: "진단인증 파트 담당 - 안전진단결과관리, 송유관 검사, 안전관리자 관리, SMS 업소 관리 등",
@@ -577,28 +577,64 @@ export const store = createStore<State>({
                         en: "Developed the Common part - Simplified approval, common code management, menu management by permissions, etc.",
                     },
                     {
-                        ko: `AS-IS 컬럼명을 TO-BE 컬럼명으로 변경해주는 "컬럼명 변환기" 개발`,
-                        en: `Developed a "Column Name Converter" that changes AS-IS column names to TO-BE column names.`,
+                        ko: `AS-IS 테이블명,컬럼명을 TO-BE 테이블명,컬럼명으로 변경해주는 "테이블, 컬럼명 변환기" 개발`,
+                        en: `Developed a "Table & Column Name Converter" to change AS-IS table and column names to TO-BE table and column names.`,
                     },
                     {
                         ko: "새로운 사용해보는 툴(Nexacro)에 맞는 다양한 공통 컴포넌트 개발 (아코디언, 멀티선택 콤보박스 등)",
                         en: "Developed various common components compatible with a new tool (Nexacro) such as accordion and multi-select combo boxes.",
                     },
-                    
                 ],
                 problemSolvings : [
                     {
-                        problem : {
-                            ko : "",
-                            en : "",
+                        problem: {
+                            ko: "AS-IS의 테이블명과 컬럼명이 TO-BE에서 완전히 바뀌어서 많은 어려움이 있었습니다.",
+                            en: "The table and column names in AS-IS were completely changed in TO-BE, which caused significant challenges."
                         },
-                        solution : {
-                            ko : "",
-                            en : "",
-                        },
+                        solution: {
+                            ko: "AS-IS 테이블명,컬럼명을 TO-BE 테이블명,컬럼명으로 변경해주는 \"테이블, 컬럼명 변환기\" 개발하여 불필요한 개발 공수를 단축시켰습니다. AS-IS 쿼리를 파싱하여 테이블명과 컬럼명을 구분한 뒤 TO-BE 테이블명, 컬럼명을 매칭시켜 치환해주었습니다. 치환 성공률은 80% 이상되었으며, AS-IS 컬럼명이 TO-BE 컬럼명과 1:1로 매칭되지 않는 일부 경우에서는 치환이 잘못되는 경우가 일부 존재하였습니다.",
+                            en: "Developed a 'Table and Column Name Converter' to transform AS-IS table and column names into TO-BE equivalents, significantly reducing unnecessary development effort. The tool parses AS-IS queries, identifies table and column names, and replaces them with TO-BE counterparts. The replacement success rate exceeded 80%. However, in some cases where AS-IS column names did not have a 1:1 match with TO-BE column names, replacement errors occurred."
+                        }
                     },
+                    {
+                        problem: {
+                            ko: "처음 사용하는 툴(Nexacro, OZ Report Tool)이 익숙치 않아서 개발 공수가 많이 들어갑니다.",
+                            en: "Significant development effort was required due to unfamiliarity with new tools (Nexacro, OZ Report Tool)."
+                        },
+                        solution: {
+                            ko: "공통으로 사용할 수 있는 컴포넌트(아코디언, 멀티 콤보박스 등)를 만들어서 불필요한 개발을 하지 않도록 도왔습니다.",
+                            en: "Created reusable components (e.g., accordion, multi-combo box) to eliminate redundant development efforts."
+                        }
+                    },
+                    {
+                        problem: {
+                            ko: "현업에서 순환근무로 인해 사용하던 프로세스 외의 전체적인 프로세스에 대해서 모르는 경우가 있습니다.",
+                            en: "Due to rotational shifts in business operations, users often lacked understanding of the overall process outside their specific tasks."
+                        },
+                        solution: {
+                            ko: "현업 부서에 직접 방문하여 다양한 사용자를 인터뷰하였고, 이를 종합하여 AS-IS와 대비하여 분석하였습니다. 제가 맡은 진단인증과 유해화학 파트는 개발 전 요구사항의 100% 이상을 수용하여 개발 완료하였습니다.",
+                            en: "Visited business departments to conduct interviews with various users and synthesized the findings to analyze them against AS-IS processes. For the Diagnostic Certification and Hazardous Chemicals parts that I handled, over 100% of the requirements were incorporated and successfully developed."
+                        }
+                    }
                 ],
-                impressions : [] 
+                impressions : [
+                    {
+                        ko: "현업이 업무에 사용하는 정보시스템인만큼 사용자의 요구사항을 정확히 파악하고 개발을 해야한다는 것을 느꼈습니다.",
+                        en: "I realized the importance of accurately understanding and addressing user requirements when developing an information system used directly by business users."
+                    },
+                    {
+                        ko: "불필요한 개발과정을 최대한 줄이고자 다양한 방법들을 고민하고 이를 구현하기 위해 노력하였습니다.",
+                        en: "I explored and implemented various methods to minimize unnecessary development processes."
+                    },
+                    {
+                        ko: "차세대 프로젝트인 경우, AS-IS에서 기개발된 내용을 정확히 분석하고 개발된 이유를 명확히 인지하는 것이 중요하다는 것을 느꼈습니다.",
+                        en: "In next-generation projects, I recognized the importance of thoroughly analyzing AS-IS developments and clearly understanding the rationale behind them."
+                    },
+                    {
+                        ko: "추후 유지보수를 위해 개발 내용을 문서로 명확히 남기는 것이 중요하다는 것을 느꼈습니다.",
+                        en: "I realized the importance of documenting development details clearly for future maintenance."
+                    }
+                ] 
             },
             {
                 id : "pjt_02",
