@@ -833,19 +833,69 @@ export const store = createStore<State>({
                     en : "KITRI BtoB Platform",
                 },
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `KITRI를 통해 BtoB간의 프로젝트 생성 및 관리하는 플랫폼 구축하는 프로젝트입니다. 프로젝트 신청 -> 심사 -> 선정 과정을 거쳐 프로젝트를 생성하고, 각 프로젝트에 맞는 전문가를 모집, 선정하여 프로젝트를 진행합니다.
+                        프로젝트 진행과정과 결과물까지 관리하는 종합 프로젝트 관리 플랫폼입니다.`,
+                    en : `This project involves building a platform for creating and managing B2B projects through KITRI. 
+                        The platform facilitates project creation through the process of application, review, and selection. It also enables the recruitment and selection of experts tailored to each project, ensuring smooth project execution. 
+                        The platform serves as a comprehensive project management tool, covering the entire process from project execution to managing deliverables.`,
                 },
                 role : {
-                    ko : "",
-                    en : "",
+                    ko : `서비스 개발`,
+                    en : "Service Development",
                 },
                 type : "company-project",
                 imagePath : kitriLogo,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ['Javascript','HTML5',"CSS3","MySQL","JAVA","Spring Framework","jQuery"],
+                tasks: [
+                    {
+                      ko: "전문가 등록 개발",
+                      en: "Developed expert registration functionality"
+                    },
+                    {
+                      ko: "장비/시설 사용 개발",
+                      en: "Developed equipment and facility usage functionality"
+                    },
+                    {
+                      ko: "커뮤니티 기능 개발 (댓글, 대댓글 등)",
+                      en: "Developed community features (comments, replies, etc.)"
+                    },
+                    {
+                      ko: "시스템 코드 관리 등 공통 기능 개발",
+                      en: "Developed common features such as system code management"
+                    }
+                  ],
+                  problemSolvings: [
+                    {
+                      problem: {
+                        ko: "프로젝트 참여 시간과 전문가 가능 시간을 비교하기가 어렵습니다.",
+                        en: "It is difficult to compare project participation time with expert availability."
+                      },
+                      solution: {
+                        ko: "프로젝트 참여 시간과 전문가 가능 시간을 시각적으로 쉽게 비교할 수 있도록 시각화 하여 표출하였으며, 중복되는 시간을 %로 나타내어 직관적으로 인지할 수 있도록 하였습니다.",
+                        en: "Visualized project participation time and expert availability for easier comparison, and displayed overlapping times as a percentage for intuitive understanding."
+                      }
+                    },
+                    {
+                      problem: {
+                        ko: "장비/시설 예약 시, 캘린더를 통해 사용 일자를 선택하고 싶습니다.",
+                        en: "Users want to select usage dates through a calendar when reserving equipment or facilities."
+                      },
+                      solution: {
+                        ko: "캘린더 라이브러리를 활용하여, 사용자가 드래그를 통해 원하는 일자를 선택할 수 있도록 개발하였습니다.",
+                        en: "Implemented a calendar library allowing users to select desired dates through drag-and-drop functionality."
+                      }
+                    }
+                  ],
+                  impressions: [
+                    {
+                      ko: "시스템 코드를 활용하여 하드코딩을 줄이는 것을 배웠습니다.",
+                      en: "Learned how to reduce hardcoding by utilizing system codes."
+                    },
+                    {
+                      ko: "계층형 쿼리를 활용해 댓글, 대댓글 구현을 하였습니다.",
+                      en: "Implemented comments and replies using hierarchical queries."
+                    }
+                  ]
             },
             {
                 id : "pjt_05",
@@ -955,8 +1005,8 @@ export const store = createStore<State>({
             {
                 id : "pjt_10",
                 name : {
-                    ko : "미니 OS 시스템",
-                    en : "Mini OS System",
+                    ko : "미니 리눅스",
+                    en : "Mini Linux",
                 },
                 description : {
                     ko : "",
