@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, type Ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import NavButton from './components/NavButton.vue';
 import ModalView from './components/ModalView.vue';
@@ -11,9 +11,57 @@ const handleScroll = () => {
     scrollPosition.value = document.documentElement.scrollTop;
 };
 
+let isBackgroundLoaded = ref(false);
+let isFirstView = ref(true);
+let isNextButtonView = ref(false);
+let isFirstYn = ref(true);
+
+function onImageLoad(){
+    isBackgroundLoaded.value = true;
+};
+
+function onImageError(){
+    isBackgroundLoaded.value = false;
+};
+
+const nameText = ref("안녕하세요, 개발자 한진섭입니다!");
+const displayedNameText = ref("");
+const welcomeText = ref("저의 포트폴리오를 찾아주셔서 감사합니다.");
+const displayedWelcomeText = ref("");
+
+const typingSpeed = 100; // 타이핑 속도 (ms)
+
+const typeText = async (text:Ref<string,string>,displayedText:Ref<string,string>) => {
+    for (let i = 0; i < text.value.length; i++) {
+    await delay(typingSpeed);
+    displayedText.value += text.value[i];
+    }
+};
+
+const typeTextAll = async (textArray:Array<Array<Ref<string,string>>>) => {
+    for(let [text,displayedText] of textArray){
+        await typeText(text,displayedText);
+    }
+}
+
+const delay = (ms:number) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+const initApp = async () => {
+    await typeTextAll([[nameText,displayedNameText],[welcomeText,displayedWelcomeText]]);
+    isNextButtonView.value = true;
+}
+
+const showPortfolio = () => {
+    isFirstView.value = false;
+    isFirstYn.value = false;
+}
+
 // 컴포넌트가 마운트된 후 스크롤 이벤트 리스너 추가
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+    initApp();
 });
 
 // 컴포넌트가 언마운트되면 이벤트 리스너를 제거
@@ -23,7 +71,17 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="app-background">
+    <transition name="fade">
+        <div class="app-first-view" v-if="isFirstView">
+            <p class="typing">{{ displayedNameText }}</p>
+            <p class="typing">{{ displayedWelcomeText }}</p>
+            <transition name="fade">
+                <p class="typing next-button" :onclick="showPortfolio" v-if="isNextButtonView && isFirstView">Next →</p>
+            </transition>
+        </div>
+    </transition>
+    <div class="app-background" v-show="isBackgroundLoaded">
+        <img src="/src/assets/waves-macos-big-sur-colorful.png" @load="onImageLoad" @error="onImageError"/>
         <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
     </div>
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
@@ -57,6 +115,16 @@ header {
     z-index: 2;
     position: sticky;
     top: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* header.change{
@@ -127,6 +195,32 @@ nav a::before {
 
 nav a:first-of-type {
     border: 0;
+}
+
+.app-first-view {
+    z-index: 999999999999999999;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--Grayscale-80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: var(--Spacer-3);
+}
+
+.typing{
+    color: var(--Grayscale-0);
+    font-size: var(--Spacer-4);
+    font-weight: bold;
+    word-break: keep-all;
+}
+
+.typing.next-button{
+    cursor: pointer;
 }
 
 .app-background {
