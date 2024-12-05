@@ -140,6 +140,14 @@ export const store = createStore<State>({
                     ko : "페이지를 찾을 수 없습니다.",
                     en : "Page Not Found."
                 },
+                welcomeMainText : {
+                    ko : "안녕하세요",
+                    en : "Hello"
+                },
+                welcomeSubText : {
+                    ko : "웹 개발자 한진섭입니다!",
+                    en : "I'm Web Developer Jinseob!"
+                },
             }
         },
         about : {
@@ -1260,7 +1268,7 @@ export const store = createStore<State>({
                 state.about.experience.mainText.ko = `${monthAge.age} 년  ${monthAge.month} 개월`;
             }
         },
-        setLang(state, newLang){
+        async setLang(state, newLang){
             store.state.system.lang = newLang;
         }
     },

@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, type Ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch, type Ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import NavButton from './components/NavButton.vue';
 import ModalView from './components/ModalView.vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
 
 const scrollPosition = ref(0);
 const headerBackgroundChangeYn = computed(()=>scrollPosition.value>0);
@@ -24,21 +27,25 @@ function onImageError(){
     isBackgroundLoaded.value = false;
 };
 
-const nameText = ref("안녕하세요, 개발자 한진섭입니다!");
+let nameText = ref(null);
 const displayedNameText = ref("");
-const welcomeText = ref("저의 포트폴리오를 찾아주셔서 감사합니다.");
+let welcomeText = ref(null);
 const displayedWelcomeText = ref("");
 
-const typingSpeed = 100; // 타이핑 속도 (ms)
+const typingSpeed = 150; // 타이핑 속도 (ms)
 
-const typeText = async (text:Ref<string,string>,displayedText:Ref<string,string>) => {
-    for (let i = 0; i < text.value.length; i++) {
-    await delay(typingSpeed);
-    displayedText.value += text.value[i];
+const typeText = async (text:Ref<string|null,string|null>,displayedText:Ref<string|null,string|null>) => {
+    if(text.value){
+        for (let i = 0; i < text.value.length; i++) {
+        await delay(typingSpeed);
+            displayedText.value += text.value[i];
+            console.log(store.state.system.lang)
+        }
     }
+    
 };
 
-const typeTextAll = async (textArray:Array<Array<Ref<string,string>>>) => {
+const typeTextAll = async (textArray:Array<Array<Ref<string|null,string|null>>>) => {
     for(let [text,displayedText] of textArray){
         await typeText(text,displayedText);
     }
@@ -49,8 +56,22 @@ const delay = (ms:number) => {
 };
 
 const initApp = async () => {
+    switch(navigator.language){
+        case "ko" : 
+        case "ko-KR" :
+            await store.commit("setLang","ko")
+            break;
+        default :
+            await store.commit("setLang","en")
+            break;
+    }
+    nameText.value = store.state.system.message.welcomeMainText[store.state.system.lang]
+    welcomeText.value = store.state.system.message.welcomeSubText[store.state.system.lang];
+
     await typeTextAll([[nameText,displayedNameText],[welcomeText,displayedWelcomeText]]);
-    isNextButtonView.value = true;
+    setTimeout(()=>{
+        isNextButtonView.value = true;
+    },300)
 }
 
 const showPortfolio = () => {
@@ -81,7 +102,7 @@ onUnmounted(() => {
         </div>
     </transition>
     <div class="app-background" v-show="isBackgroundLoaded">
-        <img src="/src/assets/waves-macos-big-sur-colorful.png" @load="onImageLoad" @error="onImageError"/>
+        <img src="/src/assets/waves-macos-big-sur-colorful.png" v-show="!isBackgroundLoaded" @load="onImageLoad" @error="onImageError"/>
         <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
     </div>
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
@@ -209,18 +230,25 @@ nav a:first-of-type {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: var(--Spacer-3);
+    padding: var(--Spacer-5);
 }
 
 .typing{
     color: var(--Grayscale-0);
-    font-size: var(--Spacer-4);
+    font-size: var(--Spacer-8);
     font-weight: bold;
     word-break: keep-all;
+    text-align: center;
+    margin: 0 0 var(--Spacer-6) 0;
 }
 
 .typing.next-button{
+    font-size: var(--Spacer-4);
+    width: 1000px;
+    max-width: 100%;
     cursor: pointer;
+    text-align: right;
+    margin: var(--Spacer-6) 0 0 0;
 }
 
 .app-background {
