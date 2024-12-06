@@ -10,7 +10,7 @@ html, body {
   padding: 0;
 }
 
-html:has(#app>.modal){
+html:has(#app>.modal),html:has(#app>.app-first-view){
   overflow: hidden;
 }
 
