@@ -103,7 +103,7 @@ onUnmounted(() => {
     </transition>
     <div class="app-background" v-show="isBackgroundLoaded">
         <img src="/src/assets/waves-macos-big-sur-colorful.png" v-show="!isBackgroundLoaded" @load="onImageLoad" @error="onImageError"/>
-        <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div>
+        <!-- <div v-for="index in 2" :class="['circle', `circle-${index}`]"></div> -->
     </div>
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
         <nav>
