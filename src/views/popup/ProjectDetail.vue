@@ -13,14 +13,18 @@ const skills = computed(()=>parameter.cardInfo.skills)
 const tasks = computed(()=>parameter.cardInfo.tasks) 
 const problemSolvings = computed(()=>parameter.cardInfo.problemSolvings) 
 const impressions = computed(()=>parameter.cardInfo.impressions) 
+const url = computed(()=>parameter.cardInfo.url);
+const date = computed(()=>parameter.cardInfo.date);
 
 </script>
 
 <template>
     <div class="project-detail-view">
         <div class="container">
+
             <h1>{{ parameter.cardInfo.name[lang] }}</h1>
-            <h2>{{ parameter.cardInfo.name[lang==="ko"?"en":"ko"] }}</h2>
+            <h2>{{ parameter.cardInfo.date}}</h2>
+           
 
             <!-- Slider Section -->
             <div class="slider">
@@ -35,6 +39,8 @@ const impressions = computed(()=>parameter.cardInfo.impressions)
 
             <!-- Project Details -->
             <div class="details">
+                <h3 v-if="url">{{ lang==="ko"?"프로젝트 링크":"Project URL" }}:</h3>
+                <a v-if="url" :href="url">{{ url }}</a>
                 <h3 v-if="typeof description.value === 'string'?description.value:description[lang]">{{ lang==="ko"?"프로젝트 설명":"Project Description" }}:</h3>
                 <p v-if="typeof description.value === 'string'?description.value:description[lang]">
                     {{ typeof description.value === "string"?description.value:description[lang] }}
