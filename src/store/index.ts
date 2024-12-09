@@ -82,6 +82,7 @@ interface Timeline {
 
 export interface Projects {
     id : string,
+    date : string,
     name : string | langObject,
     description : string | langObject
     role : string | langObject
@@ -91,6 +92,7 @@ export interface Projects {
     tasks : Array<string | langObject>,
     problemSolvings : Array<ProblemSolving>,
     impressions : Array<string | langObject>,
+    url ?: string
 }
 
 export interface SkillsData {
@@ -141,12 +143,12 @@ export const store = createStore<State>({
                     en : "Page Not Found."
                 },
                 welcomeMainText : {
-                    ko : "안녕하세요",
-                    en : "Hello"
+                    ko : "안녕하세요.",
+                    en : "Hello."
                 },
                 welcomeSubText : {
-                    ko : "웹 개발자 한진섭입니다!",
-                    en : "I'm Web Developer Jinseob!"
+                    ko : "개발자 한진섭입니다!",
+                    en : "I'm Developer Jinseob!"
                 },
             }
         },
@@ -496,8 +498,8 @@ export const store = createStore<State>({
                     type : "personal-project",
                     date : "2019.03 ~ 2019.06",
                     eventName : {
-                        ko : "Mini Operating System 구현",
-                        en : "Mini Operating System Development"
+                        ko : "Mini Linux 구현",
+                        en : "Mini Linux Development"
                     },
                     eventDetail : {
                         ko : `
@@ -554,6 +556,7 @@ export const store = createStore<State>({
                     ko : "한국가스안전공사 차세대 정보시스템",
                     en : "KGS Next-Generation Information System",
                 },
+                date : "2022.03 ~ 2023.02",
                 description : {
                     ko : "한국가스안전공사 차세대 정보시스템 구축를 구축하는 프로젝트입니다. 총 9개의 개발 파트(안전관리, 진단인증, 사고점검, 유해화학, 연구개발, 안전교육, 인사, 회계, 공통) 중 진단인증, 유해화학 파트를 메인으로 담당하였으며, 안전관리, 공통 파트에서도 일부 핵심 기능(업소/시설 관리, 간이결재, 파일첨부 등)을 개발하였습니다.",
                     en : `This project involved the development of the next-generation information system for the Korea Gas Safety Corporation. 
@@ -650,6 +653,7 @@ export const store = createStore<State>({
                     ko : "전주시 의료,돌봄 통합지원 시스템",
                     en : "Integrated Medical&Care Support System",
                 },
+                date : "2023.03 ~ 2024.11",
                 description : {
                     ko : `전주시에 거주하는 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상자를 선별 및 선정하여 관리하는 프로젝트입니다. 
                         국민건강보험공단과 보건복지부, 전주시의 지침에 따라서 노인분들의 건강, 복지욕구 등을 조사하여 상황에 맞는 의료,돌봄 대상자를 선별, 관리하는 프로그램입니다.
@@ -760,6 +764,7 @@ export const store = createStore<State>({
                     ko : "직페이 안전결제 시스템",
                     en : "ZIKPAY Secure Payment System",
                 },
+                date : "2023.12 ~ 2024.06",
                 description : {
                     ko : `대금지급, 포인트 사용 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트입니다. 
                         AS-IS는 대금지급에 특화되어 있는 프로세스였으나, TO-BE에서는 실시간 결제, 토큰 종류 추가, 토큰 변환 등의 새로운 프로세스가 추가되며 대금지급 뿐만이 아니라 다양한 결제에서 사용될 수 있도록 개발하였습니다.
@@ -876,6 +881,7 @@ export const store = createStore<State>({
                     ko : "KITRI BtoB 플랫폼",
                     en : "KITRI BtoB Platform",
                 },
+                date : "2021.10 ~ 2022.02",
                 description : {
                     ko : `KITRI를 통해 BtoB간의 프로젝트 생성 및 관리하는 플랫폼 구축하는 프로젝트입니다. 프로젝트 신청 -> 심사 -> 선정 과정을 거쳐 프로젝트를 생성하고, 각 프로젝트에 맞는 전문가를 모집, 선정하여 프로젝트를 진행합니다.
                         프로젝트 진행과정과 결과물까지 관리하는 종합 프로젝트 관리 플랫폼입니다.`,
@@ -947,6 +953,7 @@ export const store = createStore<State>({
                     ko : "롯데마트 전자저널",
                     en : "Lotte Mart Electronic Journal",
                 },
+                date : "2024.07 ~ 2024.08",
                 description : {
                     ko : `롯데마트에서 영수증을 조회 할 수 있는 전자저널을 재구축하는 프로젝트입니다.
                         20년 가까이 된 오래된 AS-IS 시스템을 재구축하고, 영수증 검색, 데이터 필터 기능 등 편의 기능을 추가하였습니다.
@@ -1015,6 +1022,7 @@ export const store = createStore<State>({
                     ko : "디지털 경제금융연구원 홈페이지",
                     en : "DEFI Hompage",
                 },
+                date : "2024.08",
                 description : {
                     ko : `핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트입니다. 간단한 협회소개 홈페이지이나, 옵션 선택만으로 원하는 게시판을 생성 할 수 있도록 설계하였습니다.`,
                     en : `This project involved building the Fintech Industry Association's Digital Economy and Finance Research Institute website. 
@@ -1037,6 +1045,7 @@ export const store = createStore<State>({
                     ko : "트리 컴포넌트",
                     en : "Tree Component",
                 },
+                date : "2023.06",
                 description : {
                     ko : `데이터를 트리 구조로 시각화하여 사용자와 상호작용할 수 있도록 제작한 UI 컴포넌트입니다. 
                         드래그 기능, 데이터 바인드 기능, 수정 기능 등 다양한 기능을 제공하여 사용자의 사용편의성을 높이고, 개발자가 쉽게 사용할 수 있도록 제작하였습니다.`,
@@ -1106,6 +1115,7 @@ export const store = createStore<State>({
                     ko : "그리드 컴포넌트",
                     en : "Grid Component",
                 },
+                date : "2024.01 ~",
                 description : {
                     ko : "",
                     en : "",
@@ -1127,6 +1137,7 @@ export const store = createStore<State>({
                     ko : "캡스톤 디자인",
                     en : "Capstone Design",
                 },
+                date : "2023.03 ~ 2023.06",
                 description : {
                     ko : "",
                     en : "",
@@ -1148,20 +1159,82 @@ export const store = createStore<State>({
                     ko : "미니 리눅스",
                     en : "Mini Linux",
                 },
+                date : "2019.03 ~ 2019.06",
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : "Mini Linux은 다양한 자료구조를 활용하여 리눅스 CLI(Command Line Interface)를 클론 코딩하는 프로젝트입니다. 이 프로젝트에서는 ls, cd, mkdir, rm 등 주요 명령어를 직접 구현하며, 멀티프로세서를 설계하여 여러 명령어가 동시에 동작할 수 있도록 개발하는 것이 목표입니다.",
+                    en : "Mini Linux is a project that clones the Linux Command Line Interface (CLI) using various data structures. The project involves implementing core commands such as ls, cd, mkdir, and rm, and designing a multiprocessor system to allow multiple commands to execute simultaneously.",
                 },
                 role : {
-                    ko : "",
-                    en : "",
+                    ko : "미니 리눅스 설계 및 개발",
+                    en : "Mini Linux Design and Development",
                 },
                 type : "personal-project",
                 imagePath : miniLinux,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ["C"],
+                tasks: [
+                    {
+                        ko: "리눅스 시스템과 동일한 파일 탐색기 구조를 구현",
+                        en: "Implemented a file explorer structure similar to the Linux system."
+                    },
+                    {
+                        ko: "cd, mkdir, pwd, ls, cat, rm, tree, rmdir, find 명령어를 구현",
+                        en: "Implemented commands such as cd, mkdir, pwd, ls, cat, rm, tree, rmdir, and find."
+                    },
+                    {
+                        ko: "명령어의 다양한 옵션 구현(14가지 옵션 구현)",
+                        en: "Implemented various command options (14 options implemented)."
+                    },
+                    {
+                        ko: "mkdir 명령어를 통해서 다수의 폴더를 동시에 생성 / mkdir, rmdir 등 다른 명령어도 동시 처리 가능",
+                        en: "Allowed the creation of multiple folders simultaneously using the mkdir command, and enabled simultaneous processing for mkdir, rmdir, and other commands."
+                    },
+                    {
+                        ko: "파일/디렉토리 데이터를 bin 파일로 저장",
+                        en: "Saved file/directory data as a binary (bin) file."
+                    }
+                ],
+                problemSolvings: [
+                    {
+                        problem: {
+                        ko: "명령어와 옵션, 디렉토리명 등을 구분하기 어렵습니다.",
+                        en: "It is difficult to distinguish commands, options, and directory names."
+                        },
+                        solution: {
+                        ko: "입력받은 커맨드를 띄어쓰기 기준으로 분할한 후, 명령어를 찾습니다. 이후 옵션을 기준으로 실행 조건들을 구분합니다. 따라서 옵션의 순서나 위치가 바뀌어도 동작 가능합니다.",
+                        en: "Split input commands by spaces, identify the command, and separate execution conditions based on options. This allows commands to function even if options are reordered or moved."
+                        }
+                    },
+                    {
+                        problem: {
+                        ko: "링크드 리스트를 단방향으로 구성 시, CRUD에서 속도가 느립니다.",
+                        en: "When using a singly linked list, CRUD operations are slow."
+                        },
+                        solution: {
+                        ko: "각 구조체는 자신의 좌, 우, 상위, 하위 폴더/디렉토리를 가지고 있어 CRUD시 속도가 빠릅니다. 또한 파일/디렉토리 CRUD 시, 자신의 주소를 가지고 있는 구조체의 값도 초기화되도록 양방향 구성을 하며 개발하였습니다.",
+                        en: "Each structure has its left, right, parent, and child directory pointers, which speeds up CRUD operations. Additionally, the implementation uses bidirectional linking to ensure structural updates during file/directory CRUD."
+                        }
+                    },
+                    {
+                        problem: {
+                        ko: "프로그램 종료 시, 저장되지 않습니다.",
+                        en: "Data is not saved upon program termination."
+                        },
+                        solution: {
+                        ko: "파일/디렉토리 경로와 사용자 정보를 bin 파일로 저장하여, 프로그램 종료 후 재 접속을 하여도 데이터가 유지되도록 개발하였습니다.",
+                        en: "Saved file/directory paths and user information as a binary (bin) file to ensure data persistence across program restarts."
+                        }
+                    }
+                ],
+                impressions: [
+                    {
+                        ko: "미니 리눅스를 구현하면서 리눅스의 다양한 명령어와 파일 구조 등을 익혔습니다.",
+                        en: "Implemented a mini Linux system, gaining experience with various Linux commands and file structures."
+                    },
+                    {
+                        ko: "링크드 리스트로 파일 구조를 설계하고, 개발 시 다양한 자료구조를 사용하면서 자료구조 알고리즘에 대한 이해와 숙달을 하였습니다.",
+                        en: "Designed file structures using linked lists and gained proficiency in data structure algorithms through practical development experience."
+                    }
+                ]
             },
             {
                 id : "pjt_11",
@@ -1169,6 +1242,7 @@ export const store = createStore<State>({
                     ko : "텍스트 에디터",
                     en : "Text Editor",
                 },
+                date : "2017.09 ~ 2017.12",
                 description : {
                     ko : "",
                     en : "",
