@@ -1055,6 +1055,7 @@ export const store = createStore<State>({
                     en : "Tree Component",
                 },
                 date : "2023.06",
+                url : "https://github.com/yochatapa/hjs-tree",
                 description : {
                     ko : `데이터를 트리 구조로 시각화하여 사용자와 상호작용할 수 있도록 제작한 UI 컴포넌트입니다. 
                         드래그 기능, 데이터 바인드 기능, 수정 기능 등 다양한 기능을 제공하여 사용자의 사용편의성을 높이고, 개발자가 쉽게 사용할 수 있도록 제작하였습니다.`,
@@ -1169,6 +1170,7 @@ export const store = createStore<State>({
                     en : "Mini Linux",
                 },
                 date : "2019.03 ~ 2019.06",
+                url : "https://github.com/yochatapa/dgu-ice-os-project",
                 description : {
                     ko : "Mini Linux은 다양한 자료구조를 활용하여 리눅스 CLI(Command Line Interface)를 클론 코딩하는 프로젝트입니다. 이 프로젝트에서는 ls, cd, mkdir, rm 등 주요 명령어를 직접 구현하며, 멀티프로세서를 설계하여 여러 명령어가 동시에 동작할 수 있도록 개발하는 것이 목표입니다.",
                     en : "Mini Linux is a project that clones the Linux Command Line Interface (CLI) using various data structures. The project involves implementing core commands such as ls, cd, mkdir, and rm, and designing a multiprocessor system to allow multiple commands to execute simultaneously.",
