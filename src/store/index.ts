@@ -1038,7 +1038,8 @@ export const store = createStore<State>({
                     en : "Tree Component",
                 },
                 description : {
-                    ko : "",
+                    ko : `데이터를 트리 구조로 시각화하여 사용자와 상호작용할 수 있도록 제작한 UI 컴포넌트입니다. 
+                        드래그 기능, 데이터 바인드 기능, 수정 기능 등 다양한 기능을 제공하여 사용자의 사용편의성을 높이고, 개발자가 쉽게 사용할 수 있도록 제작하였습니다.`,
                     en : "",
                 },
                 role : {
@@ -1047,10 +1048,57 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 imagePath : treeComponent,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ['Javascript',"CSS3"],
+                tasks: [
+                    {
+                        ko: "트리 구조로 데이터를 구조화했습니다.",
+                        en: "Structured data in a tree format."
+                    },
+                    {
+                        ko: "드래그로 노드를 이동하면, 데이터가 트리 구조에 맞게 자동으로 변경되도록 개발하였습니다.",
+                        en: "Developed functionality to automatically adjust data to the tree structure when nodes are moved via drag-and-drop."
+                    },
+                    {
+                        ko: "트리 구조와 노드 구조를 설계 및 개발하였습니다.",
+                        en: "Designed and developed tree and node structures."
+                    }
+                ],
+                problemSolvings: [
+                    {
+                        problem: {
+                            ko: "트리 구조에서 데이터 처리가 어렵습니다.",
+                            en: "Processing data within the tree structure is challenging."
+                        },
+                        solution: {
+                            ko: "드래그 기능, 데이터 바인드 기능, 수정 기능등을 통해 트리 컴포넌트 내에서 트리 구조에 맞게 데이터를 관리하기 때문에, 노드 이동과 변경 시 데이터 처리가 편하도록 제작되었습니다.",
+                            en: "Implemented drag-and-drop, data binding, and editing functionalities to facilitate easy data management within the tree component, ensuring smooth node movement and updates."
+                        }
+                    },
+                    {
+                        problem: {
+                            ko: "트리 컴포넌트 사용법이 어렵습니다.",
+                            en: "The tree component is difficult to use."
+                        },
+                        solution: {
+                            ko: "DB에서 트리 구조로 데이터를 조회한 후, 별도의 후처리 없이 JSON 형식으로 바로 활용할 수 있습니다.",
+                            en: "Enabled direct use of JSON-formatted data retrieved from the database in a tree structure without additional processing."
+                        }
+                    }
+                ],
+                impressions: [
+                    {
+                        ko: "기존 트리 컴포넌트를 사용하며 불편한 점을 도출하고 이를 개선하기 위해 고민했습니다.",
+                        en: "Identified and addressed issues with existing tree components to improve usability."
+                    },
+                    {
+                        ko: "트리 구조를 구현하는 과정에서 다양한 자료구조를 활용하며 학습했습니다.",
+                        en: "Learned and applied various data structures while implementing the tree structure."
+                    },
+                    {
+                        ko: "드래그, 선택, 수정 등 다양한 기능을 구현하며 이벤트 핸들링에 대한 숙련도를 높였습니다.",
+                        en: "Enhanced proficiency in event handling by implementing features like drag-and-drop, selection, and editing."
+                    }
+                ]
             },
             {
                 id : "pjt_08",
