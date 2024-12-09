@@ -1070,15 +1070,15 @@ export const store = createStore<State>({
                 skills : ['Javascript',"CSS3"],
                 tasks: [
                     {
-                        ko: "트리 구조로 데이터를 구조화했습니다.",
+                        ko: "트리 구조로 데이터를 구조화",
                         en: "Structured data in a tree format."
                     },
                     {
-                        ko: "드래그로 노드를 이동하면, 데이터가 트리 구조에 맞게 자동으로 변경되도록 개발하였습니다.",
+                        ko: "드래그로 노드를 이동하면, 데이터가 트리 구조에 맞게 자동으로 변경되도록 개발",
                         en: "Developed functionality to automatically adjust data to the tree structure when nodes are moved via drag-and-drop."
                     },
                     {
-                        ko: "트리 구조와 노드 구조를 설계 및 개발하였습니다.",
+                        ko: "트리 구조와 노드 구조를 설계 및 개발",
                         en: "Designed and developed tree and node structures."
                     }
                 ],
@@ -1127,8 +1127,13 @@ export const store = createStore<State>({
                 },
                 date : "2024.01 ~",
                 description : {
-                    ko : "",
-                    en : "",
+                    ko : `용량 데이터 처리, 정렬, 필터 등 다양한 기능을 가진 그리드 컴포넌트를 개발하였습니다.
+                        엔터프라이즈 프로그램 개발 과정에서 그리드 컴포넌트가 많이 사용됩니다. 
+                        다양한 상용 그리드가 있지만, 기업에서 원하는 기능이 모두 들어간 그리드 컴포넌트는 드뭅니다.
+                        개발 과정에서 그리드에 없는 기능을 구현해야 하는 일들이 항상 있었고, 이를 해결해보고자 다양한 요구사항들을 결합하여 새로운 그리드 컴포넌트를 만들어보고자 하였습니다.`,
+                    en : `Developed a grid component with features such as large data processing, sorting, and filtering.
+                        Grid components are frequently used in enterprise software development. While many commercial grids exist, they often lack all the features that companies require.
+                        Throughout development, there were instances where missing features needed to be implemented. To address these needs, I combined various requirements to create a new, customized grid component.`,
                 },
                 role : {
                     ko : "",
@@ -1136,10 +1141,79 @@ export const store = createStore<State>({
                 },
                 type : "personal-project",
                 imagePath : gridComponent,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
+                skills : ['Javascript',"CSS3"],
+                tasks: [
+                    {
+                      ko: "가상 스크롤을 구현하여 대용량 데이터 처리",
+                      en: "Implemented virtual scrolling to handle large-scale data processing"
+                    },
+                    {
+                      ko: "정렬, 필터 기능 구현",
+                      en: "Implemented sorting and filtering features"
+                    },
+                    {
+                      ko: "멀티 선택 기능 구현",
+                      en: "Implemented multi-selection functionality"
+                    },
+                    {
+                      ko: "복사, 잘라내기, 붙여넣기, 실행 취소, 다시 실행 등 다양한 키 이벤트 구현",
+                      en: "Implemented copy, cut, paste, undo, redo, and other key event functionalities"
+                    },
+                    {
+                      ko: "멀티 헤더 구현",
+                      en: "Implemented multi-header support"
+                    },
+                    {
+                      ko: "마우스 우클릭으로 기능 선택 기능 구현",
+                      en: "Implemented context menu functionality with right-click"
+                    }
+                ],
+                problemSolvings: [
+                    {
+                        problem: {
+                            ko: "대용량의 데이터를 브라우저에 한번에 뿌리면 브라우저 메모리 부족으로 인해 강제 종료됩니다.",
+                            en: "Rendering large amounts of data in the browser at once leads to memory issues, causing the browser to crash."
+                        },
+                        solution: {
+                            ko: "가상 스크롤링을 통해, 현재 사용자가 볼 수 있는 화면에 표출가능한 데이터만 표시됩니다.",
+                            en: "Used virtual scrolling to render only the visible portion of data, preventing memory overflow."
+                        }
+                    },
+                    {
+                        problem: {
+                            ko: "브라우저는 일정 px 이상을 넘어가면 더 이상 렌더링 하지 않습니다. (크롬브라우저 기준 33554400px)",
+                            en: "Browsers stop rendering when the content box exceeds certain pixel dimensions (e.g., 33,554,400px for Chrome)."
+                        },
+                        solution: {
+                            ko: "가상 스크롤 구현 시, 스크롤을 발생시키는 박스가 일정 크기 이상으로는 렌더링되지 않아서 상하, 좌우 스크롤바를 직접 구현하여 해결하였습니다.",
+                            en: "Implemented custom vertical and horizontal scrollbars to bypass browser rendering limits."
+                        }
+                    },
+                    {
+                        problem: {
+                            ko: "터치 이벤트 시, touchstart 이벤트가 발생한 요소가 제거되니 다음 동작이 작동하지 않습니다.",
+                            en: "When touchstart events occur, the corresponding DOM elements may be removed, preventing touchmove and touchend events from working."
+                        },
+                        solution: {
+                            ko: "touchstart 이벤트가 발생한 요소가 제거되면 touchmove, touchend 이벤트가 동작하지 않습니다. touchstart 이벤트가 발생한 요소를 제거하려면 display:hidden 처리 후 touchend 이벤트가 발생한 후 삭제처리 해주었습니다.",
+                            en: "Delayed element removal using `display: hidden` until the `touchend` event is triggered to ensure proper event handling."
+                        }
+                    }
+                ],    
+                impressions: [
+                    {
+                        ko: "그리드 컴포넌트의 다양한 이벤트를 처리하면서 이벤트 핸들링에 대한 경험과 노하우를 쌓을 수 있었습니다.",
+                        en: "Gained experience and expertise in event handling by implementing various events for the grid component."
+                    },
+                    {
+                        ko: "그리드 컴포넌트의 데이터를 핸들링하면서 대량의 데이터를 효율적으로 로드하고, CRUD 후 정확한 데이터를 제공하는 기능 구현을 하였습니다.",
+                        en: "Implemented efficient handling of large datasets in the grid component, ensuring accurate data after CRUD operations."
+                    },
+                    {
+                        ko: "멀티 선택, 필터 등 엑셀의 사용자 경험과 최대한 비슷하게 구현하여 엑셀에 익숙한 사용자들이 쉽게 적응할 수 있도록 개발하였습니다. 그 과정에서 엑셀 구조에 대한 생각과 고찰도 해보았습니다.",
+                        en: "Developed multi-selection and filtering features similar to Excel's user experience, allowing Excel users to adapt easily. Reflected on Excel's structure and design choices during development."
+                    }
+                ]
             },
             {
                 id : "pjt_09",
