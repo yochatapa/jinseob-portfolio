@@ -1076,12 +1076,12 @@ export const store = createStore<State>({
                     },
                     {
                         problem: {
-                            ko: "트리 컴포넌트 사용법이 어렵습니다.",
-                            en: "The tree component is difficult to use."
+                            ko: "트리 데이터 조회 후 처리가 어렵습니다.",
+                            en: "Processing tree data after retrieval is challenging."
                         },
                         solution: {
-                            ko: "DB에서 트리 구조로 데이터를 조회한 후, 별도의 후처리 없이 JSON 형식으로 바로 활용할 수 있습니다.",
-                            en: "Enabled direct use of JSON-formatted data retrieved from the database in a tree structure without additional processing."
+                            ko: "DB에서 트리 데이터를 조회한 후, 별도의 후처리 없이 JSON 형식으로 바로 활용할 수 있습니다.",
+                            en: "Tree data can be retrieved from the database and used directly in JSON format without any additional post-processing."
                         }
                     }
                 ],
