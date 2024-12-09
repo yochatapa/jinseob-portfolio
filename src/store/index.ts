@@ -1035,7 +1035,16 @@ export const store = createStore<State>({
                 type : "company-project",
                 imagePath : defiLogo,
                 skills : ['Javascript','HTML5',"CSS3","MySQL","JAVA","Spring Framework"],
-                tasks : [],
+                tasks : [
+                    {
+                        ko: "동적인 게시판 제작을 위한 DB 설계",
+                        en: "Database design for dynamic bulletin board creation"
+                    },
+                    {
+                        ko: "관리자 페이지 개발",
+                        en: "Admin page development"
+                    }
+                ],
                 problemSolvings : [],
                 impressions : [] 
             },
