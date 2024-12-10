@@ -79,6 +79,10 @@ const showPortfolio = () => {
     isFirstYn.value = false;
 }
 
+const scrollTop = ()=>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 // 컴포넌트가 마운트된 후 스크롤 이벤트 리스너 추가
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
@@ -107,11 +111,11 @@ onUnmounted(() => {
     </div>
     <header :class="[`${headerBackgroundChangeYn?'change':''}`]">
         <nav>
-            <RouterLink to="/">About</RouterLink>
-            <RouterLink to="/timeline">Timeline</RouterLink>
-            <RouterLink to="/projects">Projects</RouterLink>
-            <RouterLink to="/skills">Skills</RouterLink>
-            <RouterLink to="/contact">Contact</RouterLink>
+            <RouterLink to="/" :onclick="scrollTop">About</RouterLink>
+            <RouterLink to="/timeline" :onclick="scrollTop">Timeline</RouterLink>
+            <RouterLink to="/projects" :onclick="scrollTop">Projects</RouterLink>
+            <RouterLink to="/skills" :onclick="scrollTop">Skills</RouterLink>
+            <RouterLink to="/contact" :onclick="scrollTop">Contact</RouterLink>
         </nav>
     </header>
     <main>
