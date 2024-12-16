@@ -654,6 +654,7 @@ export const store = createStore<State>({
                     en : "Integrated Medical&Care Support System",
                 },
                 date : "2023.03 ~ 2024.11",
+                url : "https://jeonju.ubi-plus.com",
                 description : {
                     ko : `전주시에 거주하는 노인분들의 의료,돌봄 필요도를 조사하고 지원 대상자를 선별 및 선정하여 관리하는 프로젝트입니다. 
                         국민건강보험공단과 보건복지부, 전주시의 지침에 따라서 노인분들의 건강, 복지욕구 등을 조사하여 상황에 맞는 의료,돌봄 대상자를 선별, 관리하는 프로그램입니다.
@@ -765,6 +766,7 @@ export const store = createStore<State>({
                     en : "ZIKPAY Secure Payment System",
                 },
                 date : "2023.12 ~ 2024.06",
+                url : "https://zikpay.com",
                 description : {
                     ko : `대금지급, 포인트 사용 등 결제 시, 안전하게 자산을 보호받을 수 있도록 하는 안전결제 시스템 구축 프로젝트입니다. 
                         AS-IS는 대금지급에 특화되어 있는 프로세스였으나, TO-BE에서는 실시간 결제, 토큰 종류 추가, 토큰 변환 등의 새로운 프로세스가 추가되며 대금지급 뿐만이 아니라 다양한 결제에서 사용될 수 있도록 개발하였습니다.
@@ -882,6 +884,7 @@ export const store = createStore<State>({
                     en : "KITRI BtoB Platform",
                 },
                 date : "2021.10 ~ 2022.02",
+                url : "https://www.ksb.re.kr",
                 description : {
                     ko : `KITRI를 통해 BtoB간의 프로젝트 생성 및 관리하는 플랫폼 구축하는 프로젝트입니다. 프로젝트 신청 -> 심사 -> 선정 과정을 거쳐 프로젝트를 생성하고, 각 프로젝트에 맞는 전문가를 모집, 선정하여 프로젝트를 진행합니다.
                         프로젝트 진행과정과 결과물까지 관리하는 종합 프로젝트 관리 플랫폼입니다.`,
@@ -1023,6 +1026,7 @@ export const store = createStore<State>({
                     en : "DEFI Hompage",
                 },
                 date : "2024.08",
+                url : "https://ko-defi.com",
                 description : {
                     ko : `핀테크산업협회 디지털경제금융연구원 홈페이지를 구축하는 프로젝트입니다. 간단한 협회소개 홈페이지이나, 옵션 선택만으로 원하는 게시판을 생성 할 수 있도록 설계하였습니다.`,
                     en : `This project involved building the Fintech Industry Association's Digital Economy and Finance Research Institute website. 
@@ -1126,6 +1130,7 @@ export const store = createStore<State>({
                     en : "Grid Component",
                 },
                 date : "2024.01 ~",
+                url : "https://github.com/yochatapa/hjs-grid",
                 description : {
                     ko : `용량 데이터 처리, 정렬, 필터 등 다양한 기능을 가진 그리드 컴포넌트를 개발하였습니다.
                         엔터프라이즈 프로그램 개발 과정에서 그리드 컴포넌트가 많이 사용됩니다. 
