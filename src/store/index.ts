@@ -420,7 +420,7 @@ export const store = createStore<State>({
                     },
                     eventDetail : {
                         ko : `
-                            AI를 활용하여 웹소설 주인공 생성, 주인공 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
+                            AI를 활용하여 웹소설 등장인물 생성, 등장인물 모델을 학습하여 일러스트레이션 생성하는 프로젝트<br><hr/>
                             팀장 (4인 프로젝트) / 웹페이지 전체 개발`,
                         en : `
                             A project to create web novel protagonists using AI and generate illustrations by training protagonist models
@@ -1223,17 +1223,25 @@ export const store = createStore<State>({
                 },
                 date : "2023.03 ~ 2023.06",
                 description : {
-                    ko : "",
+                    ko : `AI를 활용하여 웹소설 등장인물을 생성하고, 등장인물 모델을 학습하여 일러스트레이션 생성하는 프로젝트입니다. 
+                        웹소설 작가는 자신이 원하는 등장인물의 모습을 입력하고, AI가 생성한 여러 이미지 중 자신이 그리던 등장인물의 모습을 선택합니다.
+                        작가가 선택한 이미지는 하나의 등장인물 모델로 학습됩니다.
+                        웹소설을 쓰는 중, 작가가 원하는 등장인물의 모습을 입력하면 학습된 모델을 바탕으로 등장인물의 일러스트레이션을 생성합니다.`,
                     en : "",
                 },
                 role : {
-                    ko : "",
+                    ko : "팀장 / 웹 개발, DB설계",
                     en : "",
                 },
                 type : "personal-project",
                 imagePath : novaiLogo,
-                skills : [],
-                tasks : [],
+                skills : ['Javascript',"CSS3","JAVA","Spring Framework","Python"],
+                tasks : [
+                    {
+                        ko: "",
+                        en: ""
+                      }
+                ],
                 problemSolvings : [],
                 impressions : [] 
             },
