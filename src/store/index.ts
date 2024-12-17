@@ -515,27 +515,27 @@ export const store = createStore<State>({
                         en : true
                     }
                 },
-                {   
-                    type : "personal-project",
-                    date : "2017.09 ~ 2017.12",
-                    eventName : {
-                        ko : "텍스트 에디터 구현",
-                        en : "Text Editor Development"
-                    },
-                    eventDetail : {
-                        ko : `
-                        자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
-                        1인 프로젝트`,
-                        en : `
-                        A project to develop a text editor with features such as auto-save, color change, and more
-                        <br><hr/>
-                        Solo Project`
-                    },
-                    evnentDetailHtml : {
-                        ko : true,
-                        en : true
-                    }
-                },
+                // {   
+                //     type : "personal-project",
+                //     date : "2017.09 ~ 2017.12",
+                //     eventName : {
+                //         ko : "텍스트 에디터 구현",
+                //         en : "Text Editor Development"
+                //     },
+                //     eventDetail : {
+                //         ko : `
+                //         자동 저장, 색상 변경 등 다양한 기능이 들어간 텍스트 에디터 구현<br><hr/>
+                //         1인 프로젝트`,
+                //         en : `
+                //         A project to develop a text editor with features such as auto-save, color change, and more
+                //         <br><hr/>
+                //         Solo Project`
+                //     },
+                //     evnentDetailHtml : {
+                //         ko : true,
+                //         en : true
+                //     }
+                // },
                 {
                     date : "2017.03",
                     eventName : {
@@ -1321,28 +1321,28 @@ export const store = createStore<State>({
                     }
                 ]
             },
-            {
-                id : "pjt_11",
-                name : {
-                    ko : "텍스트 에디터",
-                    en : "Text Editor",
-                },
-                date : "2017.09 ~ 2017.12",
-                description : {
-                    ko : "",
-                    en : "",
-                },
-                role : {
-                    ko : "",
-                    en : "",
-                },
-                type : "personal-project",
-                imagePath : textEditor,
-                skills : [],
-                tasks : [],
-                problemSolvings : [],
-                impressions : [] 
-            }
+            // {
+            //     id : "pjt_11",
+            //     name : {
+            //         ko : "텍스트 에디터",
+            //         en : "Text Editor",
+            //     },
+            //     date : "2017.09 ~ 2017.12",
+            //     description : {
+            //         ko : "",
+            //         en : "",
+            //     },
+            //     role : {
+            //         ko : "",
+            //         en : "",
+            //     },
+            //     type : "personal-project",
+            //     imagePath : textEditor,
+            //     skills : [],
+            //     tasks : [],
+            //     problemSolvings : [],
+            //     impressions : [] 
+            // }
         ],
         skills : [
             {
