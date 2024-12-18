@@ -1227,28 +1227,73 @@ export const store = createStore<State>({
                     en : "Capstone Design",
                 },
                 date : "2023.03 ~ 2023.06",
-                description : {
-                    ko : `AI를 활용하여 웹소설 등장인물을 생성하고, 등장인물 모델을 학습하여 일러스트레이션 생성하는 프로젝트입니다. 
+                description: {
+                    ko: `AI를 활용하여 웹소설 등장인물을 생성하고, 등장인물 모델을 학습하여 일러스트레이션 생성하는 프로젝트입니다. 
                         웹소설 작가는 자신이 원하는 등장인물의 모습을 입력하고, AI가 생성한 여러 이미지 중 자신이 그리던 등장인물의 모습을 선택합니다.
                         작가가 선택한 이미지는 하나의 등장인물 모델로 학습됩니다.
                         웹소설을 쓰는 중, 작가가 원하는 등장인물의 모습을 입력하면 학습된 모델을 바탕으로 등장인물의 일러스트레이션을 생성합니다.`,
-                    en : "",
+                    en: `This project leverages AI to create characters for web novels and train character models to generate illustrations. 
+                        Web novel authors input their desired character appearances, and AI generates multiple images for them to choose from. 
+                        The selected image is used to train a character model. 
+                        While writing a web novel, authors can input the desired appearance of a character, and the trained model generates an illustration based on the character's features.`
                 },
-                role : {
-                    ko : "팀장 / 웹 개발, DB설계",
-                    en : "",
+                role: {
+                    ko: "팀장 / 웹 개발, 시스템 설계",
+                    en: "Team Leader / Web Development, System Design"
                 },
-                type : "personal-project",
-                imagePath : novaiLogo,
-                skills : ['Javascript',"CSS3","JAVA","Spring Framework","Python"],
-                tasks : [
+                type: "personal-project",
+                imagePath: novaiLogo,
+                skills: ['Javascript', "CSS3", "JAVA", "Spring Framework", "Python"],
+                tasks: [
                     {
-                        ko: "",
-                        en: ""
-                      }
+                        ko: "화면 UI/UX 설계, DB 설계",
+                        en: "UI/UX design and database design"
+                    },
+                    {
+                        ko: "웹 개발 (프론트엔드, 백엔드 개발)",
+                        en: "Web development (frontend and backend)"
+                    },
+                    {
+                        ko: "AI 모델 구조 설계",
+                        en: "AI model architecture design"
+                    }
                 ],
-                problemSolvings : [],
-                impressions : [] 
+                problemSolvings: [
+                    {
+                        problem: {
+                            ko: `작가가 등장인물에 대해 추상적으로 작성하여 원하는 등장인물을 얻는데 어려움을 겪습니다.`,
+                            en: `Authors struggle to create desired characters due to the abstract nature of their descriptions.`
+                        },
+                        solution: {
+                            ko: `작가는 등장인물과 관련된 태그를 선택한 후, 생성 버튼을 통해 등장인물 샘플 사진을 제공받습니다.`,
+                            en: `Authors can select tags related to the character, and the system provides sample images of the character through a generation button.`
+                        }
+                    },
+                    {
+                        problem: {
+                            ko: `작가가 선택한 등장인물을 다시 생성할 시, 선택한 등장인물과 유사한 얼굴이 생성되지 않습니다.`,
+                            en: `When regenerating a previously selected character, the generated face does not resemble the chosen character.`
+                        },
+                        solution: {
+                            ko: `작가가 선택한 등장인물 이미지를 30장 복제하여 얼굴의 특징을 학습시키며, 학습된 모델을 바탕으로 새 등장인물 사진을 생성하여 등장인물 일러스트레이션의 정확도를 높였습니다.`,
+                            en: `The selected character image is replicated 30 times to train on facial features, and a new image is generated using the trained model, improving the accuracy of character illustrations.`
+                        }
+                    }
+                ],
+                impressions: [
+                    {
+                        ko: "3개월의 짧은 기간동안, 설계부터 개발, 테스트, 배포, 발표까지 전 과정을 거치며 프로젝트를 마무리 하였고 <2023년 정보통신공학 지식재산 융합 경진대회>에서 은상을 수상하였습니다.",
+                        en: `Within a short three-month period, the project was completed, covering all stages from planning to development, testing, deployment, and presentation. It won the Silver Award at the <2023 Information and Communication Engineering Intellectual Property Convergence Competition>.`
+                    },
+                    {
+                        ko: "각 상황에 맞는 AI 모델들을 찾고 활용해보았습니다.",
+                        en: `Explored and utilized various AI models suitable for different scenarios.`
+                    },
+                    {
+                        ko: "여러 페르소나를 상정하여 각 페르소나의 니즈를 충족시킬 수 있도록 고민하였습니다.",
+                        en: `Considered multiple personas to ensure their needs were met effectively.`
+                    }
+                ]
             },
             {
                 id : "pjt_10",
