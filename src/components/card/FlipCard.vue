@@ -103,7 +103,7 @@ const openModal = (e:Event) => {
             </div>
             <div class="flip-card-back">
                 <h3 v-if="mainText&& mainTextHtml" class="main-text" v-html="mainText"></h3>
-                <h3 v-if="mainText && !mainTextHtml" class="main-text">{{ mainText }}</h3>
+                <h3 v-if="mainText && !mainTextHtml" class="main-text">{{ mainText }} <a class="url" v-if="props.cardInfo.url" :href="props.cardInfo.url">🔗</a></h3>
                 <span v-if="subText && subTextHtml" class="sub-text" v-html="subText"></span>
                 <span v-if="subText && !subTextHtml" class="sub-text">{{ subText }}</span>
                 <a ref="aTag" v-if="props.cardInfo.fileName" class="btn" :onclick="openModal">View More</a>
@@ -169,6 +169,10 @@ const openModal = (e:Event) => {
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+.url{
+    text-decoration: none;
 }
 
 .btn {

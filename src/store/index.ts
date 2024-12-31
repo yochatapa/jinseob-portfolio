@@ -44,6 +44,8 @@ import cLangLogo from "@/assets/skills/c-language-logo.svg"
 import vuepressLogo from "@/assets/skills/vuepress-logo.png"
 import dockerLogo from "@/assets/skills/docker-logo.png"
 
+import githubLogo from "@/assets/contacts/github_logo.png"
+
 interface State {
     userInfo : {
         koreanName  : string,
@@ -57,7 +59,8 @@ interface State {
     about : About,
     timeline : Timeline,
     projects : Array<Projects>,
-    skills : Array<SkillsData>
+    skills : Array<SkillsData>,
+    contacts : Array<ContactsData>
 }
 
 interface About {
@@ -101,6 +104,12 @@ export interface SkillsData {
     type : string,
     important?: boolean,
     imagePath : string
+}
+
+export interface ContactsData {
+    name : string,
+    imagePath ?: string,
+    url ?: string
 }
 
 interface langObject{
@@ -1524,6 +1533,13 @@ export const store = createStore<State>({
                 type : "etc",
                 imagePath : vuepressLogo,
             },
+        ],
+        contacts : [
+            {
+                name : "github",
+                url : "https://github.com/yochatapa",
+                imagePath : githubLogo
+            }
         ]
     },
     mutations: {

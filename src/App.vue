@@ -39,10 +39,8 @@ const typeText = async (text:Ref<string|null,string|null>,displayedText:Ref<stri
         for (let i = 0; i < text.value.length; i++) {
         await delay(typingSpeed);
             displayedText.value += text.value[i];
-            console.log(store.state.system.lang)
         }
     }
-    
 };
 
 const typeTextAll = async (textArray:Array<Array<Ref<string|null,string|null>>>) => {
