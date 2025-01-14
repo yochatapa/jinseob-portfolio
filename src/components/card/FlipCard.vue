@@ -16,6 +16,8 @@ const props = defineProps({
     }
 })
 
+let isBackgroundLoaded = ref(false);
+
 const mainTextHtml = computed(()=>{
     if(typeof props.cardInfo.mainTextHtml === "boolean"){
         return props.cardInfo.mainTextHtml
@@ -33,6 +35,14 @@ const subTextHtml = computed(()=>{
     }
     return false;
 })
+
+function onImageLoad(){
+    isBackgroundLoaded.value = true;
+};
+
+function onImageError(){
+    isBackgroundLoaded.value = false;
+};
 
 const mainText = computed(()=>props.cardInfo?.mainText?.[store.state.system.lang]??props.cardInfo.mainText);
 const subText = computed(()=>props.cardInfo.subText?.[store.state.system.lang]??props.cardInfo.subText);
@@ -99,7 +109,8 @@ const openModal = (e:Event) => {
     <div class="flip-card-template" ref="flipCard">
         <div :class="['flip-card',`${flipYn?'flipped':''}`,`${props.cardInfo.type?props.cardInfo.type:''}`]" >
             <div class="flip-card-front">
-                <img class="image-box" :src="imagePath" :alt="mainText"></img>
+                <div class="loading-spinner" v-show="!isBackgroundLoaded"></div>
+                <img class="image-box" :src="imagePath" :alt="mainText" v-show="isBackgroundLoaded" @load="onImageLoad" @error="onImageError"></img>
             </div>
             <div class="flip-card-back">
                 <h3 v-if="mainText&& mainTextHtml" class="main-text" v-html="mainText"></h3>
@@ -191,4 +202,21 @@ const openModal = (e:Event) => {
     cursor: pointer;
 }
 
+.loading-spinner {
+  width: 30%;
+  height: 30%;
+  border: 4px solid var(--Grayscale-0);
+  border-top: 4px solid var(--Primary-50);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>
